@@ -34,21 +34,19 @@ public class patienthome extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtDOB = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
-        lblDOB = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
         lblID = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btnMedicalHistory = new javax.swing.JButton();
         btnPerscriptions = new javax.swing.JButton();
         btnAppointments = new javax.swing.JButton();
         btnDoctors = new javax.swing.JButton();
+        txtAddress = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1106, 733));
@@ -57,6 +55,11 @@ public class patienthome extends javax.swing.JFrame {
 
         btnLogOut.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnLogOut.setText("Logout");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         lblTitle.setText("Welcome back, ");
@@ -69,31 +72,17 @@ public class patienthome extends javax.swing.JFrame {
 
         txtName.setEditable(false);
         txtName.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtName.setMaximumSize(new java.awt.Dimension(40, 249));
         txtName.setMinimumSize(new java.awt.Dimension(40, 249));
-        txtName.setPreferredSize(null);
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
 
-        txtDOB.setEditable(false);
-        txtDOB.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtDOB.setMaximumSize(new java.awt.Dimension(40, 249));
-        txtDOB.setMinimumSize(new java.awt.Dimension(40, 249));
-        txtDOB.setPreferredSize(null);
-        txtDOB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDOBActionPerformed(evt);
-            }
-        });
-
         lblAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblAddress.setText("Address");
-
-        lblDOB.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
-        lblDOB.setText("DOB");
 
         lblGender.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblGender.setText("Gender");
@@ -103,6 +92,7 @@ public class patienthome extends javax.swing.JFrame {
 
         txtID.setEditable(false);
         txtID.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
@@ -111,9 +101,9 @@ public class patienthome extends javax.swing.JFrame {
 
         txtAge.setEditable(false);
         txtAge.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtAge.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtAge.setMaximumSize(new java.awt.Dimension(40, 249));
         txtAge.setMinimumSize(new java.awt.Dimension(40, 249));
-        txtAge.setPreferredSize(null);
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAgeActionPerformed(evt);
@@ -125,23 +115,12 @@ public class patienthome extends javax.swing.JFrame {
 
         txtGender.setEditable(false);
         txtGender.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtGender.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtGender.setMaximumSize(new java.awt.Dimension(40, 249));
         txtGender.setMinimumSize(new java.awt.Dimension(40, 249));
-        txtGender.setPreferredSize(null);
         txtGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGenderActionPerformed(evt);
-            }
-        });
-
-        txtAddress.setEditable(false);
-        txtAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtAddress.setMaximumSize(new java.awt.Dimension(40, 249));
-        txtAddress.setMinimumSize(new java.awt.Dimension(40, 249));
-        txtAddress.setPreferredSize(null);
-        txtAddress.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddressActionPerformed(evt);
             }
         });
 
@@ -177,8 +156,16 @@ public class patienthome extends javax.swing.JFrame {
                 .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDoctors, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
+
+        txtAddress.setEditable(false);
+        txtAddress.setBackground(new java.awt.Color(240, 240, 240));
+        txtAddress.setColumns(20);
+        txtAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
+        txtAddress.setRows(5);
+        txtAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtAddress.setCaretColor(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,18 +177,11 @@ public class patienthome extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblName)
-                            .addComponent(lblID)
-                            .addComponent(lblGender))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,14 +189,15 @@ public class patienthome extends javax.swing.JFrame {
                                 .addComponent(lblAddress)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblDOB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblAge)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblGender)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblAge)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(70, 70, 70)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -232,17 +213,10 @@ public class patienthome extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(lblAddress))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDOB))
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAge)
@@ -251,7 +225,7 @@ public class patienthome extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGender))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -301,10 +275,6 @@ public class patienthome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDOBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDOBActionPerformed
-
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
@@ -313,9 +283,12 @@ public class patienthome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
 
-    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddressActionPerformed
+        
+        this.setVisible(false);
+        new login().setVisible(true);
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,14 +337,12 @@ public class patienthome extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
-    private javax.swing.JLabel lblDOB;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtDOB;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;

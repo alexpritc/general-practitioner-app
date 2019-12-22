@@ -1,3 +1,5 @@
+package accounts;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,10 +10,10 @@
  *
  * @author Alex Pritchard
  */
-public class secretary extends user{
+public class administrator extends user{
     
-    public secretary(String name, String surname, String address, String id){
+    public administrator(String name, String surname, String address, String id){
         super(name, surname, address, id);
     }
-    
 }
+

@@ -5,12 +5,63 @@
  */
 package guis;
 
+import java.awt.Color;
+import accounts.patient;
+import accounts.administrator;
+
+
 /**
  *
  * @author Alex Pritchard
  */
 public class createaccount extends javax.swing.JFrame {
 
+    private String name;
+    private String surname;
+    private String address;
+    private int age;
+    private String gender;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
     /**
      * Creates new form createaccount
      */
@@ -38,15 +89,15 @@ public class createaccount extends javax.swing.JFrame {
         btnLogIn = new javax.swing.JButton();
         btnCreateAccount = new javax.swing.JButton();
         lblPassword = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
         cmboxAccountType = new javax.swing.JComboBox<>();
         pwordPassword = new javax.swing.JPasswordField();
         lblAddress = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
-        lblDOB = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
         cmboxGender = new javax.swing.JComboBox<>();
-        datepickerDOB = new org.jdesktop.swingx.JXDatePicker();
+        txtAddress = new javax.swing.JTextArea();
+        txtAge = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -61,9 +112,24 @@ public class createaccount extends javax.swing.JFrame {
         lblSurname.setText("Surname");
 
         txtName.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtName.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtNameInputMethodTextChanged(evt);
+            }
+        });
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
+            }
+        });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNameKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
             }
         });
 
@@ -79,26 +145,34 @@ public class createaccount extends javax.swing.JFrame {
 
         btnLogIn.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnLogIn.setText("Log in");
+        btnLogIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogInActionPerformed(evt);
+            }
+        });
 
         btnCreateAccount.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnCreateAccount.setText("Create account");
-        btnCreateAccount.setEnabled(false);
+        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAccountActionPerformed(evt);
+            }
+        });
 
         lblPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblPassword.setText("Password");
-
-        txtAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtAddress.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddressActionPerformed(evt);
-            }
-        });
 
         lblName.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblName.setText("Name");
 
         cmboxAccountType.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Administrator" }));
+        cmboxAccountType.setSelectedIndex(-1);
+        cmboxAccountType.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmboxAccountTypeItemStateChanged(evt);
+            }
+        });
 
         pwordPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 36)); // NOI18N
 
@@ -108,16 +182,25 @@ public class createaccount extends javax.swing.JFrame {
         lblGender.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblGender.setText("Gender");
 
-        lblDOB.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
-        lblDOB.setText("DOB");
+        lblAge.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
+        lblAge.setText("Age");
 
         cmboxGender.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         cmboxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male", "Other", "Prefer not to say" }));
         cmboxGender.setSelectedIndex(-1);
         cmboxGender.setEnabled(false);
 
-        datepickerDOB.setEnabled(false);
-        datepickerDOB.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtAddress.setColumns(20);
+        txtAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
+        txtAddress.setRows(5);
+
+        txtAge.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtAge.setEnabled(false);
+        txtAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAgeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,28 +224,30 @@ public class createaccount extends javax.swing.JFrame {
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblSurname)
-                    .addComponent(lblPassword)
-                    .addComponent(lblAccountType)
-                    .addComponent(lblName)
-                    .addComponent(lblAddress)
-                    .addComponent(lblGender)
-                    .addComponent(lblDOB))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtName)
-                    .addComponent(txtSurname)
-                    .addComponent(txtAddress)
-                    .addComponent(cmboxAccountType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pwordPassword)
-                    .addComponent(cmboxGender, 0, 231, Short.MAX_VALUE)
-                    .addComponent(datepickerDOB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCreateAccount)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSurname)
+                            .addComponent(lblPassword)
+                            .addComponent(lblAccountType)
+                            .addComponent(lblName)
+                            .addComponent(lblAddress)
+                            .addComponent(lblGender)
+                            .addComponent(lblAge))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cmboxGender, javax.swing.GroupLayout.Alignment.LEADING, 0, 291, Short.MAX_VALUE)
+                            .addComponent(cmboxAccountType, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSurname, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(pwordPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAge))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateAccount)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -185,12 +270,12 @@ public class createaccount extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAddress)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDOB)
-                    .addComponent(datepickerDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(lblAge)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmboxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGender))
@@ -220,15 +305,71 @@ public class createaccount extends javax.swing.JFrame {
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSurnameActionPerformed
 
-    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddressActionPerformed
+    }//GEN-LAST:event_txtAgeActionPerformed
+
+    private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        new login().setVisible(true);
+    }//GEN-LAST:event_btnLogInActionPerformed
+
+    private void cmboxAccountTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmboxAccountTypeItemStateChanged
+        // TODO add your handling code here:
+          
+        if (cmboxAccountType.getSelectedItem() == "Patient"){
+            txtAge.setBackground(Color.white);
+            txtAge.enable();
+            
+            cmboxGender.setBackground(Color.white);
+            cmboxGender.enable();
+        }
+        else{
+            txtAge.setBackground(Color.gray);
+            txtAge.setText("");
+            txtAge.enable(false);
+            
+            cmboxGender.setBackground(Color.gray);
+            cmboxGender.setSelectedIndex(-1);
+            cmboxGender.enable(false);
+        }
+    }//GEN-LAST:event_cmboxAccountTypeItemStateChanged
+
+    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+        // TODO add your handling code here:
+        
+        if (cmboxAccountType.getSelectedItem() == "Patient"){
+            // Create a new newPatient.
+            accounts.patient newPatient = new accounts.patient(getName(), "Pritchard", "HR6 0LH", "P7426", 20, "Male");
+            
+            System.out.println(newPatient.getName());
+        }
+        else{
+            // Create a new admin.
+        }
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
+
+    private void txtNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtNameInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameInputMethodTextChanged
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        // TODO add your handling code here:
+        setName(txtName.getText());
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameKeyPressed
 
     /**
      * @param args the command line arguments
@@ -256,7 +397,7 @@ public class createaccount extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(createaccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -270,12 +411,11 @@ public class createaccount extends javax.swing.JFrame {
     private javax.swing.JButton btnLogIn;
     private javax.swing.JComboBox<String> cmboxAccountType;
     private javax.swing.JComboBox<String> cmboxGender;
-    private org.jdesktop.swingx.JXDatePicker datepickerDOB;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAccountType;
     private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblDOB;
+    private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblLogIn;
     private javax.swing.JLabel lblName;
@@ -283,7 +423,8 @@ public class createaccount extends javax.swing.JFrame {
     private javax.swing.JLabel lblSurname;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPasswordField pwordPassword;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtSurname;
     // End of variables declaration//GEN-END:variables

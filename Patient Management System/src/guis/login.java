@@ -71,9 +71,15 @@ public class login extends javax.swing.JFrame {
 
         btnLogIn.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnLogIn.setText("Log in");
+        btnLogIn.setEnabled(false);
 
         btnLogIn1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnLogIn1.setText("Create account");
+        btnLogIn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogIn1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,6 +154,13 @@ public class login extends javax.swing.JFrame {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void btnLogIn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogIn1ActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        new createaccount().setVisible(true);
+    }//GEN-LAST:event_btnLogIn1ActionPerformed
 
     /**
      * @param args the command line arguments

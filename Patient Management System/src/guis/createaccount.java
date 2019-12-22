@@ -14,54 +14,7 @@ import accounts.administrator;
  *
  * @author Alex Pritchard
  */
-public class createaccount extends javax.swing.JFrame {
-
-    private String name;
-    private String surname;
-    private String address;
-    private int age;
-    private String gender;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-    
+public class createaccount extends javax.swing.JFrame {    
     /**
      * Creates new form createaccount
      */
@@ -112,33 +65,8 @@ public class createaccount extends javax.swing.JFrame {
         lblSurname.setText("Surname");
 
         txtName.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtName.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                txtNameInputMethodTextChanged(evt);
-            }
-        });
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNameKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNameKeyTyped(evt);
-            }
-        });
 
         txtSurname.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtSurname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSurnameActionPerformed(evt);
-            }
-        });
 
         lblLogIn.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         lblLogIn.setText("Already have an account?");
@@ -196,11 +124,6 @@ public class createaccount extends javax.swing.JFrame {
 
         txtAge.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         txtAge.setEnabled(false);
-        txtAge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -303,19 +226,6 @@ public class createaccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void txtSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSurnameActionPerformed
-
-    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgeActionPerformed
-
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         // TODO add your handling code here:
         
@@ -327,6 +237,7 @@ public class createaccount extends javax.swing.JFrame {
         // TODO add your handling code here:
           
         if (cmboxAccountType.getSelectedItem() == "Patient"){
+            // Enables age and gender inputs.
             txtAge.setBackground(Color.white);
             txtAge.enable();
             
@@ -334,6 +245,7 @@ public class createaccount extends javax.swing.JFrame {
             cmboxGender.enable();
         }
         else{
+            // Disables age and gender inputs.
             txtAge.setBackground(Color.gray);
             txtAge.setText("");
             txtAge.enable(false);
@@ -357,19 +269,6 @@ public class createaccount extends javax.swing.JFrame {
             // Create a new admin.
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
-
-    private void txtNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtNameInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameInputMethodTextChanged
-
-    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-        // TODO add your handling code here:
-        setName(txtName.getText());
-    }//GEN-LAST:event_txtNameKeyTyped
-
-    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameKeyPressed
 
     /**
      * @param args the command line arguments

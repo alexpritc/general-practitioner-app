@@ -260,13 +260,17 @@ public class createaccount extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (cmboxAccountType.getSelectedItem() == "Patient"){
-            // Create a new newPatient.
-            accounts.patient newPatient = new accounts.patient(getName(), "Pritchard", "HR6 0LH", "P7426", 20, "Male");
-            
-            System.out.println(newPatient.getName());
+            // Create a new newPatientRequest.
+            accounts.patient newPatientRequest = new accounts.patient(txtName.getText(), 
+                    txtSurname.getText(), txtAddress.getText(), "P7426", 
+                    Integer.parseInt(txtAge.getText()), 
+                    cmboxGender.getSelectedItem().toString());
         }
         else{
             // Create a new admin.
+            accounts.administrator newAdmin = new accounts.administrator(
+                    txtName.getText(), txtSurname.getText(), txtAddress.getText(),
+                    "P7426");
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 

@@ -125,12 +125,27 @@ public class patienthome extends javax.swing.JFrame {
 
         btnMedicalHistory.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnMedicalHistory.setText("Medical history");
+        btnMedicalHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedicalHistoryActionPerformed(evt);
+            }
+        });
 
         btnPerscriptions.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnPerscriptions.setText("Perscriptions");
+        btnPerscriptions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerscriptionsActionPerformed(evt);
+            }
+        });
 
         btnAppointments.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnAppointments.setText("Appointments");
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentsActionPerformed(evt);
+            }
+        });
 
         btnDoctors.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnDoctors.setText("Doctors");
@@ -288,6 +303,24 @@ public class patienthome extends javax.swing.JFrame {
         this.setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void btnMedicalHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicalHistoryActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new patientmedicalhistory().setVisible(true);
+    }//GEN-LAST:event_btnMedicalHistoryActionPerformed
+
+    private void btnPerscriptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerscriptionsActionPerformed
+        // TODO add your handling code here:        
+        this.setVisible(false);
+        new patientperscriptions().setVisible(true);
+    }//GEN-LAST:event_btnPerscriptionsActionPerformed
+
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
+        // TODO add your handling code here:        
+        this.setVisible(false);
+        new patientappointments().setVisible(true);
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
 
     /**
      * @param args the command line arguments

@@ -270,7 +270,7 @@ public class createaccount extends javax.swing.JFrame {
             // Create a new admin.
             accounts.administrator newAdmin = new accounts.administrator(
                     txtName.getText(), txtSurname.getText(), txtAddress.getText(),
-                    "P7426");
+                    "A7058");
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 

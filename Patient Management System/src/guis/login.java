@@ -31,12 +31,12 @@ public class login extends javax.swing.JFrame {
         lblID = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblSignUp = new javax.swing.JLabel();
         btnLogIn = new javax.swing.JButton();
         btnLogIn1 = new javax.swing.JButton();
+        pwordPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(564, 400));
@@ -59,19 +59,16 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-
         lblSignUp.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         lblSignUp.setText("Or sign up");
 
         btnLogIn.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnLogIn.setText("Log in");
-        btnLogIn.setEnabled(false);
+        btnLogIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogInActionPerformed(evt);
+            }
+        });
 
         btnLogIn1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnLogIn1.setText("Create account");
@@ -80,6 +77,8 @@ public class login extends javax.swing.JFrame {
                 btnLogIn1ActionPerformed(evt);
             }
         });
+
+        pwordPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 36)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,9 +96,9 @@ public class login extends javax.swing.JFrame {
                                     .addComponent(lblPassword)
                                     .addComponent(lblID))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                                    .addComponent(pwordPassword))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnLogIn)))
                         .addContainerGap())
@@ -130,9 +129,9 @@ public class login extends javax.swing.JFrame {
                             .addComponent(lblID)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPassword))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword)
+                            .addComponent(pwordPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,16 +150,18 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
     private void btnLogIn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogIn1ActionPerformed
         // TODO add your handling code here:
         
         this.setVisible(false);
         new createaccount().setVisible(true);
     }//GEN-LAST:event_btnLogIn1ActionPerformed
+
+    private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new patienthome().setVisible(true); 
+    }//GEN-LAST:event_btnLogInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,7 +207,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSignUp;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPasswordField pwordPassword;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

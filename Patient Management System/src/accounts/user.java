@@ -10,7 +10,7 @@ package accounts;
  *
  * @author Alex Pritchard
  */
-public class user {
+public abstract class user {
     
     private String name;
     private String surname;

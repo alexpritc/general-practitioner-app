@@ -87,7 +87,7 @@ public class admincreateaccount extends javax.swing.JFrame {
         lblName.setText("Name");
 
         cmboxAccountType.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Secretary", " " }));
+        cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Secretary" }));
         cmboxAccountType.setSelectedIndex(-1);
 
         lblAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N

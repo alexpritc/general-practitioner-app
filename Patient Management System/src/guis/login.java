@@ -214,7 +214,10 @@ public class login extends javax.swing.JFrame {
         for (doctor i : data.doctors){
             if (id.equals(i.getId())){
                 if (password.equals(i.getPassword())){
-
+                    doctorhome.dr = i;
+                    this.setVisible(false);
+                    new doctorhome().setVisible(true); 
+                    return;
                 }
                 else{
                     JOptionPane.showMessageDialog(null, 
@@ -233,7 +236,10 @@ public class login extends javax.swing.JFrame {
         for (secretary i : data.secretaries){
             if (id.equals(i.getId())){
                 if (password.equals(i.getPassword())){
-
+                    secretaryhome.sec = i;
+                    this.setVisible(false);
+                    new secretaryhome().setVisible(true); 
+                    return;
                 }
                 else{
                     JOptionPane.showMessageDialog(null, 

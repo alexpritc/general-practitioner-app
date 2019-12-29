@@ -153,6 +153,10 @@ public class data {
             bw.newLine();
             bw.write(patient.getPassword());
             bw.newLine();
+            bw.write(patient.getAge());
+            bw.newLine();
+            bw.write(patient.getGender());
+            bw.newLine();
         }
         
         bw.close();

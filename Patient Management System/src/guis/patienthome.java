@@ -56,7 +56,7 @@ public class patienthome extends javax.swing.JFrame {
         btnPerscriptions = new javax.swing.JButton();
         btnAppointments = new javax.swing.JButton();
         btnDoctors = new javax.swing.JButton();
-        txtAddress = new javax.swing.JTextArea();
+        txtAddress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -184,12 +184,15 @@ public class patienthome extends javax.swing.JFrame {
         );
 
         txtAddress.setEditable(false);
-        txtAddress.setBackground(new java.awt.Color(240, 240, 240));
-        txtAddress.setColumns(20);
-        txtAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 18)); // NOI18N
-        txtAddress.setRows(5);
+        txtAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         txtAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtAddress.setCaretColor(new java.awt.Color(204, 204, 204));
+        txtAddress.setMaximumSize(new java.awt.Dimension(40, 249));
+        txtAddress.setMinimumSize(new java.awt.Dimension(40, 249));
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddressActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -208,12 +211,8 @@ public class patienthome extends javax.swing.JFrame {
                             .addComponent(txtID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblAddress)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addComponent(lblGender)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -221,7 +220,11 @@ public class patienthome extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(lblAge)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblAddress)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(70, 70, 70)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -238,8 +241,8 @@ public class patienthome extends javax.swing.JFrame {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddress))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -332,6 +335,10 @@ public class patienthome extends javax.swing.JFrame {
         new patientappointments().setVisible(true);
     }//GEN-LAST:event_btnAppointmentsActionPerformed
 
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -384,7 +391,7 @@ public class patienthome extends javax.swing.JFrame {
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtID;

@@ -12,8 +12,8 @@ package accounts;
  */
 public class secretary extends user{
     
-    public secretary(String name, String surname, String address, String id){
-        super(name, surname, address, id);
+    public secretary(String name, String surname, String address, String id, String password){
+        super(name, surname, address, id, password);
     }
     
 }

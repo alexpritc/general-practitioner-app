@@ -12,8 +12,8 @@ package accounts;
  */
 public class administrator extends user{
     
-    public administrator(String name, String surname, String address, String id){
-        super(name, surname, address, id);
+    public administrator(String name, String surname, String address, String id, String password){
+        super(name, surname, address, id, password);
     }
 }
 

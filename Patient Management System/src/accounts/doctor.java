@@ -12,7 +12,7 @@ package accounts;
  */
 public class doctor extends user{
     
-    public doctor(String name, String surname, String address, String id){
-        super(name, surname, address, id);
+    public doctor(String name, String surname, String address, String id, String password){
+        super(name, surname, address, id, password);
     }
 }

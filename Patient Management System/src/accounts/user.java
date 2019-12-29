@@ -10,18 +10,20 @@ package accounts;
  *
  * @author Alex Pritchard
  */
-public abstract class user {
+public class user {
     
     private String name;
     private String surname;
     private String address;
     private String id;
+    private String password;
     
-    public user(String name, String surname, String address, String id) {
+    public user(String name, String surname, String address, String id, String password) {
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.id = id;
+        this.password = password;
     }
 
     public String getName() {
@@ -55,4 +57,14 @@ public abstract class user {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
 }

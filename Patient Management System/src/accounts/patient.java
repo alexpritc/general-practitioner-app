@@ -12,20 +12,20 @@ package accounts;
  */
 public class patient extends user{
 
-    private int age;
+    private String age;
     private String gender;
 
-    public patient(String name, String surname, String address, String id, int age, String gender) {
-        super(name, surname, address, id);
+    public patient(String name, String surname, String address, String id, String password, String age, String gender) {
+        super(name, surname, address, id, password);
         this.age = age;
         this.gender = gender;
     }
     
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

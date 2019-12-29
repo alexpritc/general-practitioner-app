@@ -5,6 +5,11 @@
  */
 package guis;
 
+import other.data;
+import accounts.*;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Alex Pritchard
@@ -30,18 +35,18 @@ public class login extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblSignUp = new javax.swing.JLabel();
         btnLogIn = new javax.swing.JButton();
         btnLogIn1 = new javax.swing.JButton();
-        pwordPassword = new javax.swing.JPasswordField();
+        txtID = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(564, 400));
+        setPreferredSize(new java.awt.Dimension(564, 470));
         setResizable(false);
-        setSize(new java.awt.Dimension(564, 400));
+        setSize(new java.awt.Dimension(564, 470));
 
         lblTitle.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         lblTitle.setText("Returning user");
@@ -51,13 +56,6 @@ public class login extends javax.swing.JFrame {
 
         lblPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblPassword.setText("Password");
-
-        txtID.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
 
         lblSignUp.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         lblSignUp.setText("Or sign up");
@@ -78,7 +76,9 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        pwordPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 36)); // NOI18N
+        txtID.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+
+        txtPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,12 +95,15 @@ public class login extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblPassword)
                                     .addComponent(lblID))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                                    .addComponent(pwordPassword))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnLogIn)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnLogIn))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -124,15 +127,15 @@ public class login extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addComponent(btnLogIn))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblID)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPassword)
-                            .addComponent(pwordPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(73, 73, 73)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPassword))))
+                .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,10 +149,6 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
-
     private void btnLogIn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogIn1ActionPerformed
         // TODO add your handling code here:
         
@@ -159,14 +158,103 @@ public class login extends javax.swing.JFrame {
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        new patienthome().setVisible(true); 
+        
+        String id = txtID.getText();
+        String password = txtPassword.getText();
+        
+        // Patients log in.
+        if (id.startsWith("P")){
+        for (patient i : data.patients){
+
+            if (id.equals(i.getId())){
+                if (password.equals(i.getPassword())){
+
+                    patienthome.patient = i;
+                    this.setVisible(false);
+                    new patienthome().setVisible(true); 
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, 
+                            "UserID or Password was incorrect.", "" + "", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "UserID or Password was incorrect.", 
+                "" + "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        // Administrators log in.
+        else if (id.startsWith("A")){
+        for (administrator i : data.administrators){
+            if (id.equals(i.getId())){
+                if (password.equals(i.getPassword())){
+                    
+                    adminhome.admin = i;
+                    this.setVisible(false);
+                    new adminhome().setVisible(true); 
+                    return;
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, 
+                            "UserID or Password was incorrect.", "" + "", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "UserID or Password was incorrect.", 
+                "" + "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        // Doctors log in.
+         else if (id.startsWith("D")){
+        for (doctor i : data.doctors){
+            if (id.equals(i.getId())){
+                if (password.equals(i.getPassword())){
+
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, 
+                            "UserID or Password was incorrect.", "" + "", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "UserID or Password was incorrect.", 
+                "" + "", JOptionPane.INFORMATION_MESSAGE);
+        }
+         // Secretaries log in.
+         else if (id.startsWith("S")){
+        for (secretary i : data.secretaries){
+            if (id.equals(i.getId())){
+                if (password.equals(i.getPassword())){
+
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, 
+                            "UserID or Password was incorrect.", "" + "", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+            }
+        }
+        
+        JOptionPane.showMessageDialog(null, "UserID or Password was incorrect.", 
+                "" + "", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+
     }//GEN-LAST:event_btnLogInActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])throws Exception {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -190,6 +278,11 @@ public class login extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        data.readPatients();
+        data.readAdministrators();
+        data.readDoctors();
+        data.readSecretaries();
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -207,7 +300,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSignUp;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JPasswordField pwordPassword;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

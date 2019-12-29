@@ -4,18 +4,28 @@
  * and open the template in the editor.
  */
 package guis;
+import accounts.*;
 
 /**
  *
  * @author Alex Pritchard
  */
 public class patienthome extends javax.swing.JFrame {
-
+    
+    public static patient patient;
+    
     /**
      * Creates new form patienthome
      */
     public patienthome() {
         initComponents();
+        
+        lblTitle.setText("Welcome back, " + patient.getName());
+        txtID.setText(patient.getId());
+        txtName.setText(patient.getName() + " " + patient.getSurname());
+        txtAddress.setText(patient.getAddress());
+        txtAge.setText(patient.getAge());
+        txtGender.setText(patient.getGender());
     }
 
     /**
@@ -356,6 +366,7 @@ public class patienthome extends javax.swing.JFrame {
             }
         });
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccountTermination;

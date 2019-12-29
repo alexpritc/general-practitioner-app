@@ -67,8 +67,8 @@
                           <Component id="txtName" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtSurname" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtAddress" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="pwordPassword" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtAge" max="32767" attributes="0"/>
+                          <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -86,40 +86,45 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cmboxAccountType" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAccountType" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="txtName" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblName" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtSurname" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSurname" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblAddress" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAddress" min="-2" pref="84" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cmboxGender" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="lblGender" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="pwordPassword" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cmboxAccountType" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAccountType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txtName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblName" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtSurname" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSurname" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblAddress" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAddress" min="-2" pref="84" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cmboxGender" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="lblGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="txtPassword" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnCreateAccount" min="-2" max="-2" attributes="0"/>
@@ -253,13 +258,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="pwordPassword">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Sans Unicode" size="36" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblAddress">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -319,6 +317,13 @@
           <Font name="Lucida Sans Unicode" size="21" style="0"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtPassword">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Sans Unicode" size="21" style="0"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

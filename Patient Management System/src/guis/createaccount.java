@@ -6,8 +6,10 @@
 package guis;
 
 import java.awt.Color;
-import accounts.patient;
-import accounts.administrator;
+import accounts.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import other.data;
 
 
 /**
@@ -44,13 +46,13 @@ public class createaccount extends javax.swing.JFrame {
         lblPassword = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         cmboxAccountType = new javax.swing.JComboBox<>();
-        pwordPassword = new javax.swing.JPasswordField();
         lblAddress = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         cmboxGender = new javax.swing.JComboBox<>();
         txtAddress = new javax.swing.JTextArea();
         txtAge = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -102,8 +104,6 @@ public class createaccount extends javax.swing.JFrame {
             }
         });
 
-        pwordPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 36)); // NOI18N
-
         lblAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblAddress.setText("Address");
 
@@ -124,6 +124,8 @@ public class createaccount extends javax.swing.JFrame {
 
         txtAge.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         txtAge.setEnabled(false);
+
+        txtPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,8 +167,8 @@ public class createaccount extends javax.swing.JFrame {
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSurname, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(pwordPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAge))
+                            .addComponent(txtAge)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -178,34 +180,37 @@ public class createaccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmboxAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAccountType))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSurname))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAddress)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAge)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmboxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblGender))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwordPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPassword))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmboxAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAccountType))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblName))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSurname))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAddress)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAge)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmboxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGender))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPassword))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCreateAccount)
                 .addGap(39, 39, 39)
@@ -261,23 +266,50 @@ public class createaccount extends javax.swing.JFrame {
         
         if (cmboxAccountType.getSelectedItem() == "Patient"){
             // Create a new newPatientRequest.
-            accounts.patient newPatientRequest = new accounts.patient(txtName.getText(), 
-                    txtSurname.getText(), txtAddress.getText(), "P7426", 
-                    Integer.parseInt(txtAge.getText()), 
-                    cmboxGender.getSelectedItem().toString());
+
         }
-        else{
+        else if (cmboxAccountType.getSelectedItem() == "Administrator"){
             // Create a new admin.
-            accounts.administrator newAdmin = new accounts.administrator(
-                    txtName.getText(), txtSurname.getText(), txtAddress.getText(),
-                    "A7058");
+            
+            int length = data.administrators.size();
+            length++;
+            
+            String ID;
+            
+            if (length < 10){
+                ID = "A000" + length;
+            }
+            else if (length < 100){
+                ID = "A00" + length;
+            }
+            else if (length < 1000){
+                ID = "A0" + length;
+            }
+            else {
+                ID = "A" + length;
+            }
+            
+            administrator tempAdmin = new administrator(txtName.getText(), 
+                    txtSurname.getText(), txtAddress.getText(), ID, 
+                    txtPassword.getText());
+            data.administrators.add(tempAdmin);
+            
+            try {
+                data.saveAdministrators();
+            } catch (Exception ex) {
+                Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            adminhome.admin = tempAdmin;
+            this.setVisible(false);
+            new adminhome().setVisible(true);
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])throws Exception{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -325,10 +357,10 @@ public class createaccount extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSurname;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JPasswordField pwordPassword;
     private javax.swing.JTextArea txtAddress;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtSurname;
     // End of variables declaration//GEN-END:variables
 }

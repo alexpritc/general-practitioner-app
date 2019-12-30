@@ -101,6 +101,11 @@ public class secretaryhome extends javax.swing.JFrame {
 
         btnManagePatients.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnManagePatients.setText("Manage patient accounts");
+        btnManagePatients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePatientsActionPerformed(evt);
+            }
+        });
 
         btnMedicine.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnMedicine.setText("Medicine stock");
@@ -232,6 +237,12 @@ public class secretaryhome extends javax.swing.JFrame {
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
+
+    private void btnManagePatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePatientsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new secretarymanagepatients().setVisible(true);
+    }//GEN-LAST:event_btnManagePatientsActionPerformed
 
     /**
      * @param args the command line arguments

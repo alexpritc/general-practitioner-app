@@ -17,12 +17,13 @@ import accounts.*;
  */
 public class data {
     
-    public static List<user> users = new ArrayList<>();
-    
     public static List<patient> patients = new ArrayList<>();
     public static List<administrator> administrators = new ArrayList<>();
     public static List<doctor> doctors = new ArrayList<>();
     public static List<secretary> secretaries = new ArrayList<>();
+    
+    public static List<patient> patientRequests = new ArrayList<>();
+    public static List<patient> patientRemovals = new ArrayList<>();
     
     public static void readPatients()throws Exception{
         File file = new File("patients.txt"); 
@@ -48,7 +49,6 @@ public class data {
                 password, age, gender);
       
             patients.add(tempPatient);
-            users.add(tempPatient);
         }
         
         br.close();
@@ -75,7 +75,6 @@ public class data {
             administrator tempAdmin = new administrator(name, surname, address, id, password);
       
             administrators.add(tempAdmin);
-            users.add(tempAdmin);
         }
         
         br.close();
@@ -102,7 +101,6 @@ public class data {
             doctor tempDoctor = new doctor(name, surname, address, id, password);
       
             doctors.add(tempDoctor);
-            users.add(tempDoctor);
         }
         
         br.close();
@@ -129,8 +127,65 @@ public class data {
             secretary tempSec = new secretary(name, surname, address, id, password);
       
             secretaries.add(tempSec);
-            users.add(tempSec);
             
+        }
+        
+        br.close();
+    }
+      
+      public static void readPatientRequests()throws Exception{
+        File file = new File("patient-requests.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String name, surname, address, id, password, age, gender;
+            
+            id = line;
+            name = br.readLine();
+            surname = br.readLine();
+            address = br.readLine();
+            password = br.readLine();
+            age = br.readLine();
+            gender = br.readLine();
+
+      
+            patient tempPatient = new patient(name, surname, address, id, 
+                password, age, gender);
+      
+            patientRequests.add(tempPatient);
+        }
+        
+        br.close();
+    }
+      
+        public static void readPatientRemovals()throws Exception{
+        File file = new File("patient-removals.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String name, surname, address, id, password, age, gender;
+            
+            id = line;
+            name = br.readLine();
+            surname = br.readLine();
+            address = br.readLine();
+            password = br.readLine();
+            age = br.readLine();
+            gender = br.readLine();
+
+      
+            patient tempPatient = new patient(name, surname, address, id, 
+                password, age, gender);
+      
+            patientRemovals.add(tempPatient);
         }
         
         br.close();
@@ -227,6 +282,58 @@ public class data {
         
         bw.close();
     }
+        
+        public static void savePatientRequests()throws Exception{
+        File file = new File("patient-requests.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (patient patient : patientRequests){
+            
+            bw.write(patient.getId());
+            bw.newLine();
+            bw.write(patient.getName());
+            bw.newLine();
+            bw.write(patient.getSurname());
+            bw.newLine();
+            bw.write(patient.getAddress());
+            bw.newLine();
+            bw.write(patient.getPassword());
+            bw.newLine();
+            bw.write(patient.getAge());
+            bw.newLine();
+            bw.write(patient.getGender());
+            bw.newLine();
+        }
+        
+        bw.close();
+        }
+        
+        public static void savePatientRemovals()throws Exception{
+        File file = new File("patient-removals.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (patient patient : patientRemovals){
+            
+            bw.write(patient.getId());
+            bw.newLine();
+            bw.write(patient.getName());
+            bw.newLine();
+            bw.write(patient.getSurname());
+            bw.newLine();
+            bw.write(patient.getAddress());
+            bw.newLine();
+            bw.write(patient.getPassword());
+            bw.newLine();
+            bw.write(patient.getAge());
+            bw.newLine();
+            bw.write(patient.getGender());
+            bw.newLine();
+        }
+        
+        bw.close();
+        }
 }
 
 

@@ -264,31 +264,52 @@ public class createaccount extends javax.swing.JFrame {
         
         if (cmboxAccountType.getSelectedItem() == "Patient"){
             // Create a new newPatientRequest.
-
+            String ID = "P****";
+            
+            patient tempPatient = new patient(txtName.getText(), 
+                    txtSurname.getText(), txtAddress.getText(), ID, 
+                    txtPassword.getText(), txtAge.getText(), cmboxGender.getSelectedItem().toString());
+            
+            data.patientRequests.add(tempPatient);
+            
+            try {
+                data.savePatientRequests();
+            } catch (Exception ex) {
+                Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            this.setVisible(false);
+            new login().setVisible(true);
         }
         else if (cmboxAccountType.getSelectedItem() == "Administrator"){
             // Create a new admin.
+           
+           String setId;
+           
+           int length = data.administrators.size();
+           String id = data.administrators.get(length-1).getId();
             
-            int length = data.administrators.size();
-            length++;
+           String[] newID = new String [2];
+           newID = id.split("A", 2);
+
+           int value = Integer.parseInt(newID[1]);
+           value++;
             
-            String ID;
-            
-            if (length < 10){
-                ID = "A000" + length;
-            }
-            else if (length < 100){
-                ID = "A00" + length;
-            }
-            else if (length < 1000){
-                ID = "A0" + length;
-            }
-            else {
-                ID = "A" + length;
-            }
+           if (value < 10){
+           setId = "A000" + value;
+           }
+           else if (value < 100){
+           setId = "A00" + value;
+           }
+           else if (value < 1000){
+           setId = "A0" + value;
+           }
+           else{
+           setId = "A" + value;
+           }
             
             administrator tempAdmin = new administrator(txtName.getText(), 
-                    txtSurname.getText(), txtAddress.getText(), ID, 
+                    txtSurname.getText(), txtAddress.getText(), setId, 
                     txtPassword.getText());
             data.administrators.add(tempAdmin);
             

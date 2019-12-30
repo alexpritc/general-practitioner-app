@@ -1,10 +1,3 @@
-P0001
-Terry 
-Pratchett
-41 High St, Wincanton, BA9 9JU.
-svimes
-66
-Male
 P0002
 Jy
 Yang
@@ -19,5 +12,10 @@ Made up, Address, B4N M31.
 9diamonds
 47
 Female
-
-
+P0004
+tom
+pritchard
+old hall farm
+tom
+25
+male

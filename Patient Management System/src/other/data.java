@@ -10,6 +10,7 @@ import java.io.*;
 import java.util.*;
 
 import accounts.*;
+import other.*;
 
 /**
  *
@@ -26,7 +27,11 @@ public class data {
     public static List<patient> patientRemovals = new ArrayList<>();
     
     public static List feedback = new ArrayList<>();
-     public static List messages = new ArrayList<>();
+    public static List messages = new ArrayList<>();
+    
+    public static List<notification> notifications = new ArrayList<>();
+    public static List<medicine> medicines = new ArrayList<>();
+    public static List<prescription> prescriptions = new ArrayList<>();
 
     
     public static void readPatients()throws Exception{

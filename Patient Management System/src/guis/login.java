@@ -5,6 +5,10 @@
  */
 package guis;
 
+import guis.doctorsystem.doctorhome;
+import guis.adminsystem.adminhome;
+import guis.secretarysystem.secretaryhome;
+import guis.patientsystem.patienthome;
 import other.data;
 import accounts.*;
 import javax.swing.JOptionPane;
@@ -293,6 +297,7 @@ public class login extends javax.swing.JFrame {
         data.readPatientRemovals();
         
         data.readFeedback();
+        data.readMessages();
         
         
         /* Create and display the form */

@@ -26,6 +26,7 @@ public class data {
     public static List<patient> patientRemovals = new ArrayList<>();
     
     public static List feedback = new ArrayList<>();
+     public static List messages = new ArrayList<>();
 
     
     public static void readPatients()throws Exception{
@@ -215,6 +216,25 @@ public class data {
         
         br.close();
         }
+    
+     public static void readMessages()throws Exception{
+        File file = new File("messages.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String comment;
+            
+            comment = line;
+            
+            messages.add(comment);
+        }
+        
+        br.close();
+        }
       
     public static void savePatients()throws Exception{
         File file = new File("patients.txt"); 
@@ -376,6 +396,30 @@ public class data {
                         br.newLine();
 			// you can use write or append method
 			br.write(comment);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+        }
+        
+        public static void saveMessage(String message)throws Exception{
+        File file = new File("messages.txt"); 
+        
+        FileWriter fr = null;
+	BufferedWriter br = null;
+		try {
+			// to append to file, you need to initialize FileWriter using below constructor
+			fr = new FileWriter(file, true);
+			br = new BufferedWriter(fr);
+                        br.newLine();
+			// you can use write or append method
+			br.write(message);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

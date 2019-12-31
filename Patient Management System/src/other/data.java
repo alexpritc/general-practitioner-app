@@ -89,16 +89,19 @@ public class data {
         
         while((line = br.readLine()) != null)
         {
-            String name, surname, address, id, password;
+            String name, surname, address, id, password, rating, numberOfRates;
             
             id = line;
             name = br.readLine();
             surname = br.readLine();
             address = br.readLine();
             password = br.readLine();
+            rating = br.readLine();
+            numberOfRates = br.readLine();
 
       
-            doctor tempDoctor = new doctor(name, surname, address, id, password);
+            doctor tempDoctor = new doctor(name, surname, address, id, 
+                    password, rating, numberOfRates);
       
             doctors.add(tempDoctor);
         }
@@ -255,6 +258,10 @@ public class data {
             bw.write(dr.getAddress());
             bw.newLine();
             bw.write(dr.getPassword());
+            bw.newLine();
+            bw.write(dr.getRating());
+            bw.newLine();
+            bw.write(dr.getNumberOfRates());
             bw.newLine();
         }
         

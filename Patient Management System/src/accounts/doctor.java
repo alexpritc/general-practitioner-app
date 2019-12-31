@@ -12,7 +12,32 @@ package accounts;
  */
 public class doctor extends user{
     
-    public doctor(String name, String surname, String address, String id, String password){
+    private String rating;
+    private String numberOfRates;
+    
+    public doctor(String name, String surname, String address, String id, 
+            String password, String rating, String numberOfRates){
         super(name, surname, address, id, password);
+        
+        this.rating = rating;
+        this.numberOfRates = numberOfRates;
     }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getNumberOfRates() {
+        return numberOfRates;
+    }
+
+    public void setNumberOfRates(String numberOfRates) {
+        this.numberOfRates = numberOfRates;
+    }
+    
+    
 }

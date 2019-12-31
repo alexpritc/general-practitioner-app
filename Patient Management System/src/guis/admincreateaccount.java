@@ -211,7 +211,7 @@ public class admincreateaccount extends javax.swing.JFrame {
             
             doctor tempDr = new doctor(txtName.getText(), 
                     txtSurname.getText(), txtAddress.getText(), setId, 
-                    txtPassword.getText());
+                    txtPassword.getText(), "0", "0");
             data.doctors.add(tempDr);
             
             try {

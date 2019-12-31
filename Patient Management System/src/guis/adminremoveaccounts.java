@@ -383,7 +383,7 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         txtName.setText("");
         txtAddress.setText("");
 
-        btnRemove.setEnabled(true);
+        btnRemove.setEnabled(false);
         }
         else{
         if (cmboxAccounts.getSelectedIndex() == 0){

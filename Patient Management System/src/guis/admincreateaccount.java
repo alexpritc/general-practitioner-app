@@ -177,7 +177,7 @@ public class admincreateaccount extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         this.setVisible(false);
-        new login().setVisible(true);
+        new adminhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
@@ -220,7 +220,6 @@ public class admincreateaccount extends javax.swing.JFrame {
                 Logger.getLogger(admincreateaccount.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            doctorhome.dr = tempDr;
             this.setVisible(false);
             new adminhome().setVisible(true);
         }
@@ -262,7 +261,6 @@ public class admincreateaccount extends javax.swing.JFrame {
                 Logger.getLogger(admincreateaccount.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            secretaryhome.sec = tempSec;
             this.setVisible(false);
             new adminhome().setVisible(true);
         }

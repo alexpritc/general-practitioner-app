@@ -306,12 +306,32 @@ public class patientratedoctors extends javax.swing.JFrame {
                         data.doctors.get((lstDoctors.getSelectedIndex())).setNumberOfRates(numberOfRates);
                 
                         String rating = data.doctors.get((lstDoctors.getSelectedIndex())).getRating();
-                        int intRating = Integer.parseInt(rating);
-                        intRating = (intRating + newRating) / noOfRates;
-                        rating = Integer.toString(intRating);
+                        float fRating = Float.parseFloat(rating);
+                        fRating = fRating + newRating;
+                        rating = Float.toString(fRating);
               
                         data.doctors.get((lstDoctors.getSelectedIndex())).setRating(rating);
-                
+                        
+                        String comment = txtComment.getText();
+                        char[] splitComment = new char[comment.length()];
+                        
+                        for (int i = 0; i < comment.length(); i++){
+                            if (!(comment.charAt(i) == '\n')){
+                                splitComment[i] = comment.charAt(i);
+                            }
+                        }
+                        comment = data.doctors.get((lstDoctors.getSelectedIndex())).getId();
+                        
+                        for (char c : splitComment){
+                            comment += c;
+                        }
+                        
+                        try {
+                            data.saveFeedback(comment);
+                        } catch (Exception ex) {
+                            Logger.getLogger(patientratedoctors.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+               
                         try {
                             data.saveDoctors();
                         } catch (Exception ex) {
@@ -320,6 +340,12 @@ public class patientratedoctors extends javax.swing.JFrame {
                         
                         txtComment.setText("");
                         txtNewRating.setText("");
+                        float total = Float.parseFloat(data.doctors.get(
+                                lstDoctors.getSelectedIndex()).getRating()) 
+                                / Float.parseFloat(data.doctors.get(
+                                lstDoctors.getSelectedIndex()).getNumberOfRates());
+                        txtRating.setText(Float.toString(total));
+                        txtNumberOfRates.setText(data.doctors.get(lstDoctors.getSelectedIndex()).getNumberOfRates());
                     }                      
                     else{
                         JOptionPane.showMessageDialog(null, 
@@ -348,6 +374,8 @@ public class patientratedoctors extends javax.swing.JFrame {
     private void lstDoctorsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstDoctorsValueChanged
         // TODO add your handling code here:
         int index = lstDoctors.getSelectedIndex();
+        txtComment.setText("");
+        txtNewRating.setText("");      
         
         if (lstDoctors.isSelectionEmpty() || "No entries.".equals(lstDoctors.getSelectedValue())){
         txtID.setText("");
@@ -360,7 +388,11 @@ public class patientratedoctors extends javax.swing.JFrame {
         else{
         txtID.setText(data.doctors.get(index).getId());
         txtName.setText(data.doctors.get(index).getName() + " " + data.doctors.get(index).getSurname());
-        txtRating.setText(data.doctors.get(index).getRating());
+        float total = Float.parseFloat(data.doctors.get(
+                                lstDoctors.getSelectedIndex()).getRating()) 
+                                / Float.parseFloat(data.doctors.get(
+                                lstDoctors.getSelectedIndex()).getNumberOfRates());
+                        txtRating.setText(Float.toString(total));
         txtNumberOfRates.setText(data.doctors.get(index).getNumberOfRates());
 
         btnRate.setEnabled(true);

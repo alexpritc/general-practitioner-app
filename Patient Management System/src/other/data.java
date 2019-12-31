@@ -341,6 +341,37 @@ public class data {
         
         bw.close();
         }
+        
+        public static void saveFeedback(String comment)throws Exception{
+        File file = new File("feedback.txt"); 
+  
+//        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+//        
+//        bw.write(comment);
+//        bw.newLine();
+//        
+//        bw.close();
+        
+        FileWriter fr = null;
+	BufferedWriter br = null;
+		try {
+			// to append to file, you need to initialize FileWriter using below constructor
+			fr = new FileWriter(file, true);
+			br = new BufferedWriter(fr);
+                        br.newLine();
+			// you can use write or append method
+			br.write(comment);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+        }
 }
 
 

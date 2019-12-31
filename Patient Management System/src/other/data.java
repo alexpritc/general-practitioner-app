@@ -25,6 +25,9 @@ public class data {
     public static List<patient> patientRequests = new ArrayList<>();
     public static List<patient> patientRemovals = new ArrayList<>();
     
+    public static List feedback = new ArrayList<>();
+
+    
     public static void readPatients()throws Exception{
         File file = new File("patients.txt"); 
   
@@ -193,6 +196,25 @@ public class data {
         
         br.close();
     }
+        
+    public static void readFeedback()throws Exception{
+        File file = new File("feedback.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String comment;
+            
+            comment = line;
+           
+            feedback.add(comment);
+        }
+        
+        br.close();
+        }
       
     public static void savePatients()throws Exception{
         File file = new File("patients.txt"); 
@@ -344,13 +366,6 @@ public class data {
         
         public static void saveFeedback(String comment)throws Exception{
         File file = new File("feedback.txt"); 
-  
-//        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
-//        
-//        bw.write(comment);
-//        bw.newLine();
-//        
-//        bw.close();
         
         FileWriter fr = null;
 	BufferedWriter br = null;

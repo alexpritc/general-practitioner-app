@@ -102,6 +102,11 @@ public class adminhome extends javax.swing.JFrame {
 
         btnContact.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnContact.setText("Contact doctor");
+        btnContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContactActionPerformed(evt);
+            }
+        });
 
         btnDeleteAccounts.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnDeleteAccounts.setText("Delete accounts");
@@ -260,6 +265,12 @@ public class adminhome extends javax.swing.JFrame {
         this.setVisible(false);
         new adminremoveaccounts().setVisible(true);
     }//GEN-LAST:event_btnDeleteAccountsActionPerformed
+
+    private void btnContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new admincontactdoctors().setVisible(true);
+    }//GEN-LAST:event_btnContactActionPerformed
 
     /**
      * @param args the command line arguments

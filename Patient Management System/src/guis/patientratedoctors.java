@@ -388,11 +388,16 @@ public class patientratedoctors extends javax.swing.JFrame {
         else{
         txtID.setText(data.doctors.get(index).getId());
         txtName.setText(data.doctors.get(index).getName() + " " + data.doctors.get(index).getSurname());
-        float total = Float.parseFloat(data.doctors.get(
+        if (!"0".equals(data.doctors.get(index).getRating())){
+            float total = Float.parseFloat(data.doctors.get(
                                 lstDoctors.getSelectedIndex()).getRating()) 
                                 / Float.parseFloat(data.doctors.get(
                                 lstDoctors.getSelectedIndex()).getNumberOfRates());
-                        txtRating.setText(Float.toString(total));
+            txtRating.setText(Float.toString(total));
+        }
+        else{
+        txtRating.setText("0");
+        }
         txtNumberOfRates.setText(data.doctors.get(index).getNumberOfRates());
 
         btnRate.setEnabled(true);

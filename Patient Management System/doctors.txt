@@ -3,19 +3,19 @@ Just
 Roberts
 Osmon's Farm, Culmstock, C34 RR4.
 pritchard
-250.0
-3
+440.0
+5
 D0003
 Rhys
 Thomas
 Box Cottage, Devon, D04 53D.
 bro
-50
-1
+100.0
+2
 D0004
 Ivan
 Wall
 Leominster
 pword
-0
-0
+0.0
+1

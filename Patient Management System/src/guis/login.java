@@ -292,6 +292,8 @@ public class login extends javax.swing.JFrame {
         data.readPatientRequests();
         data.readPatientRemovals();
         
+        data.readFeedback();
+        
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

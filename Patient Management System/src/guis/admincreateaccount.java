@@ -185,26 +185,32 @@ public class admincreateaccount extends javax.swing.JFrame {
         
         if (cmboxAccountType.getSelectedItem() == "Doctor"){
             // Create a new newPatientRequest.
+            String setId;
+            
             int length = data.doctors.size();
-            length++;
+            String id = data.doctors.get(length-1).getId();
             
-            String ID;
+           String[] newID = new String [2];
+           newID = id.split("D", 2);
+
+           int value = Integer.parseInt(newID[1]);
+           value++;
             
-            if (length < 10){
-                ID = "D000" + length;
-            }
-            else if (length < 100){
-                ID = "D00" + length;
-            }
-            else if (length < 1000){
-                ID = "D0" + length;
-            }
-            else {
-                ID = "D" + length;
-            }
+           if (value < 10){
+           setId = ("D000" + value);
+           }
+           else if (value < 100){
+           setId = ("D00" + value);
+           }
+           else if (value < 1000){
+           setId = ("D0" + value);
+           }
+           else{
+           setId = ("D" + value);
+           }
             
             doctor tempDr = new doctor(txtName.getText(), 
-                    txtSurname.getText(), txtAddress.getText(), ID, 
+                    txtSurname.getText(), txtAddress.getText(), setId, 
                     txtPassword.getText());
             data.doctors.add(tempDr);
             
@@ -221,26 +227,32 @@ public class admincreateaccount extends javax.swing.JFrame {
         else if (cmboxAccountType.getSelectedItem() == "Secretary"){
             // Create a new admin.
             
+            String setId;
+            
             int length = data.secretaries.size();
-            length++;
+            String id = data.secretaries.get(length-1).getId();
             
-            String ID;
+           String[] newID = new String [2];
+           newID = id.split("S", 2);
+
+           int value = Integer.parseInt(newID[1]);
+           value++;
             
-            if (length < 10){
-                ID = "S000" + length;
-            }
-            else if (length < 100){
-                ID = "S00" + length;
-            }
-            else if (length < 1000){
-                ID = "S0" + length;
-            }
-            else {
-                ID = "S" + length;
-            }
+           if (value < 10){
+           setId = ("S000" + value);
+           }
+           else if (value < 100){
+           setId = ("S00" + value);
+           }
+           else if (value < 1000){
+           setId = ("S0" + value);
+           }
+           else{
+           setId = ("S" + value);
+           }
             
             secretary tempSec = new secretary(txtName.getText(), 
-                    txtSurname.getText(), txtAddress.getText(), ID, 
+                    txtSurname.getText(), txtAddress.getText(), setId, 
                     txtPassword.getText());
             data.secretaries.add(tempSec);
             

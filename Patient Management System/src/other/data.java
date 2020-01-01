@@ -221,6 +221,25 @@ public class data {
         
         br.close();
         }
+         
+    public static void readMessages()throws Exception{
+        File file = new File("messages.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String comment;
+            
+            comment = line;
+            
+            messages.add(comment);
+        }
+        
+        br.close();
+        }
     
      public static void readNotifications()throws Exception{
         File file = new File("notifications.txt"); 
@@ -293,9 +312,9 @@ public class data {
         
         br.close();
     }
-    
-     public static void readMessages()throws Exception{
-        File file = new File("messages.txt"); 
+     
+    public static void readMedicines()throws Exception{
+        File file = new File("medicines.txt"); 
   
         BufferedReader br = new BufferedReader(new FileReader(file)); 
         
@@ -303,15 +322,20 @@ public class data {
         
         while((line = br.readLine()) != null)
         {
-            String comment;
+            String name, dosage;
+            int stock;
             
-            comment = line;
+            name = line;
+            dosage = br.readLine();
+            stock = Integer.parseInt(br.readLine());
             
-            messages.add(comment);
+            medicine tempMedicine = new medicine(name, dosage, stock);
+      
+            medicines.add(tempMedicine);
         }
         
         br.close();
-        }
+    }
       
     public static void savePatients()throws Exception{
         File file = new File("patients.txt"); 
@@ -524,6 +548,24 @@ public class data {
             }
             bw.newLine();
             bw.write(notif.getNotification());
+            bw.newLine();
+        }
+        
+        bw.close();
+    }
+        
+    public static void saveMedicines()throws Exception{
+        File file = new File("medicines.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (medicine medicine : medicines){
+            
+            bw.write(medicine.getName());
+            bw.newLine();
+            bw.write(medicine.getDosage());
+            bw.newLine();
+            bw.write(Integer.toString(medicine.getStock()));
             bw.newLine();
         }
         

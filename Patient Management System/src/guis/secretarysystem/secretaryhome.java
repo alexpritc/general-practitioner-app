@@ -119,6 +119,11 @@ public class secretaryhome extends javax.swing.JFrame {
 
         btnMedicine.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnMedicine.setText("Medicine stock");
+        btnMedicine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedicineActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -253,6 +258,12 @@ public class secretaryhome extends javax.swing.JFrame {
         this.setVisible(false);
         new secretarymanagepatients().setVisible(true);
     }//GEN-LAST:event_btnManagePatientsActionPerformed
+
+    private void btnMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicineActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new secretarymedicinestock().setVisible(true);
+    }//GEN-LAST:event_btnMedicineActionPerformed
 
     /**
      * @param args the command line arguments

@@ -56,7 +56,6 @@ public class adminhome extends javax.swing.JFrame {
         txtID = new javax.swing.JTextField();
         lblID = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnFeedback = new javax.swing.JButton();
         btnContact = new javax.swing.JButton();
         btnDeleteAccounts = new javax.swing.JButton();
         btnCreateAccounts = new javax.swing.JButton();
@@ -106,11 +105,8 @@ public class adminhome extends javax.swing.JFrame {
         lblID.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblID.setText("ID");
 
-        btnFeedback.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        btnFeedback.setText("View patient feedback");
-
         btnContact.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        btnContact.setText("Contact doctor");
+        btnContact.setText("Send patient feedback to doctors");
         btnContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContactActionPerformed(evt);
@@ -137,8 +133,7 @@ public class adminhome extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-            .addComponent(btnContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnContact, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
             .addComponent(btnDeleteAccounts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCreateAccounts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -147,11 +142,10 @@ public class adminhome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btnContact, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDeleteAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCreateAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnCreateAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         txtAddress.setEditable(false);
@@ -323,7 +317,6 @@ public class adminhome extends javax.swing.JFrame {
     private javax.swing.JButton btnContact;
     private javax.swing.JButton btnCreateAccounts;
     private javax.swing.JButton btnDeleteAccounts;
-    private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

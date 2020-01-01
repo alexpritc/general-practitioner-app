@@ -211,8 +211,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnFeedback" pref="563" max="32767" attributes="0"/>
-                  <Component id="btnContact" max="32767" attributes="0"/>
+                  <Component id="btnContact" pref="563" max="32767" attributes="0"/>
                   <Component id="btnDeleteAccounts" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnCreateAccounts" alignment="1" max="32767" attributes="0"/>
               </Group>
@@ -221,31 +220,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnContact" min="-2" pref="61" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnFeedback" min="-2" pref="61" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnDeleteAccounts" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnCreateAccounts" min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace pref="82" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnFeedback">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Sans Unicode" size="21" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="View patient feedback"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="btnContact">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Sans Unicode" size="21" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Contact doctor"/>
+                <Property name="text" type="java.lang.String" value="Send patient feedback to doctors"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnContactActionPerformed"/>

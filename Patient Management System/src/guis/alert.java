@@ -24,14 +24,6 @@ public class alert extends javax.swing.JFrame {
         initComponents();
         
         lblNotification.setText(notification.getNotification());
-        
-        data.notifications.remove(notification);
-        
-        try {
-            data.saveNotifications();
-        } catch (Exception ex) {
-            Logger.getLogger(alert.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
@@ -102,7 +94,14 @@ public class alert extends javax.swing.JFrame {
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
-              
+        data.notifications.remove(notification);
+        
+        try {
+            data.saveNotifications();
+        } catch (Exception ex) {
+            Logger.getLogger(alert.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
         this.setVisible(false);
     }//GEN-LAST:event_btnCloseActionPerformed
 

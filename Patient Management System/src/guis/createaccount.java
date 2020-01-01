@@ -11,6 +11,7 @@ import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import other.data;
+import other.notification;
 
 
 /**
@@ -275,6 +276,15 @@ public class createaccount extends javax.swing.JFrame {
             
             try {
                 data.savePatientRequests();
+            } catch (Exception ex) {
+                Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            notification newNotif = new notification(3, "New patient account creation request.");
+            data.notifications.add(newNotif);
+            
+            try {
+                data.saveNotifications();
             } catch (Exception ex) {
                 Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
             }

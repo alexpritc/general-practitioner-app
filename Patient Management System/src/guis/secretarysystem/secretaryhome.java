@@ -5,6 +5,7 @@
  */
 package guis.secretarysystem;
 import accounts.*;
+import guis.alert;
 import guis.login;
 import other.data;
 
@@ -26,6 +27,14 @@ public class secretaryhome extends javax.swing.JFrame {
         txtID.setText(sec.getId());
         txtName.setText(sec.getName() + " " + sec.getSurname());
         txtAddress.setText(sec.getAddress());
+        
+        for (other.notification n : data.notifications){
+            if (n.getUser() == sec || n.getAllOneType() == 3){
+                
+                alert.notification = n;
+                new alert().setVisible(true);
+            }
+        }
 
     }
 

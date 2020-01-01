@@ -222,6 +222,78 @@ public class data {
         br.close();
         }
     
+     public static void readNotifications()throws Exception{
+        File file = new File("notifications.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            notification tempNotif;
+            String id, notification;
+            
+            id = line;
+            notification = br.readLine();
+
+            if (id.startsWith("P")){
+                for (patient p : patients){
+                    if (id.equals(p.getId())){
+                        tempNotif = new notification(p, notification);
+                        notifications.add(tempNotif);                        
+                    }
+                }
+            }
+            else if (id.startsWith("A")){
+                for (administrator a : administrators){
+                    if (id.equals(a.getId())){
+                        tempNotif = new notification(a, notification);
+                        notifications.add(tempNotif);                        
+                    }
+                }
+            }
+            else if (id.startsWith("D")){
+                for (doctor d : doctors){
+                    if (id.equals(d.getId())){
+                        tempNotif = new notification(d, notification);
+                        notifications.add(tempNotif);                        
+                    }
+                }
+            }
+            else if (id.startsWith("S")){
+                for (secretary s : secretaries){
+                    if (id.equals(s.getId())){
+                        tempNotif = new notification(s, notification);
+                        notifications.add(tempNotif);
+                    }
+                }
+            }
+            else if (Integer.parseInt(id) == 0){
+                tempNotif = new notification(0, notification);
+                notifications.add(tempNotif);
+            }
+            else if (Integer.parseInt(id) == 1){
+                tempNotif = new notification(1, notification);
+                notifications.add(tempNotif);
+            }
+            else if (Integer.parseInt(id) == 2){
+                tempNotif = new notification(2, notification);
+                notifications.add(tempNotif);
+            }
+            else if (Integer.parseInt(id) == 3){
+                tempNotif = new notification(3, notification);
+                notifications.add(tempNotif);
+            }
+            else{
+                tempNotif = new notification(4, notification);
+                notifications.add(tempNotif);
+            }
+        }
+        
+        br.close();
+    }
+    
      public static void readMessages()throws Exception{
         File file = new File("messages.txt"); 
   
@@ -436,6 +508,27 @@ public class data {
 			}
 		}
         }
+        
+        public static void saveNotifications()throws Exception{
+        File file = new File("notifications.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (notification notif : notifications){
+            
+            if (notif.getUser() != null){
+                bw.write(notif.getUser().getId());
+            }
+            else{
+                bw.write(Integer.toString(notif.getAllOneType()));
+            }
+            bw.newLine();
+            bw.write(notif.getNotification());
+            bw.newLine();
+        }
+        
+        bw.close();
+    }
 }
 
 

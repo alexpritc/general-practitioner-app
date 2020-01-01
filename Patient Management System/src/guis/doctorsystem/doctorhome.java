@@ -5,6 +5,7 @@
  */
 package guis.doctorsystem;
 import accounts.*;
+import guis.alert;
 import guis.login;
 import other.data;
 
@@ -26,7 +27,13 @@ public class doctorhome extends javax.swing.JFrame {
         txtID.setText(dr.getId());
         txtName.setText(dr.getName() + " " + dr.getSurname());
         txtAddress.setText(dr.getAddress());
-
+        
+        for (other.notification n : data.notifications){
+            if (n.getUser() == dr){
+                alert.notification = n;
+                new alert().setVisible(true);
+            }
+        }
     }
 
     /**

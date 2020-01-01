@@ -6,11 +6,13 @@
 package guis.patientsystem;
 
 import accounts.*;
+import guis.createaccount;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.data;
+import other.notification;
 
 /**
  *
@@ -347,6 +349,15 @@ public class patientratedoctors extends javax.swing.JFrame {
                                 lstDoctors.getSelectedIndex()).getNumberOfRates());
                         txtRating.setText(Float.toString(total));
                         txtNumberOfRates.setText(data.doctors.get(lstDoctors.getSelectedIndex()).getNumberOfRates());
+                        
+                        notification newNotif = new notification(1, "New patient feedback.");
+                        data.notifications.add(newNotif);
+            
+                        try {
+                        data.saveNotifications();
+                        } catch (Exception ex) {
+                            Logger.getLogger(patientratedoctors.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }                      
                     else{
                         JOptionPane.showMessageDialog(null, 

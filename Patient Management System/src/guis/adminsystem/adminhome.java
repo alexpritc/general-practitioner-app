@@ -5,6 +5,7 @@
  */
 package guis.adminsystem;
 import accounts.*;
+import guis.alert;
 import guis.login;
 import other.data;
 
@@ -26,6 +27,13 @@ public class adminhome extends javax.swing.JFrame {
         txtID.setText(admin.getId());
         txtName.setText(admin.getName() + " " + admin.getSurname());
         txtAddress.setText(admin.getAddress());
+        
+        for (other.notification n : data.notifications){
+            if (n.getUser() == admin || n.getAllOneType() == 1){
+                alert.notification = n;
+                new alert().setVisible(true);
+            }
+        }
 
     }
 

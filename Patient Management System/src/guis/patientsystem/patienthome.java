@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package guis.patientsystem;
+
 import accounts.*;
 import guis.login;
+import guis.alert;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.data;
+import other.notification;
 
 /**
  *
@@ -31,6 +34,13 @@ public class patienthome extends javax.swing.JFrame {
         txtAddress.setText(patient.getAddress());
         txtAge.setText(patient.getAge());
         txtGender.setText(patient.getGender());
+        
+        for (other.notification n : data.notifications){
+            if (n.getUser() == patient){
+                alert.notification = n;
+                new alert().setVisible(true);
+            }
+        }
     }
 
     /**
@@ -365,6 +375,15 @@ public class patienthome extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(patienthome.class.getName()).log(Level.SEVERE, null, ex);
         }
+                
+            notification newNotif = new notification(3, "New patient account removal request.");
+            data.notifications.add(newNotif);
+            
+            try {
+                data.saveNotifications();
+            } catch (Exception ex) {
+                Logger.getLogger(patienthome.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             JOptionPane.showMessageDialog(null, 

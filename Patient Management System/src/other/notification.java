@@ -17,6 +17,9 @@ public class notification {
     private administrator admin;
     private doctor doctor;
     private secretary secretary;
+    // 0 = All patients, 1 = all admins, 2 = all doctors, 3 = all secretaries, 4 = all;
+    private int allOneType;
+    
     private String notification;
 
     public notification(patient patient, String notification) {
@@ -38,44 +41,40 @@ public class notification {
         this.secretary = secretary;
         this.notification = notification;
     }
+    
+    public notification(int type, String notification) {
+        this.allOneType = type;
+        this.notification = notification;
+    }
 
-    public patient getPatient() {
+
+    public user getUser() {
+        if (patient != null){
         return patient;
-    }
-
-    public void setPatient(patient patient) {
-        this.patient = patient;
-    }
-
-    public administrator getAdmin() {
+        }
+        else if (admin != null){
         return admin;
-    }
-
-    public void setAdmin(administrator admin) {
-        this.admin = admin;
-    }
-
-    public doctor getDoctor() {
+        }
+        else if (doctor != null){
         return doctor;
-    }
-
-    public void setDoctor(doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public secretary getSecretary() {
+        }
+        else if (secretary != null){
         return secretary;
+        }
+        else{
+        return null;
+        }
     }
 
-    public void setSecretary(secretary secretary) {
-        this.secretary = secretary;
+    public int getAllOneType() {
+        return allOneType;
     }
 
+    public void setAllOneType(int type) {
+        this.allOneType = type;
+    }
+    
     public String getNotification() {
         return notification;
     }
-
-    public void setNotification(String notification) {
-        this.notification = notification;
-    } 
 }

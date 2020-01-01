@@ -141,6 +141,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         });
 
         txtOrder.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtOrder.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtOrder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtOrder.setMaximumSize(new java.awt.Dimension(40, 249));
         txtOrder.setMinimumSize(new java.awt.Dimension(40, 249));

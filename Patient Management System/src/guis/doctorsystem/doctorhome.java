@@ -120,7 +120,7 @@ public class doctorhome extends javax.swing.JFrame {
         btnDeleteAccounts.setText("Patient histories");
 
         btnCreateAccounts.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        btnCreateAccounts.setText("Create/request medicines");
+        btnCreateAccounts.setText("Request new medicine");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

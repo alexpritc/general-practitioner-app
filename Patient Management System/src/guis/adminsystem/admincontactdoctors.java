@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.data;
+import other.notification;
 
 /**
  *
@@ -321,6 +322,17 @@ public class admincontactdoctors extends javax.swing.JFrame {
                 
                 try {
                     data.saveMessage(message);
+                } catch (Exception ex) {
+                    Logger.getLogger(admincontactdoctors.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                notification tempNotif = new notification(data.doctors.get(lstDoctors.getSelectedIndex()), 
+                        "You have a new message from an Admin.");
+                
+                data.notifications.add(tempNotif);
+                
+                try {
+                    data.saveNotifications();
                 } catch (Exception ex) {
                     Logger.getLogger(admincontactdoctors.class.getName()).log(Level.SEVERE, null, ex);
                 }

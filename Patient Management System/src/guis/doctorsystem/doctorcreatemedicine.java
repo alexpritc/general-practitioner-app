@@ -19,26 +19,14 @@ import other.notification;
  * @author Alex Pritchard
  */
 public class doctorcreatemedicine extends javax.swing.JFrame {
-    
-    public static doctor dr;
+
     
     /**
      * Creates new form patienthome
      */
     public doctorcreatemedicine() {
         initComponents();
-        
-        lblTitle.setText("Welcome back, " + dr.getName());
-        txtDosage.setText(dr.getId());
-        txtMedicine.setText(dr.getName() + " " + dr.getSurname());
-        txtStock.setText(dr.getAddress());
-        
-        for (other.notification n : data.notifications){
-            if (n.getUser() == dr){
-                alert.notification = n;
-                new alert().setVisible(true);
-            }
-        }
+   
     }
 
     /**

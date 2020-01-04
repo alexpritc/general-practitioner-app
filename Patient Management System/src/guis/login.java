@@ -303,6 +303,7 @@ public class login extends javax.swing.JFrame {
         
         data.readMedicines();
         data.readAppointments();
+        data.readPrescriptions();
         
         data.readAppointmentRequests();
 

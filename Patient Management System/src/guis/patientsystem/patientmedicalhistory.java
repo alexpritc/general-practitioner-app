@@ -5,6 +5,10 @@
  */
 package guis.patientsystem;
 
+import other.appointment;
+import other.data;
+import other.prescription;
+
 /**
  *
  * @author Alex Pritchard
@@ -16,6 +20,30 @@ public class patientmedicalhistory extends javax.swing.JFrame {
      */
     public patientmedicalhistory() {
         initComponents();
+        
+        int size = data.appointments.size() + data.prescriptions.size();
+        String[] medicalHistory = new String[size];
+                
+        int i = 0;
+        
+        for (appointment a : data.appointments){
+            if (a.getPatient().equals(patienthome.patient.getId())){
+                medicalHistory[i] = "Appointment: " + a.getDate().substring(0,10) + " at "
+                        + a.getTime() + ". Notes: " + a.getNotes() + ". Doctor ID: " + a.getDoctor();
+            }
+            i++;
+        }
+        
+        for (prescription p : data.prescriptions){
+            if (p.getPatientId().equals(patienthome.patient.getId())){
+                medicalHistory[i] = "Prescription: " + p.getMedicine() + " x" +
+                        p.getQuantity() + ". Notes: " + p.getAppointmentNotes() + 
+                        ". Doctor ID: " + p.getDoctorId();
+            }
+            i++;
+        }
+        
+        lstMedicalHistory.setListData(medicalHistory);
     }
 
     /**
@@ -30,9 +58,16 @@ public class patientmedicalhistory extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstMedicalHistory = new javax.swing.JList<>();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1100, 823));
+        setMinimumSize(new java.awt.Dimension(1100, 823));
+        setPreferredSize(new java.awt.Dimension(1100, 823));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1100, 823));
 
         btnBack.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnBack.setText("Back");
@@ -45,15 +80,25 @@ public class patientmedicalhistory extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         lblTitle.setText("Medical history");
 
+        lstMedicalHistory.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        lstMedicalHistory.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(lstMedicalHistory);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1079, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -68,10 +113,10 @@ public class patientmedicalhistory extends javax.swing.JFrame {
                 .addContainerGap())
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 11, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(33, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 11, Short.MAX_VALUE)))
+                    .addContainerGap(33, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,10 +129,10 @@ public class patientmedicalhistory extends javax.swing.JFrame {
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 154, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(85, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 154, Short.MAX_VALUE)))
+                    .addContainerGap(152, Short.MAX_VALUE)))
         );
 
         pack();
@@ -141,7 +186,9 @@ public class patientmedicalhistory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JList<String> lstMedicalHistory;
     // End of variables declaration//GEN-END:variables
 }

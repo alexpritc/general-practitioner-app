@@ -107,6 +107,11 @@ public class doctorhome extends javax.swing.JFrame {
 
         btnAppointments.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnAppointments.setText("View appointments");
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentsActionPerformed(evt);
+            }
+        });
 
         btnMessages.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnMessages.setText("View messages");
@@ -118,9 +123,19 @@ public class doctorhome extends javax.swing.JFrame {
 
         btnDeleteAccounts.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnDeleteAccounts.setText("Patient histories");
+        btnDeleteAccounts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteAccountsActionPerformed(evt);
+            }
+        });
 
         btnCreateAccounts.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnCreateAccounts.setText("Request new medicine");
+        btnCreateAccounts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAccountsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -257,6 +272,24 @@ public class doctorhome extends javax.swing.JFrame {
         this.setVisible(false);
         new doctormessages().setVisible(true);
     }//GEN-LAST:event_btnMessagesActionPerformed
+
+    private void btnCreateAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new doctorcreatemedicine().setVisible(true);
+    }//GEN-LAST:event_btnCreateAccountsActionPerformed
+
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new doctorappointments().setVisible(true);
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
+
+    private void btnDeleteAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new doctorpatientmedicalhistory().setVisible(true);
+    }//GEN-LAST:event_btnDeleteAccountsActionPerformed
 
     /**
      * @param args the command line arguments

@@ -47,7 +47,6 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        cmboxMedicine = new javax.swing.JComboBox<>();
         lblMedicine = new javax.swing.JLabel();
         txtMedicine = new javax.swing.JTextField();
         lblStock = new javax.swing.JLabel();
@@ -74,14 +73,6 @@ public class secretarymedicinestock extends javax.swing.JFrame {
 
         lblTitle.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 36)); // NOI18N
         lblTitle.setText("Medicine stock");
-
-        cmboxMedicine.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        cmboxMedicine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "View all medicines", "View out of stock medicines" }));
-        cmboxMedicine.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmboxMedicineItemStateChanged(evt);
-            }
-        });
 
         lblMedicine.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblMedicine.setText("Medicine");
@@ -157,9 +148,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
-                    .addComponent(cmboxMedicine, 0, 352, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -183,15 +172,14 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmboxMedicine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblMedicine)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMedicine))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDosage, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDosage))
@@ -199,11 +187,10 @@ public class secretarymedicinestock extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblStock))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(294, 294, 294)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -237,7 +224,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(94, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(188, Short.MAX_VALUE)))
         );
 
@@ -304,49 +291,6 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnOrderActionPerformed
 
-    private void cmboxMedicineItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmboxMedicineItemStateChanged
-        // TODO add your handling code here:
-        lstMedicine.setSelectedIndex(-1);
-        btnOrder.setEnabled(false);
-        
-        if (cmboxMedicine.getSelectedIndex() == 0){
-   
-            if (data.medicines.isEmpty()){
-                String[] medicineData = new String[1];
-                medicineData[0] = "No entries.";
-                lstMedicine.setListData(medicineData);
-            }
-            else{
-                String[] medicineData = new String[data.medicines.size()];
-                int i = 0;
-        
-                for (medicine m : data.medicines){
-                medicineData[i] = m.getName();
-                i++;
-                }
-                lstMedicine.setListData(medicineData);
-            }
-        }
-        else if (cmboxMedicine.getSelectedIndex() == 1){
-            
-            String[] medicineData = new String[data.medicines.size()];
-            int i = 0;
-        
-            for (medicine m : data.medicines){
-                if (m.getStock() == 0){
-                    medicineData[i] = m.getName();
-                    i++;
-                }
-            }
-            
-            if (medicineData[0] == null){
-                medicineData[0] = "No entries.";
-            }
-            
-            lstMedicine.setListData(medicineData);
-        }
-    }//GEN-LAST:event_cmboxMedicineItemStateChanged
-
     private void lstMedicineValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstMedicineValueChanged
         // TODO add your handling code here:
         int index = lstMedicine.getSelectedIndex();
@@ -363,7 +307,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         
         txtDosage.setText(data.medicines.get(index).getDosage());
         txtMedicine.setText(data.medicines.get(index).getName());
-        txtStock.setText(Integer.toString(data.medicines.get(index).getStock()));
+        txtStock.setText("0");
         }
     }//GEN-LAST:event_lstMedicineValueChanged
 
@@ -452,7 +396,6 @@ public class secretarymedicinestock extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOrder;
-    private javax.swing.JComboBox<String> cmboxMedicine;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

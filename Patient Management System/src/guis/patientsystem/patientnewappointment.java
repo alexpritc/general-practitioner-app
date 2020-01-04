@@ -373,8 +373,6 @@ public class patientnewappointment extends javax.swing.JFrame {
                     if (a.getDate().equals(datepickerDate.getDate().toString())){
                         
                         for (int i = 0; i < timeData.length; i++){
-                            System.out.println(timeData[i].subSequence(0, 5));
-                            System.out.println(a.getTime());
                             if (timeData[i].subSequence(0, 5).equals(a.getTime())){
                                 timeData[i] = a.getTime() + " - UNAVAILABLE";
                             }

@@ -239,6 +239,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="View appointments"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAppointmentsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnMessages">
               <Properties>
@@ -258,6 +261,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Patient histories"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteAccountsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnCreateAccounts">
               <Properties>
@@ -266,6 +272,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Request new medicine"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateAccountsActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

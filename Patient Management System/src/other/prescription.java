@@ -15,13 +15,23 @@ public class prescription {
     private String patientId;
     private String doctorId;
     private String medicine;
+    private String quantity;
     private String appointmentNotes;
 
-    public prescription(String patientId, String doctorId, String medicine, String appointmentNotes) {
+    public prescription(String patientId, String doctorId, String medicine, String quantity, String appointmentNotes) {
         this.patientId = patientId;
         this.doctorId = doctorId;
         this.medicine = medicine;
+        this.quantity = quantity;
         this.appointmentNotes = appointmentNotes;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getPatientId() {

@@ -60,6 +60,7 @@ public class secretaryhome extends javax.swing.JFrame {
         btnAppointments = new javax.swing.JButton();
         btnManagePatients = new javax.swing.JButton();
         btnMedicine = new javax.swing.JButton();
+        btnMedicine1 = new javax.swing.JButton();
         txtAddress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,6 +109,11 @@ public class secretaryhome extends javax.swing.JFrame {
 
         btnAppointments.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnAppointments.setText("Appointments");
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentsActionPerformed(evt);
+            }
+        });
 
         btnManagePatients.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         btnManagePatients.setText("Manage patient accounts");
@@ -125,6 +131,14 @@ public class secretaryhome extends javax.swing.JFrame {
             }
         });
 
+        btnMedicine1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        btnMedicine1.setText("Print prescriptions");
+        btnMedicine1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedicine1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,6 +146,7 @@ public class secretaryhome extends javax.swing.JFrame {
             .addComponent(btnAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnManagePatients, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
             .addComponent(btnMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnMedicine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +156,9 @@ public class secretaryhome extends javax.swing.JFrame {
                 .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMedicine1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9))
         );
 
         txtAddress.setEditable(false);
@@ -196,7 +213,7 @@ public class secretaryhome extends javax.swing.JFrame {
                             .addComponent(lblAddress)
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,6 +281,19 @@ public class secretaryhome extends javax.swing.JFrame {
         new secretarymedicinestock().setVisible(true);
     }//GEN-LAST:event_btnMedicineActionPerformed
 
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new secretarymanageappointments().setVisible(true);
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
+
+    private void btnMedicine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicine1ActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        new secretaryprescriptions().setVisible(true);
+    }//GEN-LAST:event_btnMedicine1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,6 +343,7 @@ public class secretaryhome extends javax.swing.JFrame {
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnManagePatients;
     private javax.swing.JButton btnMedicine;
+    private javax.swing.JButton btnMedicine1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

@@ -69,6 +69,8 @@ public class patientappointments extends javax.swing.JFrame {
         lblDate = new javax.swing.JLabel();
         txtNotes = new javax.swing.JTextField();
         lblNotes = new javax.swing.JLabel();
+        txtTime = new javax.swing.JTextField();
+        lblTime = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
         jFormattedTextField1.setText("jFormattedTextField1");
@@ -145,6 +147,20 @@ public class patientappointments extends javax.swing.JFrame {
         lblNotes.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
         lblNotes.setText("Doctor's Notes");
 
+        txtTime.setEditable(false);
+        txtTime.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        txtTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTime.setMaximumSize(new java.awt.Dimension(40, 249));
+        txtTime.setMinimumSize(new java.awt.Dimension(40, 249));
+        txtTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimeActionPerformed(evt);
+            }
+        });
+
+        lblTime.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
+        lblTime.setText("Time");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -152,22 +168,30 @@ public class patientappointments extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNewAppointment, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblName)
+                        .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE)
+                        .addComponent(lblDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDoctorsName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(lblDate)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(lblNotes)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnNewAppointment, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblName)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtDoctorsName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblTime)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(lblNotes)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,6 +206,10 @@ public class patientappointments extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDate))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTime))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,16 +277,19 @@ public class patientappointments extends javax.swing.JFrame {
         int index = lstAppointments.getSelectedIndex();
         txtDoctorsName.setText("");   
         txtDate.setText("");
+        txtTime.setText("");
         txtNotes.setText("");
         
         if (lstAppointments.isSelectionEmpty() || "No entries.".equals(lstAppointments.getSelectedValue())){
             txtDoctorsName.setText("");   
             txtDate.setText("");
+            txtTime.setText("");
             txtNotes.setText("");
         }
         else{
             txtDoctorsName.setText(data.appointments.get(index).getDoctor());   
             txtDate.setText(data.appointments.get(index).getDate().substring(0, 10));
+            txtTime.setText(data.appointments.get(index).getTime());
             txtNotes.setText(data.appointments.get(index).getNotes());
         }
         
@@ -271,6 +302,10 @@ public class patientappointments extends javax.swing.JFrame {
     private void txtNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNotesActionPerformed
+
+    private void txtTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,10 +356,12 @@ public class patientappointments extends javax.swing.JFrame {
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblNotes;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JList<String> lstAppointments;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtDoctorsName;
     private javax.swing.JTextField txtNotes;
+    private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }

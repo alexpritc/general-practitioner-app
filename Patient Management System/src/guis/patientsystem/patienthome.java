@@ -353,7 +353,7 @@ public class patienthome extends javax.swing.JFrame {
     private void btnPerscriptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerscriptionsActionPerformed
         // TODO add your handling code here:        
         this.setVisible(false);
-        new patientperscriptions().setVisible(true);
+        new patientprescriptions().setVisible(true);
     }//GEN-LAST:event_btnPerscriptionsActionPerformed
 
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed

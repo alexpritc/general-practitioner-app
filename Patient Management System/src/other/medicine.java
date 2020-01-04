@@ -15,6 +15,8 @@ public class medicine {
     private String dosage;
     private int stock;
 
+    public medicine(){};
+    
     public medicine(String name, String dosage, int stock) {
         this.name = name;
         this.dosage = dosage;

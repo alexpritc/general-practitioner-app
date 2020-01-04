@@ -372,6 +372,33 @@ public class data {
         br.close();
     }
     
+    public static void readPrescriptions()throws Exception{
+        File file = new File("prescriptions.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String patientId, doctorId, medicine, quantity, notes;
+            
+            patientId = line;
+            doctorId = br.readLine();          
+            medicine = br.readLine();
+            quantity = br.readLine();
+            notes = br.readLine();
+            
+            
+            prescription tempPrescription = new prescription(patientId, doctorId, 
+                    medicine, quantity, notes);
+      
+            prescriptions.add(tempPrescription);
+        }
+        
+        br.close();
+    }
+     
     
     public static void readAppointmentRequests()throws Exception{
         File file = new File("appointment-requests.txt"); 
@@ -660,6 +687,29 @@ public class data {
         
         bw.close();
     }
+
+    public static void savePrescriptions()throws Exception{
+        File file = new File("prescriptions.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (prescription prescription : prescriptions){
+            
+            bw.write(prescription.getPatientId());
+            bw.newLine();
+            bw.write(prescription.getDoctorId());
+            bw.newLine();
+            bw.write(prescription.getMedicine());
+            bw.newLine();
+            bw.write(prescription.getQuantity());
+            bw.newLine();
+            bw.write(prescription.getAppointmentNotes());
+            bw.newLine();
+        }
+        
+        bw.close();
+    }
+    
     
     
     public static void saveAppointmentRequests()throws Exception{

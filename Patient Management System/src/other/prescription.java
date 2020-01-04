@@ -5,10 +5,6 @@
  */
 package other;
 
-import accounts.doctor;
-import accounts.patient;
-import other.medicine;
-import other.appointment;
 
 /**
  *
@@ -16,42 +12,44 @@ import other.appointment;
  */
 public class prescription {
     
-    private patient patient;
-    private doctor doctor;
-    private medicine medicine;
+    private String patientId;
+    private String doctorId;
+    private String medicine;
     private String appointmentNotes;
 
-    public prescription(patient patient, doctor doctor, medicine medicine, String appointmentNotes) {
-        this.patient = patient;
-        this.doctor = doctor;
+    public prescription(String patientId, String doctorId, String medicine, String appointmentNotes) {
+        this.patientId = patientId;
+        this.doctorId = doctorId;
         this.medicine = medicine;
         this.appointmentNotes = appointmentNotes;
     }
 
-    public patient getPatient() {
-        return patient;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public void setPatient(patient patient) {
-        this.patient = patient;
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
     }
 
-    public doctor getDoctor() {
-        return doctor;
+    public String getDoctorId() {
+        return doctorId;
     }
 
-    public void setDoctor(doctor doctor) {
-        this.doctor = doctor;
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
-    public medicine getMedicine() {
+    public String getMedicine() {
         return medicine;
     }
 
-    public void setMedicine(medicine medicine) {
+    public void setMedicine(String medicine) {
         this.medicine = medicine;
     }
 
+    
+    
     public String getAppointmentNotes() {
         return appointmentNotes;
     }

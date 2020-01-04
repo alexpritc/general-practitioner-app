@@ -5,40 +5,39 @@
  */
 package other;
 
-import accounts.doctor;
-import accounts.patient;
-
 /**
  *
  * @author Alex Pritchard
  */
 public class appointment {
     
-    private patient patient;
-    private doctor doctor;
-    private String date;
+    private String patient;
+    private String doctor;
     private String notes;
+    private String date;
+    private String time;
 
-    public appointment(patient patient, doctor doctor, String date, String notes) {
+    public appointment(String patient, String doctor, String notes, String date, String time) {
         this.patient = patient;
         this.doctor = doctor;
-        this.date = date;
         this.notes = notes;
+        this.date = date;
+        this.time = time;
     }
 
-    public patient getPatient() {
+    public String getPatient() {
         return patient;
     }
 
-    public void setPatient(patient patient) {
+    public void setPatient(String patient) {
         this.patient = patient;
     }
 
-    public doctor getDoctor() {
+    public String getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(doctor doctor) {
+    public void setDoctor(String doctor) {
         this.doctor = doctor;
     }
 
@@ -50,6 +49,14 @@ public class appointment {
         this.date = date;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public String getNotes() {
         return notes;
     }
@@ -57,6 +64,4 @@ public class appointment {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
-    
 }

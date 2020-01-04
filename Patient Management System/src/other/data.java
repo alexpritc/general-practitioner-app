@@ -30,8 +30,12 @@ public class data {
     public static List messages = new ArrayList<>();
     
     public static List<notification> notifications = new ArrayList<>();
+    
     public static List<medicine> medicines = new ArrayList<>();
+    public static List<appointment> appointments = new ArrayList<>();
     public static List<prescription> prescriptions = new ArrayList<>();
+    
+    public static List<appointment> appointmentRequests = new ArrayList<>();
 
     
     public static void readPatients()throws Exception{
@@ -89,7 +93,7 @@ public class data {
         br.close();
     }
     
-     public static void readDoctors()throws Exception{
+    public static void readDoctors()throws Exception{
         File file = new File("doctors.txt"); 
   
         BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -118,7 +122,7 @@ public class data {
         br.close();
     }
      
-      public static void readSecretaries()throws Exception{
+    public static void readSecretaries()throws Exception{
         File file = new File("secretaries.txt"); 
   
         BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -144,8 +148,9 @@ public class data {
         
         br.close();
     }
+    
       
-      public static void readPatientRequests()throws Exception{
+    public static void readPatientRequests()throws Exception{
         File file = new File("patient-requests.txt"); 
   
         BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -174,7 +179,7 @@ public class data {
         br.close();
     }
       
-        public static void readPatientRemovals()throws Exception{
+    public static void readPatientRemovals()throws Exception{
         File file = new File("patient-removals.txt"); 
   
         BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -202,6 +207,7 @@ public class data {
         
         br.close();
     }
+    
         
     public static void readFeedback()throws Exception{
         File file = new File("feedback.txt"); 
@@ -241,7 +247,8 @@ public class data {
         br.close();
         }
     
-     public static void readNotifications()throws Exception{
+    
+    public static void readNotifications()throws Exception{
         File file = new File("notifications.txt"); 
   
         BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -312,6 +319,7 @@ public class data {
         
         br.close();
     }
+    
      
     public static void readMedicines()throws Exception{
         File file = new File("medicines.txt"); 
@@ -336,6 +344,61 @@ public class data {
         
         br.close();
     }
+    
+    public static void readAppointments()throws Exception{
+        File file = new File("appointments.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String patientId, doctorId, notes, date, time;
+            
+            patientId = line;
+            doctorId = br.readLine();          
+            notes = br.readLine();
+            date = br.readLine();
+            time = br.readLine();
+            
+            
+            appointment tempAppointment = new appointment(patientId, doctorId, 
+                    notes, date, time);
+      
+            appointments.add(tempAppointment);
+        }
+        
+        br.close();
+    }
+    
+    
+    public static void readAppointmentRequests()throws Exception{
+        File file = new File("appointment-requests.txt"); 
+  
+        BufferedReader br = new BufferedReader(new FileReader(file)); 
+        
+        String line;
+        
+        while((line = br.readLine()) != null)
+        {
+            String patientId, doctorId, notes, date, time;
+            
+            patientId = line;
+            doctorId = br.readLine();
+            notes = br.readLine();
+            date = br.readLine();
+            time = br.readLine();
+
+            appointment tempAppointment = new appointment(patientId, doctorId, notes, date, 
+                time);
+      
+            appointmentRequests.add(tempAppointment);
+        }
+        
+        br.close();
+    }
+    
       
     public static void savePatients()throws Exception{
         File file = new File("patients.txt"); 
@@ -385,7 +448,7 @@ public class data {
         bw.close();
     }
     
-        public static void saveDoctors()throws Exception{
+    public static void saveDoctors()throws Exception{
         File file = new File("doctors.txt"); 
   
         BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
@@ -411,7 +474,7 @@ public class data {
         bw.close();
     }
     
-        public static void saveSecretaries()throws Exception{
+    public static void saveSecretaries()throws Exception{
         File file = new File("secretaries.txt"); 
   
         BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
@@ -432,8 +495,9 @@ public class data {
         
         bw.close();
     }
+    
         
-        public static void savePatientRequests()throws Exception{
+    public static void savePatientRequests()throws Exception{
         File file = new File("patient-requests.txt"); 
   
         BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
@@ -459,7 +523,7 @@ public class data {
         bw.close();
         }
         
-        public static void savePatientRemovals()throws Exception{
+    public static void savePatientRemovals()throws Exception{
         File file = new File("patient-removals.txt"); 
   
         BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
@@ -484,8 +548,9 @@ public class data {
         
         bw.close();
         }
+    
         
-        public static void saveFeedback(String comment)throws Exception{
+    public static void saveFeedback(String comment)throws Exception{
         File file = new File("feedback.txt"); 
         
         FileWriter fr = null;
@@ -509,7 +574,7 @@ public class data {
 		}
         }
         
-        public static void saveMessage(String message)throws Exception{
+    public static void saveMessage(String message)throws Exception{
         File file = new File("messages.txt"); 
         
         FileWriter fr = null;
@@ -532,8 +597,9 @@ public class data {
 			}
 		}
         }
+    
         
-        public static void saveNotifications()throws Exception{
+    public static void saveNotifications()throws Exception{
         File file = new File("notifications.txt"); 
   
         BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
@@ -553,6 +619,7 @@ public class data {
         
         bw.close();
     }
+    
         
     public static void saveMedicines()throws Exception{
         File file = new File("medicines.txt"); 
@@ -571,6 +638,51 @@ public class data {
         
         bw.close();
     }
+    
+    public static void saveAppointments()throws Exception{
+        File file = new File("appointments.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (appointment appointment : appointments){
+            
+            bw.write(appointment.getPatient());
+            bw.newLine();
+            bw.write(appointment.getDoctor());
+            bw.newLine();
+            bw.write(appointment.getNotes());
+            bw.newLine();
+            bw.write(appointment.getDate());
+            bw.newLine();
+            bw.write(appointment.getTime());
+            bw.newLine();
+        }
+        
+        bw.close();
+    }
+    
+    
+    public static void saveAppointmentRequests()throws Exception{
+        File file = new File("appointment-requests.txt"); 
+  
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file)); 
+        
+        for (appointment appointment : appointmentRequests){
+            
+            bw.write(appointment.getPatient());
+            bw.newLine();
+            bw.write(appointment.getDoctor());
+            bw.newLine();
+            bw.write(appointment.getNotes());
+            bw.newLine();
+            bw.write(appointment.getDate());
+            bw.newLine();
+            bw.write(appointment.getTime());
+            bw.newLine();
+        }
+        
+        bw.close();
+        }
 }
 
 

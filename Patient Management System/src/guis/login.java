@@ -302,6 +302,9 @@ public class login extends javax.swing.JFrame {
         data.readNotifications();
         
         data.readMedicines();
+        data.readAppointments();
+        
+        data.readAppointmentRequests();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

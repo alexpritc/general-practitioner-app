@@ -8,13 +8,13 @@ Alexander Pritchard
 ## Course
 BSc(Hons) Computing and Games Development
 
-# Module
+## Module
 SOFT252: Objectoriented Software Engineering with Design Patterns
 
-# Assignment title
+## Assignment title
 Patient Management System
 
-# Instructions for usage
+## Instructions for usage
 
-# References
+## References
 All code was produced by Alex Pritchard.

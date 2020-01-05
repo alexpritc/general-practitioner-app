@@ -18,3 +18,6 @@ Patient Management System
 
 ## References
 All code was produced by Alex Pritchard.
+
+## UML Diagram
+![UML Diagram](https://github.com/alexpritc/general-practitioner-app/blob/master/UML%20diagram.png)

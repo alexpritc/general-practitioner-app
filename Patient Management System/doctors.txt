@@ -1,21 +1,21 @@
-D0002
+D0001
 Just
 Roberts
-Osmon's Farm, Culmstock, C34 RR4.
-pritchard
+Osmons Farm, Culmstock, C34 RR4.
+doctor1
 910.0
 10
-D0003
+D0002
 Rhys
 Thomas
 Box Cottage, Devon, D04 53D.
-bro
+doctor2
 170.0
 3
-D0004
+D0003
 Ivan
 Wall
 Leominster
-pword
+doctor3
 148.0
 3

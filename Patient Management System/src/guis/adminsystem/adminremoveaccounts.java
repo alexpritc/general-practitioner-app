@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.adminsystem;
 
 import accounts.*;
-import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import other.data;
@@ -18,8 +19,10 @@ import other.data;
 public class adminremoveaccounts extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form adminremoveaccounts
      */
+    // Fills the list with all of the accounts that the admin is
+    // permitted to delete.
     public adminremoveaccounts() {
         initComponents();
         
@@ -228,9 +231,9 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the admin back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new adminhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -247,6 +250,7 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    // Deletes the account from the data and writes the new data to the file.
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here
         if (!lstAccounts.isSelectionEmpty()){
@@ -287,6 +291,8 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnRemoveActionPerformed
 
+    // Updates the list to show either Doctors and Secretaries or only one 
+    // or the other.
     private void cmboxAccountsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmboxAccountsItemStateChanged
         // TODO add your handling code here:
         lstAccounts.setSelectedIndex(-1);
@@ -374,6 +380,7 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmboxAccountsItemStateChanged
 
+    // Updates the information shown on screen to match the selected account.
     private void lstAccountsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAccountsValueChanged
         // TODO add your handling code here:
         int index = lstAccounts.getSelectedIndex();
@@ -448,20 +455,6 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(adminremoveaccounts.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

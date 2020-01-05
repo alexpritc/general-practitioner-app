@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.secretarysystem;
 
-import guis.patientsystem.*;
 import accounts.doctor;
 import accounts.patient;
 import java.util.Date;
@@ -22,11 +23,12 @@ import other.appointment;
 public class secretarynewappointment extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form secretarynewappointment.
      */
     public secretarynewappointment() {
         initComponents();
-
+        
+        // Displays all of the doctors.
         String[] doctorData = new String[data.doctors.size()];
         int i = 0;
         
@@ -37,6 +39,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
         }
         lstDoctors.setListData(doctorData);
         
+        // Displays all of the patients.
         String[] patientData = new String[data.patients.size()];
         
         int j = 0;
@@ -296,9 +299,9 @@ public class secretarynewappointment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new secretaryhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -307,6 +310,8 @@ public class secretarynewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDoctorsNameActionPerformed
 
+    // Creates an appointment between a patient and a doctor using the selected
+    // date and time, and adds it to the data.
     private void btnCreateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointmentActionPerformed
         // TODO add your handling code here
         
@@ -352,6 +357,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCreateAppointmentActionPerformed
 
+    // Updates the information based on the selected Doctor.
     private void lstDoctorsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstDoctorsValueChanged
         // TODO add your handling code here:
         int index = lstDoctors.getSelectedIndex();
@@ -392,6 +398,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimeActionPerformed
 
+    // Updates the time, if the time chosen is one where the doctor is available.
     private void lstTimesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstTimesValueChanged
         // TODO add your handling code here:
         txtTime.setText("");
@@ -401,6 +408,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lstTimesValueChanged
 
+    // Updates a date picked, but that date must be in the future.
     private void datepickerDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datepickerDateActionPerformed
         // TODO add your handling code here:
         Date currentDate = new Date();
@@ -452,6 +460,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatientNameActionPerformed
 
+    // Updates the information based on the patient selected.
     private void lstPatientsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPatientsValueChanged
         // TODO add your handling code here:
         
@@ -493,20 +502,6 @@ public class secretarynewappointment extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -516,6 +511,9 @@ public class secretarynewappointment extends javax.swing.JFrame {
         });
     }
     
+    // Takes in an integer (i) and uses a limited number of 
+    // switch cases to turn it into a time between 8am and 6:30pm on a 
+    // 24 hour clock. It allos 15 minutes per appointment.
     private static String time(int i){
         String time = "--:--";
         

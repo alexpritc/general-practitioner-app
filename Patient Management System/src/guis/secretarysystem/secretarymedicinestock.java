@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.secretarysystem;
 
-import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,8 +20,9 @@ import other.medicine;
 public class secretarymedicinestock extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form secretarymedicinestock.
      */
+    // Displays every medicine.
     public secretarymedicinestock() {
         initComponents();
         
@@ -231,9 +233,9 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the secretary back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new secretaryhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -250,6 +252,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockActionPerformed
 
+    // Adds the specified amount to the selected medicine.
     private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here
         if (!lstMedicine.isSelectionEmpty()){
@@ -291,6 +294,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnOrderActionPerformed
 
+    // Updates the on screen information to match the medicine selected.
     private void lstMedicineValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstMedicineValueChanged
         // TODO add your handling code here:
         int index = lstMedicine.getSelectedIndex();
@@ -342,36 +346,6 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -381,6 +355,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         });
     }
     
+    // A method that returns true if the given string is an integer.
     public static boolean isInteger(String s) {
     try { 
         Integer.parseInt(s); 
@@ -389,7 +364,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
     } catch(NullPointerException e) {
         return false;
     }
-    // only got here if we didn't return false
+    // Only got here if we didn't return false.
     return true;
 }
 

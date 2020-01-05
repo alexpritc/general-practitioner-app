@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.doctorsystem;
-import accounts.*;
-import guis.alert;
-import guis.login;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,11 +22,10 @@ public class doctorcreatemedicine extends javax.swing.JFrame {
 
     
     /**
-     * Creates new form patienthome
+     * Creates new form doctorcreatemedicine
      */
     public doctorcreatemedicine() {
         initComponents();
-   
     }
 
     /**
@@ -201,9 +200,9 @@ public class doctorcreatemedicine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDosageActionPerformed
 
+    // Takes the doctor back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        
         this.setVisible(false);
         new doctorhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -212,6 +211,8 @@ public class doctorcreatemedicine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockActionPerformed
 
+    // If all of the relevent information is inputted, this adds a new medicine
+    // to the data and requests stock from the secretaries.
     private void btnCreateMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateMedicineActionPerformed
         // TODO add your handling code here:
        
@@ -274,12 +275,6 @@ public class doctorcreatemedicine extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(doctorcreatemedicine.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

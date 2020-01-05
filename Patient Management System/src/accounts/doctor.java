@@ -12,9 +12,11 @@ package accounts;
  */
 public class doctor extends user{
     
+    // Declaring variavles.
     private String rating;
     private String numberOfRates;
     
+    // Constructor.
     public doctor(String name, String surname, String address, String id, 
             String password, String rating, String numberOfRates){
         super(name, surname, address, id, password);
@@ -22,7 +24,8 @@ public class doctor extends user{
         this.rating = rating;
         this.numberOfRates = numberOfRates;
     }
-
+    
+    // Gtters and setters.
     public String getRating() {
         return rating;
     }

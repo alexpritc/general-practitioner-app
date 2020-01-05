@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.patientsystem;
 
 import accounts.doctor;
@@ -20,8 +22,9 @@ import other.appointment;
 public class patientnewappointment extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form patientnewappointment
      */
+    // Displays all of the doctors.
     public patientnewappointment() {
         initComponents();
 
@@ -247,9 +250,9 @@ public class patientnewappointment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the patient back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new patienthome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -258,6 +261,8 @@ public class patientnewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDoctorsNameActionPerformed
 
+    // Adds an appointment with the selected doctor, date and time and adds it
+    // to a file that secretaries can read and approve.
     private void btnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestAppointmentActionPerformed
         // TODO add your handling code here
         
@@ -303,6 +308,7 @@ public class patientnewappointment extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRequestAppointmentActionPerformed
 
+    // Updates the on screen information to that of the selected doctor.
     private void lstDoctorsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstDoctorsValueChanged
         // TODO add your handling code here:
         int index = lstDoctors.getSelectedIndex();
@@ -343,6 +349,7 @@ public class patientnewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimeActionPerformed
 
+    // Updates the time if it one where the selected doctor is available.
     private void lstTimesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstTimesValueChanged
         // TODO add your handling code here:
         txtTime.setText("");
@@ -352,6 +359,7 @@ public class patientnewappointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lstTimesValueChanged
 
+    // Changes the date and gets all of the available times of the selected doctor.
     private void datepickerDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datepickerDateActionPerformed
         // TODO add your handling code here:
         Date currentDate = new Date();
@@ -422,12 +430,6 @@ public class patientnewappointment extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(patientnewappointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

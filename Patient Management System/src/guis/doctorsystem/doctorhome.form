@@ -213,8 +213,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnAppointments" pref="563" max="32767" attributes="0"/>
                   <Component id="btnMessages" max="32767" attributes="0"/>
-                  <Component id="btnDeleteAccounts" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnCreateAccounts" alignment="1" max="32767" attributes="0"/>
+                  <Component id="btnShowPatientHistory" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnCreateMedicine" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -224,9 +224,9 @@
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAppointments" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                      <Component id="btnDeleteAccounts" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="btnShowPatientHistory" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnCreateAccounts" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="btnCreateMedicine" min="-2" pref="61" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -254,7 +254,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMessagesActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnDeleteAccounts">
+            <Component class="javax.swing.JButton" name="btnShowPatientHistory">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Sans Unicode" size="21" style="0"/>
@@ -262,10 +262,10 @@
                 <Property name="text" type="java.lang.String" value="Patient histories"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteAccountsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowPatientHistoryActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCreateAccounts">
+            <Component class="javax.swing.JButton" name="btnCreateMedicine">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Sans Unicode" size="21" style="0"/>
@@ -273,7 +273,7 @@
                 <Property name="text" type="java.lang.String" value="Request new medicine"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateAccountsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateMedicineActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

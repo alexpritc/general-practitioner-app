@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.patientsystem;
 
 import accounts.doctor;
@@ -17,8 +19,9 @@ import other.prescription;
 public class patientprescriptions extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form patientprescriptions
      */
+    // Displays all of the relevent prescriptions. They can only see their own.
     public patientprescriptions() {
         initComponents();
         
@@ -289,13 +292,14 @@ public class patientprescriptions extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new patienthome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    // Updates the on screen information depending on the selected prescription.
     private void lstPrescriptionsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPrescriptionsValueChanged
         // TODO add your handling code here:
         
@@ -362,20 +366,6 @@ public class patientprescriptions extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(patientprescriptions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

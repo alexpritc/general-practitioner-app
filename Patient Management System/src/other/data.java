@@ -1,3 +1,5 @@
+// Package.
+
 package other;
 
 /*
@@ -6,18 +8,22 @@ package other;
  * and open the template in the editor.
  */
 
+// Imports.
+
 import java.io.*; 
 import java.util.*;
 
 import accounts.*;
-import other.*;
 
 /**
  *
  * @author Alex Pritchard
  */
+// Data class is used to read/write to .txt files and store 
+// the data in arrayLists.
 public class data {
     
+    // Declaring variables.
     public static List<patient> patients = new ArrayList<>();
     public static List<administrator> administrators = new ArrayList<>();
     public static List<doctor> doctors = new ArrayList<>();
@@ -37,7 +43,7 @@ public class data {
     
     public static List<appointment> appointmentRequests = new ArrayList<>();
 
-    
+    // Read from files.
     public static void readPatients()throws Exception{
         File file = new File("patients.txt"); 
   
@@ -426,7 +432,7 @@ public class data {
         br.close();
     }
     
-      
+    // Write to files.
     public static void savePatients()throws Exception{
         File file = new File("patients.txt"); 
   

@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and import.
 package other;
+
 import accounts.*;
-import other.data;
 
 /**
  *
@@ -13,15 +15,18 @@ import other.data;
  */
 public class notification {
     
+    // Declaring variables.
     private patient patient;
     private administrator admin;
     private doctor doctor;
     private secretary secretary;
-    // 0 = All patients, 1 = all admins, 2 = all doctors, 3 = all secretaries, 4 = all;
+    // 0 = All patients, 1 = all admins, 2 = all doctors, 
+    // 3 = all secretaries, 4 = all;
     private int allOneType;
     
     private String notification;
 
+    // Constructors.
     public notification(patient patient, String notification) {
         this.patient = patient;
         this.notification = notification;
@@ -47,7 +52,7 @@ public class notification {
         this.notification = notification;
     }
 
-
+    // Getters and setters.
     public user getUser() {
         if (patient != null){
         return patient;

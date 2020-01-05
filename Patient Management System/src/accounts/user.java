@@ -12,12 +12,14 @@ package accounts;
  */
 public class user {
     
+    // Declaring variables.
     private String name;
     private String surname;
     private String address;
     private String id;
     private String password;
     
+    // Constructor.
     public user(String name, String surname, String address, String id, String password) {
         this.name = name;
         this.surname = surname;
@@ -26,6 +28,7 @@ public class user {
         this.password = password;
     }
 
+    // Getters and setters.
     public String getName() {
         return name;
     }

@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Packages and imports.
 package guis;
 
 import java.util.logging.Level;
@@ -15,10 +17,11 @@ import other.data;
  */
 public class alert extends javax.swing.JFrame {
 
+    // Declaring variables.
     public static other.notification notification;
     
     /**
-     * Creates new form notification
+     * Creates new form alert.
      */
     public alert() {
         initComponents();
@@ -92,6 +95,8 @@ public class alert extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // When the alert is closed, the notification is removed from the file
+    // so that it is not repeated.
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         data.notifications.remove(notification);

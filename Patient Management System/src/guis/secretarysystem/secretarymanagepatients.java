@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.secretarysystem;
 
 import accounts.*;
-import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import other.data;
@@ -18,8 +19,9 @@ import other.data;
 public class secretarymanagepatients extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form secretarymanagepatients
      */
+    // Displays every patient.
     public secretarymanagepatients() {
         initComponents();
         
@@ -298,9 +300,9 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new secretaryhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -325,6 +327,7 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    // Removes the selected patient from the system.
     private void btnApproveRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveRemoveActionPerformed
         // TODO add your handling code here:
         
@@ -357,6 +360,7 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnApproveRemoveActionPerformed
 
+    // Adds the selected patient account to the system.
     private void btnApproveNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveNewActionPerformed
         // TODO add your handling code here:
         
@@ -406,6 +410,7 @@ public class secretarymanagepatients extends javax.swing.JFrame {
             
     }//GEN-LAST:event_btnApproveNewActionPerformed
 
+    // Removes the selected patient from the system.
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here
         if (!lstPatients.isSelectionEmpty()){
@@ -426,6 +431,8 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnRemoveActionPerformed
 
+    // Allows the secretary to swtich between seeing all accounts,
+    // account creation requests and account removal requests.
     private void cmboxPatientsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmboxPatientsItemStateChanged
         // TODO add your handling code here:
         lstPatients.setSelectedIndex(-1);
@@ -492,11 +499,13 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cmboxPatientsItemStateChanged
 
+    // Updates the on screen information to reflect that of the selected patient.
     private void lstPatientsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPatientsValueChanged
         // TODO add your handling code here:
         int index = lstPatients.getSelectedIndex();
         
-        if (lstPatients.isSelectionEmpty() || "No entries.".equals(lstPatients.getSelectedValue())){
+        if (lstPatients.isSelectionEmpty() || "No entries.".equals(lstPatients.
+                                                        getSelectedValue())){
         txtID.setText("");
         txtName.setText("");
         txtAddress.setText("");
@@ -573,12 +582,6 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(secretarymanagepatients.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

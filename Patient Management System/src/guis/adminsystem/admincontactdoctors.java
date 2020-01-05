@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.adminsystem;
 
 import accounts.*;
@@ -19,8 +21,10 @@ import other.notification;
 public class admincontactdoctors extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form admincontactdoctors
      */
+    // Fills the list with doctors immediately after the components have been
+    // initialised.
     public admincontactdoctors() {
         initComponents();
 
@@ -283,9 +287,9 @@ public class admincontactdoctors extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the admin back to their home page.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new adminhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -298,6 +302,8 @@ public class admincontactdoctors extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    // Sends a message (and potentially also a comment by a patient) to the
+    // relevent doctor.
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
         // TODO add your handling code here
         if (!lstDoctors.isSelectionEmpty()){
@@ -347,6 +353,7 @@ public class admincontactdoctors extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_btnSendActionPerformed
 
+    // Updates all of the information on screen to match the selected Doctor.
     private void lstDoctorsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstDoctorsValueChanged
         // TODO add your handling code here:
         int index = lstDoctors.getSelectedIndex();

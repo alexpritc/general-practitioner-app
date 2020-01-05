@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.doctorsystem;
 
-import accounts.*;
 import other.data;
 
 /**
@@ -15,8 +16,9 @@ import other.data;
 public class doctormessages extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form doctormessages
      */
+    // Displays all of this specific doctors' messages sent by admins.
     public doctormessages() {
         initComponents();
 
@@ -119,10 +121,10 @@ public class doctormessages extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Takes the doctor back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new doctorhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -152,8 +154,6 @@ public class doctormessages extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(doctormessages.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

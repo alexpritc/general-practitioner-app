@@ -11,16 +11,19 @@ package accounts;
  * @author Alex Pritchard
  */
 public class patient extends user{
-
+    
+    // Declaring variables.
     private String age;
     private String gender;
 
+    // Constructor.
     public patient(String name, String surname, String address, String id, String password, String age, String gender) {
         super(name, surname, address, id, password);
         this.age = age;
         this.gender = gender;
     }
     
+    // Getters and setters.
     public String getAge() {
         return age;
     }

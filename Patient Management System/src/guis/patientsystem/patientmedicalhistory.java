@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.patientsystem;
 
 import other.appointment;
@@ -18,6 +20,7 @@ public class patientmedicalhistory extends javax.swing.JFrame {
     /**
      * Creates new form patientmedicalhistory
      */
+    // Displays the users full medical history.
     public patientmedicalhistory() {
         initComponents();
         
@@ -138,9 +141,9 @@ public class patientmedicalhistory extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new patienthome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -170,8 +173,6 @@ public class patientmedicalhistory extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(patientmedicalhistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

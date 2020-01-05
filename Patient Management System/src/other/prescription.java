@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package.
 package other;
 
 
@@ -12,12 +14,14 @@ package other;
  */
 public class prescription {
     
+    // Declaring variables.
     private String patientId;
     private String doctorId;
     private String medicine;
     private String quantity;
     private String appointmentNotes;
 
+    // Constructor.
     public prescription(String patientId, String doctorId, String medicine, String quantity, String appointmentNotes) {
         this.patientId = patientId;
         this.doctorId = doctorId;
@@ -26,6 +30,7 @@ public class prescription {
         this.appointmentNotes = appointmentNotes;
     }
 
+    // Getters and setters.
     public String getQuantity() {
         return quantity;
     }
@@ -57,8 +62,6 @@ public class prescription {
     public void setMedicine(String medicine) {
         this.medicine = medicine;
     }
-
-    
     
     public String getAppointmentNotes() {
         return appointmentNotes;
@@ -67,7 +70,4 @@ public class prescription {
     public void setAppointmentNotes(String appointmentNotes) {
         this.appointmentNotes = appointmentNotes;
     }
-    
-    
-    
 }

@@ -12,6 +12,7 @@ package accounts;
  */
 public class secretary extends user{
     
+    // Constructor.
     public secretary(String name, String surname, String address, String id, String password){
         super(name, surname, address, id, password);
     }

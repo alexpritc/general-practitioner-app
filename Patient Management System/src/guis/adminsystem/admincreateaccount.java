@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.adminsystem;
 
 import java.awt.Color;
@@ -18,7 +20,7 @@ import other.data;
  */
 public class admincreateaccount extends javax.swing.JFrame {    
     /**
-     * Creates new form createaccount
+     * Creates new form admincreateaccount
      */
     public admincreateaccount() {
         initComponents();
@@ -173,13 +175,15 @@ public class admincreateaccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the admin back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        
         this.setVisible(false);
         new adminhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    // Immediately creates an account of the specified type and writes it to 
+    // the file. This function also assigns an appropriate ID to the account.
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
         

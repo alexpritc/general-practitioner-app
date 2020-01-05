@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.doctorsystem;
+
 import accounts.*;
 import guis.alert;
 import guis.login;
@@ -18,8 +21,11 @@ public class doctorhome extends javax.swing.JFrame {
     public static doctor dr;
     
     /**
-     * Creates new form patienthome
+     * Creates new form doctorhome
      */
+    
+    // Displays the doctors information to show that they are signed into the
+    // correct account.
     public doctorhome() {
         initComponents();
         
@@ -57,8 +63,8 @@ public class doctorhome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnAppointments = new javax.swing.JButton();
         btnMessages = new javax.swing.JButton();
-        btnDeleteAccounts = new javax.swing.JButton();
-        btnCreateAccounts = new javax.swing.JButton();
+        btnShowPatientHistory = new javax.swing.JButton();
+        btnCreateMedicine = new javax.swing.JButton();
         txtAddress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,19 +127,19 @@ public class doctorhome extends javax.swing.JFrame {
             }
         });
 
-        btnDeleteAccounts.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        btnDeleteAccounts.setText("Patient histories");
-        btnDeleteAccounts.addActionListener(new java.awt.event.ActionListener() {
+        btnShowPatientHistory.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        btnShowPatientHistory.setText("Patient histories");
+        btnShowPatientHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteAccountsActionPerformed(evt);
+                btnShowPatientHistoryActionPerformed(evt);
             }
         });
 
-        btnCreateAccounts.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        btnCreateAccounts.setText("Request new medicine");
-        btnCreateAccounts.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateMedicine.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        btnCreateMedicine.setText("Request new medicine");
+        btnCreateMedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountsActionPerformed(evt);
+                btnCreateMedicineActionPerformed(evt);
             }
         });
 
@@ -143,8 +149,8 @@ public class doctorhome extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
             .addComponent(btnMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnDeleteAccounts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnCreateAccounts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnShowPatientHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCreateMedicine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,9 +159,9 @@ public class doctorhome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDeleteAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnShowPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCreateAccounts, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnCreateMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         txtAddress.setEditable(false);
@@ -256,9 +262,9 @@ public class doctorhome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    // Logs the user out of the system.
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here:   
         this.setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
@@ -267,29 +273,33 @@ public class doctorhome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    // Opens the window that displays the messages.
     private void btnMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMessagesActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new doctormessages().setVisible(true);
     }//GEN-LAST:event_btnMessagesActionPerformed
 
-    private void btnCreateAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountsActionPerformed
+    // Takes the user to the form that allows the creation of new medicines.
+    private void btnCreateMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateMedicineActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new doctorcreatemedicine().setVisible(true);
-    }//GEN-LAST:event_btnCreateAccountsActionPerformed
+    }//GEN-LAST:event_btnCreateMedicineActionPerformed
 
+    // Opens the form that displays all of that doctor's appointments.
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new doctorappointments().setVisible(true);
     }//GEN-LAST:event_btnAppointmentsActionPerformed
 
-    private void btnDeleteAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountsActionPerformed
+    // Takes the user to the form that displays every patient history.
+    private void btnShowPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowPatientHistoryActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new doctorpatientmedicalhistory().setVisible(true);
-    }//GEN-LAST:event_btnDeleteAccountsActionPerformed
+    }//GEN-LAST:event_btnShowPatientHistoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,9 +328,6 @@ public class doctorhome extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -333,10 +340,10 @@ public class doctorhome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppointments;
-    private javax.swing.JButton btnCreateAccounts;
-    private javax.swing.JButton btnDeleteAccounts;
+    private javax.swing.JButton btnCreateMedicine;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnMessages;
+    private javax.swing.JButton btnShowPatientHistory;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

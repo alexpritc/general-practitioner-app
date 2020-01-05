@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.adminsystem;
+
 import accounts.*;
 import guis.alert;
 import guis.login;
@@ -20,6 +23,8 @@ public class adminhome extends javax.swing.JFrame {
     /**
      * Creates new form patienthome
      */
+    // Puts the users details on screen to show the admin that they have
+    // logged into the correct account.
     public adminhome() {
         initComponents();
         
@@ -246,9 +251,9 @@ public class adminhome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    // Logs the user out and requires an ID/Password to log back in.
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-        
         this.setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
@@ -257,18 +262,21 @@ public class adminhome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    // Takes the admin to a window where they can create accounts.
     private void btnCreateAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountsActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new admincreateaccount().setVisible(true);
     }//GEN-LAST:event_btnCreateAccountsActionPerformed
 
+    // Takes the admin to a window where they can delete accounts.
     private void btnDeleteAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAccountsActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new adminremoveaccounts().setVisible(true);
     }//GEN-LAST:event_btnDeleteAccountsActionPerformed
 
+    // Takes the admin to a window where they can communicate with doctors.
     private void btnContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);

@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.doctorsystem;
-import accounts.*;
-import guis.alert;
-import guis.login;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.appointment;
 import other.data;
 import other.medicine;
-import other.notification;
 import other.prescription;
 
 /**
@@ -25,7 +24,7 @@ public class doctorpatientappointment extends javax.swing.JFrame {
     public static appointment appointment;
     
     /**
-     * Creates new form patienthome
+     * Creates new form doctorpatientappointment
      */
     public doctorpatientappointment() {
         initComponents();
@@ -207,13 +206,15 @@ public class doctorpatientappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNotesActionPerformed
 
+    // Takes the doctor back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        
         this.setVisible(false);
         new doctorhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    // Updates the appointment consultation information (notes)
+    // and can create a prescription.
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
        
@@ -290,20 +291,6 @@ public class doctorpatientappointment extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(doctorpatientappointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

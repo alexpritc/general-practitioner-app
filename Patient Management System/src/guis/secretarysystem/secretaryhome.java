@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.secretarysystem;
+
 import accounts.*;
 import guis.alert;
 import guis.login;
@@ -18,8 +21,10 @@ public class secretaryhome extends javax.swing.JFrame {
     public static secretary sec;
     
     /**
-     * Creates new form patienthome
+     * Creates new form secretaryhome
      */
+    // Displays the users information so that they know they have logged into
+    // the correct account.
     public secretaryhome() {
         initComponents();
         
@@ -60,7 +65,7 @@ public class secretaryhome extends javax.swing.JFrame {
         btnAppointments = new javax.swing.JButton();
         btnManagePatients = new javax.swing.JButton();
         btnMedicine = new javax.swing.JButton();
-        btnMedicine1 = new javax.swing.JButton();
+        btnPrescriptions = new javax.swing.JButton();
         txtAddress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,11 +136,11 @@ public class secretaryhome extends javax.swing.JFrame {
             }
         });
 
-        btnMedicine1.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        btnMedicine1.setText("Print prescriptions");
-        btnMedicine1.addActionListener(new java.awt.event.ActionListener() {
+        btnPrescriptions.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
+        btnPrescriptions.setText("Print prescriptions");
+        btnPrescriptions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMedicine1ActionPerformed(evt);
+                btnPrescriptionsActionPerformed(evt);
             }
         });
 
@@ -146,7 +151,7 @@ public class secretaryhome extends javax.swing.JFrame {
             .addComponent(btnAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnManagePatients, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
             .addComponent(btnMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnMedicine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPrescriptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +162,7 @@ public class secretaryhome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnMedicine1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPrescriptions, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9))
         );
 
@@ -258,9 +263,9 @@ public class secretaryhome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    // Logs the user out.
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        // TODO add your handling code here:
-        
+        // TODO add your handling code here: 
         this.setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
@@ -269,30 +274,33 @@ public class secretaryhome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
+    // Displays the form where secretaries can manage patient accounts.
     private void btnManagePatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePatientsActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new secretarymanagepatients().setVisible(true);
     }//GEN-LAST:event_btnManagePatientsActionPerformed
 
+    // Displays the form where they can manage medicine stock.
     private void btnMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicineActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new secretarymedicinestock().setVisible(true);
     }//GEN-LAST:event_btnMedicineActionPerformed
 
+    // Displays the form where they can manage appointments.
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new secretarymanageappointments().setVisible(true);
     }//GEN-LAST:event_btnAppointmentsActionPerformed
 
-    private void btnMedicine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicine1ActionPerformed
+    // Displays the form where they can manage prescriptions.
+    private void btnPrescriptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrescriptionsActionPerformed
         // TODO add your handling code here:
-        
         this.setVisible(false);
         new secretaryprescriptions().setVisible(true);
-    }//GEN-LAST:event_btnMedicine1ActionPerformed
+    }//GEN-LAST:event_btnPrescriptionsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,13 +329,6 @@ public class secretaryhome extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -343,7 +344,7 @@ public class secretaryhome extends javax.swing.JFrame {
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnManagePatients;
     private javax.swing.JButton btnMedicine;
-    private javax.swing.JButton btnMedicine1;
+    private javax.swing.JButton btnPrescriptions;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Imports and packages.
 package guis;
 
 import guis.adminsystem.adminhome;
@@ -231,13 +233,15 @@ public class createaccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to the login screen.
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         // TODO add your handling code here:
-        
         this.setVisible(false);
         new login().setVisible(true);
     }//GEN-LAST:event_btnLogInActionPerformed
 
+    // There are two types of accounts that can be created in this
+    // manner.
     private void cmboxAccountTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmboxAccountTypeItemStateChanged
         // TODO add your handling code here:
           
@@ -261,6 +265,8 @@ public class createaccount extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmboxAccountTypeItemStateChanged
 
+    // Creates an administrator acocunt or sends a patient account request
+    // to all secretaries.
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
         

@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.secretarysystem;
 
-import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.appointment;
 import other.data;
-import other.notification;
 
 /**
  *
@@ -20,8 +20,9 @@ import other.notification;
 public class secretarymanageappointments extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form secretarymanageappointments.
      */
+    // Displays all appointments.
     public secretarymanageappointments() {
         initComponents();
         
@@ -255,9 +256,9 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new secretaryhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -278,6 +279,8 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
 
+    // Removes an appointment request from that data and adds it to the actual
+    // appointments data.
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here
         if (!lstAppointments.isSelectionEmpty()){
@@ -343,6 +346,7 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnApproveActionPerformed
 
+    // Updates on screen information to that of the selected appointment.
     private void lstAppointmentsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstAppointmentsValueChanged
         // TODO add your handling code here:
         int index = lstAppointments.getSelectedIndex();
@@ -365,6 +369,7 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lstAppointmentsValueChanged
 
+    // Displays the form where secretaries can create new appointments.
     private void btnCreateNewAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewAppointmentActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -396,20 +401,6 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(secretarymanageappointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

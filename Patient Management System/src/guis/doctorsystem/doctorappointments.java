@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.doctorsystem;
 
-import accounts.*;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import other.appointment;
@@ -18,8 +19,9 @@ import other.data;
 public class doctorappointments extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form doctorappointments
      */
+    // Fills the form with approprate data.
     public doctorappointments() {
         initComponents();
 
@@ -150,13 +152,15 @@ public class doctorappointments extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new doctorhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    // If an appointment is selected, it will take the doctor a window with more
+    // specific consolutation info on that appointment.
     private void btnInspectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInspectActionPerformed
         // TODO add your handling code here:
         
@@ -177,6 +181,7 @@ public class doctorappointments extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnInspectActionPerformed
 
+    // Will take the doctor to a window where they can request new appointments.
     private void btnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestAppointmentActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -208,12 +213,6 @@ public class doctorappointments extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(doctorappointments.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

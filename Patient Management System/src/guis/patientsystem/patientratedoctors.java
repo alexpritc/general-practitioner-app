@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.patientsystem;
 
 import accounts.*;
-import guis.createaccount;
-import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,8 +21,9 @@ import other.notification;
 public class patientratedoctors extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form patientratedoctors.
      */
+    // Displays all of the doctors.
     public patientratedoctors() {
         initComponents();
         
@@ -275,9 +276,9 @@ public class patientratedoctors extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the patient back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new patienthome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -290,6 +291,7 @@ public class patientratedoctors extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    // Rates a doctor and saves this rating.
     private void btnRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRateActionPerformed
         // TODO add your handling code here
         if (!lstDoctors.isSelectionEmpty()){
@@ -383,6 +385,7 @@ public class patientratedoctors extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRateActionPerformed
 
+    // Updates the on screen information to that of the selected doctor.
     private void lstDoctorsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstDoctorsValueChanged
         // TODO add your handling code here:
         int index = lstDoctors.getSelectedIndex();
@@ -452,36 +455,6 @@ public class patientratedoctors extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -491,6 +464,7 @@ public class patientratedoctors extends javax.swing.JFrame {
         });
     }
     
+    // A method that returns true if the inputted string is also an integer.
     public static boolean isInteger(String s) {
     try { 
         Integer.parseInt(s); 
@@ -499,7 +473,7 @@ public class patientratedoctors extends javax.swing.JFrame {
     } catch(NullPointerException e) {
         return false;
     }
-    // only got here if we didn't return false
+    // Only got here if we didn't return false.
     return true;
 }
 

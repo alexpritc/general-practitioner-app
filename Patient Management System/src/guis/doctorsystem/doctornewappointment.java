@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.doctorsystem;
 
-import guis.patientsystem.*;
-import accounts.doctor;
 import accounts.patient;
 import java.util.Date;
 import java.util.logging.Level;
@@ -22,7 +22,7 @@ import other.appointment;
 public class doctornewappointment extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form doctornewappointment
      */
     public doctornewappointment() {
         initComponents();
@@ -249,9 +249,9 @@ public class doctornewappointment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the doctor back to the previous window.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new doctorappointments().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -260,6 +260,8 @@ public class doctornewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
+    // Adds an appointment to the appointment-requests data file. This can be
+    // approved by secretaries.
     private void btnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestAppointmentActionPerformed
         // TODO add your handling code here
         
@@ -305,6 +307,7 @@ public class doctornewappointment extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRequestAppointmentActionPerformed
 
+    // Updates the onscreen information of the patient selected.
     private void lstPatientsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPatientsValueChanged
         // TODO add your handling code here:
         int index = lstPatients.getSelectedIndex();
@@ -345,6 +348,7 @@ public class doctornewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimeActionPerformed
 
+    // The time selected is updated if the doctor is available.
     private void lstTimesValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstTimesValueChanged
         // TODO add your handling code here:
         txtTime.setText("");
@@ -354,6 +358,7 @@ public class doctornewappointment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lstTimesValueChanged
 
+    // Selects a date that is in the future, and displays it.
     private void datepickerDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datepickerDateActionPerformed
         // TODO add your handling code here:
         Date currentDate = new Date();
@@ -426,21 +431,7 @@ public class doctornewappointment extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -449,6 +440,9 @@ public class doctornewappointment extends javax.swing.JFrame {
         });
     }
     
+    // Time takes in an integer (i) and depending on it's value, prints
+    // a time in the format "hh:mm". It is a 24 hour clock, between 8am
+    // and 6:30pm (GP opening hours), that allows 15 minutes per appointment.
     private static String time(int i){
         String time = "--:--";
         

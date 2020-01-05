@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// Package and imports.
 package guis.secretarysystem;
 
 import accounts.doctor;
 import accounts.patient;
-import guis.patientsystem.patienthome;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,8 +23,9 @@ import other.prescription;
 public class secretaryprescriptions extends javax.swing.JFrame {
 
     /**
-     * Creates new form patientmedicalhistory
+     * Creates new form secretaryprescriptions.
      */
+    // Displays all of the prescriptions.
     public secretaryprescriptions() {
         initComponents();
         
@@ -275,13 +277,15 @@ public class secretaryprescriptions extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Takes the user back to their homepage.
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         this.setVisible(false);
         new secretaryhome().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    // Updates the onscreen information to display that of the selected
+    // prescription.
     private void lstPrescriptionsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPrescriptionsValueChanged
         // TODO add your handling code here:
         
@@ -334,6 +338,9 @@ public class secretaryprescriptions extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_lstPrescriptionsValueChanged
 
+    // Deducts from the stock of that medicine, if there is enough, otherwise it
+    // prompts the secretary to order more stock and then do it.
+    // If it can be deducted, the prescription is then removed from the data.
     private void btnPrintPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintPrescriptionActionPerformed
         // TODO add your handling code here:
         
@@ -413,20 +420,6 @@ public class secretaryprescriptions extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(secretaryprescriptions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

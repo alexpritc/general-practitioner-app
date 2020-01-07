@@ -7,7 +7,7 @@
 // Package and imports.
 package guis.patientsystem;
 
-import other.data;
+import other.systemdatabase;
 import other.appointment;
 
 /**
@@ -23,10 +23,10 @@ public class patientappointments extends javax.swing.JFrame {
     public patientappointments() {
         initComponents();
 
-        String[] appointmentData = new String[data.appointments.size()];
+        String[] appointmentData = new String[systemdatabase.appointments.size()];
         int i = 0;
         
-        for (appointment a : data.appointments){
+        for (appointment a : systemdatabase.appointments){
             
             if (a.getPatient().equals(patienthome.patient.getId())){
                 String date;
@@ -284,10 +284,10 @@ public class patientappointments extends javax.swing.JFrame {
             txtNotes.setText("");
         }
         else{
-            txtDoctorsName.setText(data.appointments.get(index).getDoctor());   
-            txtDate.setText(data.appointments.get(index).getDate().substring(0, 10));
-            txtTime.setText(data.appointments.get(index).getTime());
-            txtNotes.setText(data.appointments.get(index).getNotes());
+            txtDoctorsName.setText(systemdatabase.appointments.get(index).getDoctor());   
+            txtDate.setText(systemdatabase.appointments.get(index).getDate().substring(0, 10));
+            txtTime.setText(systemdatabase.appointments.get(index).getTime());
+            txtNotes.setText(systemdatabase.appointments.get(index).getNotes());
         }
         
     }//GEN-LAST:event_lstAppointmentsValueChanged

@@ -13,7 +13,7 @@ import guis.alert;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.notification;
 
 /**
@@ -39,7 +39,7 @@ public class patienthome extends javax.swing.JFrame {
         txtAge.setText(patient.getAge());
         txtGender.setText(patient.getGender());
         
-        for (other.notification n : data.notifications){
+        for (other.notification n : systemdatabase.notifications){
             if (n.getUser() == patient){
                 alert.notification = n;
                 new alert().setVisible(true);
@@ -377,20 +377,20 @@ public class patienthome extends javax.swing.JFrame {
     // will all be deleted.
     private void btnAccountTerminationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccountTerminationActionPerformed
         // TODO add your handling code here:
-        if (!data.patientRemovals.contains(patient)){
-                data.patientRemovals.add(patient);
+        if (!systemdatabase.patientRemovals.contains(patient)){
+                systemdatabase.patientRemovals.add(patient);
                 
                 try {
-            data.savePatientRemovals();
+            systemdatabase.savePatientRemovals();
         } catch (Exception ex) {
             Logger.getLogger(patienthome.class.getName()).log(Level.SEVERE, null, ex);
         }
                 
             notification newNotif = new notification(3, "New patient account removal request.");
-            data.notifications.add(newNotif);
+            systemdatabase.notifications.add(newNotif);
             
             try {
-                data.saveNotifications();
+                systemdatabase.saveNotifications();
             } catch (Exception ex) {
                 Logger.getLogger(patienthome.class.getName()).log(Level.SEVERE, null, ex);
             }

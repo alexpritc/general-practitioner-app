@@ -10,7 +10,7 @@ package guis.doctorsystem;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.medicine;
 import other.notification;
 
@@ -212,7 +212,7 @@ public class doctorcreatemedicine extends javax.swing.JFrame {
     }//GEN-LAST:event_txtStockActionPerformed
 
     // If all of the relevent information is inputted, this adds a new medicine
-    // to the data and requests stock from the secretaries.
+    // to the systemdatabase and requests stock from the secretaries.
     private void btnCreateMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateMedicineActionPerformed
         // TODO add your handling code here:
        
@@ -224,20 +224,20 @@ public class doctorcreatemedicine extends javax.swing.JFrame {
         
             medicine tempMedicine = new medicine(name, dosage, 0);
         
-            data.medicines.add(tempMedicine);
+            systemdatabase.medicines.add(tempMedicine);
         
             try {
-                data.saveMedicines();
+                systemdatabase.saveMedicines();
             } catch (Exception ex) {
                 Logger.getLogger(doctorcreatemedicine.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             notification tempNotif = new notification(3, "A Doctor has requested a new medicine be stocked.");
             
-            data.notifications.add(tempNotif);
+            systemdatabase.notifications.add(tempNotif);
             
             try {
-                data.saveNotifications();
+                systemdatabase.saveNotifications();
             } catch (Exception ex) {
                 Logger.getLogger(doctorcreatemedicine.class.getName()).log(Level.SEVERE, null, ex);
             }

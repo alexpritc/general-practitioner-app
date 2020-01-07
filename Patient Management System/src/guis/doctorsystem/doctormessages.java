@@ -7,7 +7,7 @@
 // Package and imports.
 package guis.doctorsystem;
 
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -22,10 +22,10 @@ public class doctormessages extends javax.swing.JFrame {
     public doctormessages() {
         initComponents();
 
-        String[] accountData = new String[data.messages.size()];
+        String[] accountData = new String[systemdatabase.messages.size()];
         int i = 0;
         
-        for (Object o : data.messages){
+        for (Object o : systemdatabase.messages){
             if (o.toString().startsWith(doctorhome.dr.getId())){
                 
                 String message = o.toString().substring(5);

@@ -10,7 +10,7 @@ package accounts;
  *
  * @author Alex Pritchard
  */
-public class user {
+public abstract class user {
     
     // Declaring variables.
     private String name;

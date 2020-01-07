@@ -11,7 +11,7 @@ import java.awt.Color;
 import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import other.data;
+import other.systemdatabase;
 
 
 /**
@@ -191,8 +191,8 @@ public class admincreateaccount extends javax.swing.JFrame {
             // Create a new newPatientRequest.
             String setId;
             
-            int length = data.doctors.size();
-            String id = data.doctors.get(length-1).getId();
+            int length = systemdatabase.doctors.size();
+            String id = systemdatabase.doctors.get(length-1).getId();
             
            String[] newID = new String [2];
            newID = id.split("D", 2);
@@ -216,10 +216,10 @@ public class admincreateaccount extends javax.swing.JFrame {
             doctor tempDr = new doctor(txtName.getText(), 
                     txtSurname.getText(), txtAddress.getText(), setId, 
                     txtPassword.getText(), "0", "0");
-            data.doctors.add(tempDr);
+            systemdatabase.doctors.add(tempDr);
             
             try {
-                data.saveDoctors();
+                systemdatabase.saveDoctors();
             } catch (Exception ex) {
                 Logger.getLogger(admincreateaccount.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -232,8 +232,8 @@ public class admincreateaccount extends javax.swing.JFrame {
             
             String setId;
             
-            int length = data.secretaries.size();
-            String id = data.secretaries.get(length-1).getId();
+            int length = systemdatabase.secretaries.size();
+            String id = systemdatabase.secretaries.get(length-1).getId();
             
            String[] newID = new String [2];
            newID = id.split("S", 2);
@@ -257,10 +257,10 @@ public class admincreateaccount extends javax.swing.JFrame {
             secretary tempSec = new secretary(txtName.getText(), 
                     txtSurname.getText(), txtAddress.getText(), setId, 
                     txtPassword.getText());
-            data.secretaries.add(tempSec);
+            systemdatabase.secretaries.add(tempSec);
             
             try {
-                data.saveSecretaries();
+                systemdatabase.saveSecretaries();
             } catch (Exception ex) {
                 Logger.getLogger(admincreateaccount.class.getName()).log(Level.SEVERE, null, ex);
             }

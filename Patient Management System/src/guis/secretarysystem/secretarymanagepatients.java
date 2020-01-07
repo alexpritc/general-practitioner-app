@@ -10,7 +10,7 @@ package guis.secretarysystem;
 import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -25,10 +25,10 @@ public class secretarymanagepatients extends javax.swing.JFrame {
     public secretarymanagepatients() {
         initComponents();
         
-        String[] patientData = new String[data.patients.size()];
+        String[] patientData = new String[systemdatabase.patients.size()];
         int i = 0;
         
-        for (patient p : data.patients){
+        for (patient p : systemdatabase.patients){
             patientData[i] = p.getId() + ", " + p.getSurname();
             i++;
         }
@@ -332,25 +332,25 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (!lstPatients.isSelectionEmpty()){
-            patient tempPatient = data.patientRemovals.get(lstPatients.getSelectedIndex());
+            patient tempPatient = systemdatabase.patientRemovals.get(lstPatients.getSelectedIndex());
             
-            for (patient p : data.patientRemovals){
+            for (patient p : systemdatabase.patientRemovals){
             if (tempPatient.getId().equals(p.getId())){
-                data.patientRemovals.remove(p);
+                systemdatabase.patientRemovals.remove(p);
                 
                 try {
-                data.savePatientRemovals();
+                systemdatabase.savePatientRemovals();
                 } catch (Exception ex) {
                 Logger.getLogger(secretarymanagepatients.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
-            for (patient p2 : data.patients){
+            for (patient p2 : systemdatabase.patients){
             if (tempPatient.getId().equals(p2.getId())){
-                data.patients.remove(p2);
+                systemdatabase.patients.remove(p2);
                 
                 try {
-                data.savePatients();
+                systemdatabase.savePatients();
                 } catch (Exception ex) {
                 Logger.getLogger(secretarymanagepatients.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -365,10 +365,10 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (!lstPatients.isSelectionEmpty()){
-        patient tempPatient = data.patientRequests.get(lstPatients.getSelectedIndex());
+        patient tempPatient = systemdatabase.patientRequests.get(lstPatients.getSelectedIndex());
         
-         int length = data.patients.size();
-         String id = data.patients.get(length-1).getId();
+         int length = systemdatabase.patients.size();
+         String id = systemdatabase.patients.get(length-1).getId();
             
            String[] newID = new String [2];
            newID = id.split("P", 2);
@@ -390,18 +390,18 @@ public class secretarymanagepatients extends javax.swing.JFrame {
            }
 
             
-            data.patients.add(tempPatient);
+            systemdatabase.patients.add(tempPatient);
             
-            data.patientRequests.remove(data.patientRequests.get(lstPatients.getSelectedIndex()));
+            systemdatabase.patientRequests.remove(systemdatabase.patientRequests.get(lstPatients.getSelectedIndex()));
             
         try {
-            data.savePatients();
+            systemdatabase.savePatients();
         } catch (Exception ex) {
             Logger.getLogger(secretarymanagepatients.class.getName()).log(Level.SEVERE, null, ex);
         }
             
         try {
-            data.savePatientRequests();
+            systemdatabase.savePatientRequests();
         } catch (Exception ex) {
             Logger.getLogger(secretarymanagepatients.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -414,17 +414,17 @@ public class secretarymanagepatients extends javax.swing.JFrame {
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here
         if (!lstPatients.isSelectionEmpty()){
-        patient tempPatient = data.patients.get(lstPatients.getSelectedIndex());
+        patient tempPatient = systemdatabase.patients.get(lstPatients.getSelectedIndex());
             
-        for (patient p : data.patients){
+        for (patient p : systemdatabase.patients){
             if (tempPatient.getId().equals(p.getId())){
-                data.patients.remove(p);
+                systemdatabase.patients.remove(p);
                 return;
             }
         }
            
         try {
-            data.savePatients();
+            systemdatabase.savePatients();
         } catch (Exception ex) {
             Logger.getLogger(secretarymanagepatients.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -442,11 +442,11 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         
         if (cmboxPatients.getSelectedIndex() == 0){
    
-        if (!data.patients.isEmpty()){
-        String[] patientData = new String[data.patients.size()];
+        if (!systemdatabase.patients.isEmpty()){
+        String[] patientData = new String[systemdatabase.patients.size()];
         int i = 0;
         
-        for (patient p : data.patients){
+        for (patient p : systemdatabase.patients){
             patientData[i] = p.getId() + ", " + p.getSurname();
             i++;
         }
@@ -461,11 +461,11 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         }
         else if (cmboxPatients.getSelectedIndex() == 1){
             
-            if (!data.patientRequests.isEmpty()){
-            String[] patientData = new String[data.patientRequests.size()];
+            if (!systemdatabase.patientRequests.isEmpty()){
+            String[] patientData = new String[systemdatabase.patientRequests.size()];
             int i = 0;
         
-            for (patient p : data.patientRequests){
+            for (patient p : systemdatabase.patientRequests){
             patientData[i] = p.getId() + ", " + p.getSurname();
             i++;
             }
@@ -479,11 +479,11 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         }
         else if (cmboxPatients.getSelectedIndex() == 2){
             
-            if (!data.patientRemovals.isEmpty()){
-            String[] patientData = new String[data.patientRemovals.size()];
+            if (!systemdatabase.patientRemovals.isEmpty()){
+            String[] patientData = new String[systemdatabase.patientRemovals.size()];
             int i = 0;
         
-            for (patient p : data.patientRemovals){
+            for (patient p : systemdatabase.patientRemovals){
             patientData[i] = p.getId() + ", " + p.getSurname();
             i++;
         }
@@ -523,36 +523,36 @@ public class secretarymanagepatients extends javax.swing.JFrame {
         btnApproveRemove.setEnabled(false);
         btnRemove.setEnabled(true);
         
-        txtID.setText(data.patients.get(index).getId());
-        txtName.setText(data.patients.get(index).getName() 
-                        + " " + data.patients.get(index).getSurname());
-        txtAddress.setText(data.patients.get(index).getAddress());
-        txtAge.setText(data.patients.get(index).getAge());
-        txtGender.setText(data.patients.get(index).getGender());
+        txtID.setText(systemdatabase.patients.get(index).getId());
+        txtName.setText(systemdatabase.patients.get(index).getName() 
+                        + " " + systemdatabase.patients.get(index).getSurname());
+        txtAddress.setText(systemdatabase.patients.get(index).getAddress());
+        txtAge.setText(systemdatabase.patients.get(index).getAge());
+        txtGender.setText(systemdatabase.patients.get(index).getGender());
         }
         else if (cmboxPatients.getSelectedIndex() == 1){
         btnApproveNew.setEnabled(true);
         btnApproveRemove.setEnabled(false);
         btnRemove.setEnabled(false);
         
-        txtID.setText(data.patientRequests.get(index).getId());
-        txtName.setText(data.patientRequests.get(index).getName() 
-                        + " " + data.patientRequests.get(index).getSurname());
-        txtAddress.setText(data.patientRequests.get(index).getAddress());
-        txtAge.setText(data.patientRequests.get(index).getAge());
-        txtGender.setText(data.patientRequests.get(index).getGender());
+        txtID.setText(systemdatabase.patientRequests.get(index).getId());
+        txtName.setText(systemdatabase.patientRequests.get(index).getName() 
+                        + " " + systemdatabase.patientRequests.get(index).getSurname());
+        txtAddress.setText(systemdatabase.patientRequests.get(index).getAddress());
+        txtAge.setText(systemdatabase.patientRequests.get(index).getAge());
+        txtGender.setText(systemdatabase.patientRequests.get(index).getGender());
         }
         else if (cmboxPatients.getSelectedIndex() == 2){
         btnApproveNew.setEnabled(false);
         btnApproveRemove.setEnabled(true);
         btnRemove.setEnabled(false);
         
-        txtID.setText(data.patientRemovals.get(index).getId());
-        txtName.setText(data.patientRemovals.get(index).getName() 
-                        + " " + data.patientRemovals.get(index).getSurname());
-        txtAddress.setText(data.patientRemovals.get(index).getAddress());
-        txtAge.setText(data.patientRemovals.get(index).getAge());
-        txtGender.setText(data.patientRemovals.get(index).getGender());
+        txtID.setText(systemdatabase.patientRemovals.get(index).getId());
+        txtName.setText(systemdatabase.patientRemovals.get(index).getName() 
+                        + " " + systemdatabase.patientRemovals.get(index).getSurname());
+        txtAddress.setText(systemdatabase.patientRemovals.get(index).getAddress());
+        txtAge.setText(systemdatabase.patientRemovals.get(index).getAge());
+        txtGender.setText(systemdatabase.patientRemovals.get(index).getGender());
         }
         }
     }//GEN-LAST:event_lstPatientsValueChanged

@@ -12,7 +12,7 @@ import accounts.patient;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.medicine;
 import other.prescription;
 
@@ -29,10 +29,10 @@ public class secretaryprescriptions extends javax.swing.JFrame {
     public secretaryprescriptions() {
         initComponents();
         
-        String[] prescriptionData =  new String[data.prescriptions.size()];
+        String[] prescriptionData =  new String[systemdatabase.prescriptions.size()];
         int i = 0;
         
-        for(prescription p : data.prescriptions){
+        for(prescription p : systemdatabase.prescriptions){
             prescriptionData[i] = p.getPatientId() + " - " + p.getMedicine();
             i++;
         }
@@ -307,8 +307,8 @@ public class secretaryprescriptions extends javax.swing.JFrame {
         }
         else{
 
-            for (patient p : data.patients){
-                if (p.getId().equals(data.prescriptions.get
+            for (patient p : systemdatabase.patients){
+                if (p.getId().equals(systemdatabase.prescriptions.get
                                     (index).getPatientId())){
                     txtPatientName.setText(p.getName() + " " + p.getSurname());
                     txtAddress.setText(p.getAddress());
@@ -317,18 +317,18 @@ public class secretaryprescriptions extends javax.swing.JFrame {
                 }
             }
             
-            for (doctor d : data.doctors){
-                if (d.getId().equals(data.prescriptions.get
+            for (doctor d : systemdatabase.doctors){
+                if (d.getId().equals(systemdatabase.prescriptions.get
                                     (index).getDoctorId())){
                     txtDoctorName.setText("Dr " + d.getName().charAt(0) + ". " + d.getSurname());
                     txtDoctorAddress.setText(d.getAddress());
                 }
             }
             
-            txtMedicine.setText(data.prescriptions.get(index).getMedicine());
-            txtQuantity.setText(data.prescriptions.get(index).getQuantity());
+            txtMedicine.setText(systemdatabase.prescriptions.get(index).getMedicine());
+            txtQuantity.setText(systemdatabase.prescriptions.get(index).getQuantity());
             
-            for (medicine m : data.medicines){
+            for (medicine m : systemdatabase.medicines){
                 if (m.getName().equals(txtMedicine.getText())){
                     
                     txtDosage.setText(m.getDosage());
@@ -340,7 +340,7 @@ public class secretaryprescriptions extends javax.swing.JFrame {
 
     // Deducts from the stock of that medicine, if there is enough, otherwise it
     // prompts the secretary to order more stock and then do it.
-    // If it can be deducted, the prescription is then removed from the data.
+    // If it can be deducted, the prescription is then removed from the systemdatabase.
     private void btnPrintPrescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintPrescriptionActionPerformed
         // TODO add your handling code here:
         
@@ -353,7 +353,7 @@ public class secretaryprescriptions extends javax.swing.JFrame {
         else{
             medicine tempMed = new medicine();
             
-            for (medicine m : data.medicines){
+            for (medicine m : systemdatabase.medicines){
                 if (m.getName().equals(txtMedicine.getText())){
                     tempMed = m;
                 }
@@ -363,22 +363,22 @@ public class secretaryprescriptions extends javax.swing.JFrame {
                 
                 tempMed.setStock(tempMed.getStock() - Integer.parseInt(txtQuantity.getText()));
                 
-                for (medicine m : data.medicines){
+                for (medicine m : systemdatabase.medicines){
                     if (m.getName().equals(txtMedicine.getText())){
                         m = tempMed;
                     }
                 }
                 
                 try {
-                    data.saveMedicines();
+                    systemdatabase.saveMedicines();
                 } catch (Exception ex) {
                     Logger.getLogger(secretaryprescriptions.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                data.prescriptions.remove(data.prescriptions.get(lstPrescriptions.getSelectedIndex()));
+                systemdatabase.prescriptions.remove(systemdatabase.prescriptions.get(lstPrescriptions.getSelectedIndex()));
                 
                 try {
-                    data.savePrescriptions();
+                    systemdatabase.savePrescriptions();
                 } catch (Exception ex) {
                     Logger.getLogger(secretaryprescriptions.class.getName()).log(Level.SEVERE, null, ex);
                 }

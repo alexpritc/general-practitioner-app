@@ -10,7 +10,7 @@ package guis.secretarysystem;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.medicine;
 
 /**
@@ -26,10 +26,10 @@ public class secretarymedicinestock extends javax.swing.JFrame {
     public secretarymedicinestock() {
         initComponents();
         
-        String[] medicineData = new String[data.medicines.size()];
+        String[] medicineData = new String[systemdatabase.medicines.size()];
         int i = 0;
         
-        for (medicine m : data.medicines){
+        for (medicine m : systemdatabase.medicines){
             medicineData[i] = m.getName();
             i++;
         }
@@ -260,17 +260,17 @@ public class secretarymedicinestock extends javax.swing.JFrame {
             if (!txtOrder.getText().isEmpty()){
                 
                 if (isInteger(txtOrder.getText())){
-                    data.medicines.get(lstMedicine.getSelectedIndex()).setStock
+                    systemdatabase.medicines.get(lstMedicine.getSelectedIndex()).setStock
                                         (Integer.parseInt(txtOrder.getText()) 
-                                        + data.medicines.get(lstMedicine.getSelectedIndex()).getStock());
+                                        + systemdatabase.medicines.get(lstMedicine.getSelectedIndex()).getStock());
                     
                     try {
-                        data.saveMedicines();
+                        systemdatabase.saveMedicines();
                     } catch (Exception ex) {
                         Logger.getLogger(secretarymedicinestock.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
-                    txtStock.setText(Integer.toString(data.medicines.get(lstMedicine.getSelectedIndex()).getStock()));
+                    txtStock.setText(Integer.toString(systemdatabase.medicines.get(lstMedicine.getSelectedIndex()).getStock()));
                 }
                 else{
                     JOptionPane.showMessageDialog(null, 
@@ -309,8 +309,8 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         else{
         btnOrder.setEnabled(true);
         
-        txtDosage.setText(data.medicines.get(index).getDosage());
-        txtMedicine.setText(data.medicines.get(index).getName());
+        txtDosage.setText(systemdatabase.medicines.get(index).getDosage());
+        txtMedicine.setText(systemdatabase.medicines.get(index).getName());
         txtStock.setText("0");
         }
     }//GEN-LAST:event_lstMedicineValueChanged

@@ -12,7 +12,7 @@ import java.awt.Color;
 import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import other.data;
+import other.systemdatabase;
 import other.notification;
 
 
@@ -278,19 +278,19 @@ public class createaccount extends javax.swing.JFrame {
                     txtSurname.getText(), txtAddress.getText(), ID, 
                     txtPassword.getText(), txtAge.getText(), cmboxGender.getSelectedItem().toString());
             
-            data.patientRequests.add(tempPatient);
+            systemdatabase.patientRequests.add(tempPatient);
             
             try {
-                data.savePatientRequests();
+                systemdatabase.savePatientRequests();
             } catch (Exception ex) {
                 Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             notification newNotif = new notification(3, "New patient account creation request.");
-            data.notifications.add(newNotif);
+            systemdatabase.notifications.add(newNotif);
             
             try {
-                data.saveNotifications();
+                systemdatabase.saveNotifications();
             } catch (Exception ex) {
                 Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -303,8 +303,8 @@ public class createaccount extends javax.swing.JFrame {
            
            String setId;
            
-           int length = data.administrators.size();
-           String id = data.administrators.get(length-1).getId();
+           int length = systemdatabase.administrators.size();
+           String id = systemdatabase.administrators.get(length-1).getId();
             
            String[] newID = new String [2];
            newID = id.split("A", 2);
@@ -328,10 +328,10 @@ public class createaccount extends javax.swing.JFrame {
             administrator tempAdmin = new administrator(txtName.getText(), 
                     txtSurname.getText(), txtAddress.getText(), setId, 
                     txtPassword.getText());
-            data.administrators.add(tempAdmin);
+            systemdatabase.administrators.add(tempAdmin);
             
             try {
-                data.saveAdministrators();
+                systemdatabase.saveAdministrators();
             } catch (Exception ex) {
                 Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
             }

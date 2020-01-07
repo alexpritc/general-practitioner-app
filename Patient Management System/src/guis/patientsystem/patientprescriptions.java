@@ -8,7 +8,7 @@
 package guis.patientsystem;
 
 import accounts.doctor;
-import other.data;
+import other.systemdatabase;
 import other.medicine;
 import other.prescription;
 
@@ -31,10 +31,10 @@ public class patientprescriptions extends javax.swing.JFrame {
         txtAge.setText(patienthome.patient.getAge());
         txtGender.setText(patienthome.patient.getGender());
         
-        String[] prescriptionData =  new String[data.prescriptions.size()];
+        String[] prescriptionData =  new String[systemdatabase.prescriptions.size()];
         int i = 0;
         
-        for(prescription p : data.prescriptions){
+        for(prescription p : systemdatabase.prescriptions){
             if (p.getPatientId().equals(patienthome.patient.getId())){
                 prescriptionData[i] = p.getMedicine() + ", x" + p.getQuantity();
             }
@@ -318,20 +318,20 @@ public class patientprescriptions extends javax.swing.JFrame {
         }
         else{
         
-            for (doctor d : data.doctors){
-                if (d.getId().equals(data.prescriptions.get
+            for (doctor d : systemdatabase.doctors){
+                if (d.getId().equals(systemdatabase.prescriptions.get
                                     (index).getDoctorId())){
                     txtDoctorName.setText("Dr " + d.getName().charAt(0) + ". " + d.getSurname());
                     txtDoctorAddress.setText(d.getAddress());
                 }
             }
             
-            txtNotes.setText(data.prescriptions.get(index).getAppointmentNotes());
+            txtNotes.setText(systemdatabase.prescriptions.get(index).getAppointmentNotes());
             
-            txtMedicine.setText(data.prescriptions.get(index).getMedicine());
-            txtQuantity.setText(data.prescriptions.get(index).getQuantity());
+            txtMedicine.setText(systemdatabase.prescriptions.get(index).getMedicine());
+            txtQuantity.setText(systemdatabase.prescriptions.get(index).getQuantity());
             
-            for (medicine m : data.medicines){
+            for (medicine m : systemdatabase.medicines){
                 if (m.getName().equals(txtMedicine.getText())){
                     
                     txtDosage.setText(m.getDosage());

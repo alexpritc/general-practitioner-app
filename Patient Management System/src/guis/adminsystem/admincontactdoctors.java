@@ -11,7 +11,7 @@ import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.notification;
 
 /**
@@ -28,10 +28,10 @@ public class admincontactdoctors extends javax.swing.JFrame {
     public admincontactdoctors() {
         initComponents();
 
-        String[] accountData = new String[data.doctors.size()];
+        String[] accountData = new String[systemdatabase.doctors.size()];
         int i = 0;
         
-        for (doctor d : data.doctors){
+        for (doctor d : systemdatabase.doctors){
             accountData[i] = d.getId() + ". " + d.getSurname();
             i++;
         }
@@ -318,27 +318,27 @@ public class admincontactdoctors extends javax.swing.JFrame {
             }
             else{
                 if (lstComments.isSelectionEmpty()){
-                    message = data.doctors.get(lstDoctors.getSelectedIndex()).getId()
+                    message = systemdatabase.doctors.get(lstDoctors.getSelectedIndex()).getId()
                             + " " + txtMessage.getText();
                 }
                 else{
-                    message = data.doctors.get(lstDoctors.getSelectedIndex()).getId()
+                    message = systemdatabase.doctors.get(lstDoctors.getSelectedIndex()).getId()
                             + " '" + lstComments.getSelectedValue() + "': " + txtMessage.getText();
                 }
                 
                 try {
-                    data.saveMessage(message);
+                    systemdatabase.saveMessage(message);
                 } catch (Exception ex) {
                     Logger.getLogger(admincontactdoctors.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                notification tempNotif = new notification(data.doctors.get(lstDoctors.getSelectedIndex()), 
+                notification tempNotif = new notification(systemdatabase.doctors.get(lstDoctors.getSelectedIndex()), 
                         "You have a new message from an Admin.");
                 
-                data.notifications.add(tempNotif);
+                systemdatabase.notifications.add(tempNotif);
                 
                 try {
-                    data.saveNotifications();
+                    systemdatabase.saveNotifications();
                 } catch (Exception ex) {
                     Logger.getLogger(admincontactdoctors.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -368,13 +368,13 @@ public class admincontactdoctors extends javax.swing.JFrame {
         btnSend.setEnabled(false);
         }
         else{
-        txtID.setText(data.doctors.get(index).getId());
-        txtName.setText(data.doctors.get(index).getName() + " " + data.doctors.get(index).getSurname());
+        txtID.setText(systemdatabase.doctors.get(index).getId());
+        txtName.setText(systemdatabase.doctors.get(index).getName() + " " + systemdatabase.doctors.get(index).getSurname());
         
-        if (!"0".equals(data.doctors.get(index).getRating())){
-            float total = Float.parseFloat(data.doctors.get(
+        if (!"0".equals(systemdatabase.doctors.get(index).getRating())){
+            float total = Float.parseFloat(systemdatabase.doctors.get(
                                 lstDoctors.getSelectedIndex()).getRating()) 
-                                / Float.parseFloat(data.doctors.get(
+                                / Float.parseFloat(systemdatabase.doctors.get(
                                 lstDoctors.getSelectedIndex()).getNumberOfRates());
             txtRating.setText(Float.toString(total));
         }
@@ -382,24 +382,24 @@ public class admincontactdoctors extends javax.swing.JFrame {
         txtRating.setText("0");
         }
 
-        txtNumberOfRates.setText(data.doctors.get(index).getNumberOfRates());
+        txtNumberOfRates.setText(systemdatabase.doctors.get(index).getNumberOfRates());
 
         btnSend.setEnabled(true);
         
         
-        if (data.feedback.isEmpty()){
+        if (systemdatabase.feedback.isEmpty()){
             String[] commentData = new String[1];
             commentData[0] = "No entries.";
             lstComments.setListData(commentData);
         }
         else{
             
-            String[] commentData = new String[data.feedback.size()];
+            String[] commentData = new String[systemdatabase.feedback.size()];
             int i = 0;
-            for (Object o : data.feedback){
+            for (Object o : systemdatabase.feedback){
                 String comment = o.toString();
                 
-                if (comment.startsWith(data.doctors.get(index).getId())){
+                if (comment.startsWith(systemdatabase.doctors.get(index).getId())){
                     String newComment = comment.substring(5);
                     commentData[i] = newComment;
                     i++;

@@ -20,8 +20,8 @@ import accounts.*;
  * @author Alex Pritchard
  */
 // Data class is used to read/write to .txt files and store 
-// the data in arrayLists.
-public class data {
+// the systemdatabase in arrayLists.
+public class systemdatabase {
     
     // Declaring variables.
     public static List<patient> patients = new ArrayList<>();

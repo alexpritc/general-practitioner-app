@@ -8,7 +8,7 @@
 package guis.patientsystem;
 
 import other.appointment;
-import other.data;
+import other.systemdatabase;
 import other.prescription;
 
 /**
@@ -24,12 +24,12 @@ public class patientmedicalhistory extends javax.swing.JFrame {
     public patientmedicalhistory() {
         initComponents();
         
-        int size = data.appointments.size() + data.prescriptions.size();
+        int size = systemdatabase.appointments.size() + systemdatabase.prescriptions.size();
         String[] medicalHistory = new String[size];
                 
         int i = 0;
         
-        for (appointment a : data.appointments){
+        for (appointment a : systemdatabase.appointments){
             if (a.getPatient().equals(patienthome.patient.getId())){
                 medicalHistory[i] = "Appointment: " + a.getDate().substring(0,10) + " at "
                         + a.getTime() + ". Notes: " + a.getNotes() + ". Doctor ID: " + a.getDoctor();
@@ -37,7 +37,7 @@ public class patientmedicalhistory extends javax.swing.JFrame {
             i++;
         }
         
-        for (prescription p : data.prescriptions){
+        for (prescription p : systemdatabase.prescriptions){
             if (p.getPatientId().equals(patienthome.patient.getId())){
                 medicalHistory[i] = "Prescription: " + p.getMedicine() + " x" +
                         p.getQuantity() + ". Notes: " + p.getAppointmentNotes() + 

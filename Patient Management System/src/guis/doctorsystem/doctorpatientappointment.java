@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.appointment;
-import other.data;
+import other.systemdatabase;
 import other.medicine;
 import other.prescription;
 
@@ -34,7 +34,7 @@ public class doctorpatientappointment extends javax.swing.JFrame {
         
         cmboxPrescriptions.addItem("None");
         
-        for (medicine m : data.medicines){
+        for (medicine m : systemdatabase.medicines){
             cmboxPrescriptions.addItem(m.getName());
         }
     }
@@ -226,7 +226,7 @@ public class doctorpatientappointment extends javax.swing.JFrame {
             appointment.setNotes(notes);
             
             try {
-                data.saveAppointments();
+                systemdatabase.saveAppointments();
             } catch (Exception ex) {
                 Logger.getLogger(doctorpatientappointment.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -240,10 +240,10 @@ public class doctorpatientappointment extends javax.swing.JFrame {
                     doctorhome.dr.getId(), cmboxPrescriptions.getSelectedItem().toString(),
                              txtQuantity.getText(), notes);
                 
-                    data.prescriptions.add(tempPrescription);
+                    systemdatabase.prescriptions.add(tempPrescription);
                 
                     try {
-                        data.savePrescriptions();
+                        systemdatabase.savePrescriptions();
                     } catch (Exception ex) {
                         Logger.getLogger(doctorpatientappointment.class.getName()).log(Level.SEVERE, null, ex);
                     }

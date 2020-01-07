@@ -11,7 +11,7 @@ import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.notification;
 
 /**
@@ -27,10 +27,10 @@ public class patientratedoctors extends javax.swing.JFrame {
     public patientratedoctors() {
         initComponents();
         
-        String[] accountData = new String[data.doctors.size()];
+        String[] accountData = new String[systemdatabase.doctors.size()];
         int i = 0;
         
-        for (doctor d : data.doctors){
+        for (doctor d : systemdatabase.doctors){
             String name = d.getName();
             accountData[i] = "Dr " + name.charAt(0) + ". " + d.getSurname();
             i++;
@@ -303,19 +303,19 @@ public class patientratedoctors extends javax.swing.JFrame {
                     int newRating = Integer.parseInt(txtNewRating.getText());
                     if (newRating >= 0 && newRating <= 100){
                         
-                        String numberOfRates = data.doctors.get((lstDoctors.getSelectedIndex())).getNumberOfRates();
+                        String numberOfRates = systemdatabase.doctors.get((lstDoctors.getSelectedIndex())).getNumberOfRates();
                         int noOfRates = Integer.parseInt(numberOfRates);
                         noOfRates++;
                         numberOfRates = Integer.toString(noOfRates);
                 
-                        data.doctors.get((lstDoctors.getSelectedIndex())).setNumberOfRates(numberOfRates);
+                        systemdatabase.doctors.get((lstDoctors.getSelectedIndex())).setNumberOfRates(numberOfRates);
                 
-                        String rating = data.doctors.get((lstDoctors.getSelectedIndex())).getRating();
+                        String rating = systemdatabase.doctors.get((lstDoctors.getSelectedIndex())).getRating();
                         float fRating = Float.parseFloat(rating);
                         fRating = fRating + newRating;
                         rating = Float.toString(fRating);
               
-                        data.doctors.get((lstDoctors.getSelectedIndex())).setRating(rating);
+                        systemdatabase.doctors.get((lstDoctors.getSelectedIndex())).setRating(rating);
                         
                         String comment = txtComment.getText();
                         char[] splitComment = new char[comment.length()];
@@ -325,38 +325,38 @@ public class patientratedoctors extends javax.swing.JFrame {
                                 splitComment[i] = comment.charAt(i);
                             }
                         }
-                        comment = data.doctors.get((lstDoctors.getSelectedIndex())).getId();
+                        comment = systemdatabase.doctors.get((lstDoctors.getSelectedIndex())).getId();
                         
                         for (char c : splitComment){
                             comment += c;
                         }
                         
                         try {
-                            data.saveFeedback(comment);
+                            systemdatabase.saveFeedback(comment);
                         } catch (Exception ex) {
                             Logger.getLogger(patientratedoctors.class.getName()).log(Level.SEVERE, null, ex);
                         }
                
                         try {
-                            data.saveDoctors();
+                            systemdatabase.saveDoctors();
                         } catch (Exception ex) {
                             Logger.getLogger(patientratedoctors.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
                         txtComment.setText("");
                         txtNewRating.setText("");
-                        float total = Float.parseFloat(data.doctors.get(
+                        float total = Float.parseFloat(systemdatabase.doctors.get(
                                 lstDoctors.getSelectedIndex()).getRating()) 
-                                / Float.parseFloat(data.doctors.get(
+                                / Float.parseFloat(systemdatabase.doctors.get(
                                 lstDoctors.getSelectedIndex()).getNumberOfRates());
                         txtRating.setText(Float.toString(total));
-                        txtNumberOfRates.setText(data.doctors.get(lstDoctors.getSelectedIndex()).getNumberOfRates());
+                        txtNumberOfRates.setText(systemdatabase.doctors.get(lstDoctors.getSelectedIndex()).getNumberOfRates());
                         
                         notification newNotif = new notification(1, "New patient feedback.");
-                        data.notifications.add(newNotif);
+                        systemdatabase.notifications.add(newNotif);
             
                         try {
-                        data.saveNotifications();
+                        systemdatabase.saveNotifications();
                         } catch (Exception ex) {
                             Logger.getLogger(patientratedoctors.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -401,19 +401,19 @@ public class patientratedoctors extends javax.swing.JFrame {
         btnRate.setEnabled(false);
         }
         else{
-        txtID.setText(data.doctors.get(index).getId());
-        txtName.setText(data.doctors.get(index).getName() + " " + data.doctors.get(index).getSurname());
-        if (!"0".equals(data.doctors.get(index).getRating())){
-            float total = Float.parseFloat(data.doctors.get(
+        txtID.setText(systemdatabase.doctors.get(index).getId());
+        txtName.setText(systemdatabase.doctors.get(index).getName() + " " + systemdatabase.doctors.get(index).getSurname());
+        if (!"0".equals(systemdatabase.doctors.get(index).getRating())){
+            float total = Float.parseFloat(systemdatabase.doctors.get(
                                 lstDoctors.getSelectedIndex()).getRating()) 
-                                / Float.parseFloat(data.doctors.get(
+                                / Float.parseFloat(systemdatabase.doctors.get(
                                 lstDoctors.getSelectedIndex()).getNumberOfRates());
             txtRating.setText(Float.toString(total));
         }
         else{
         txtRating.setText("0");
         }
-        txtNumberOfRates.setText(data.doctors.get(index).getNumberOfRates());
+        txtNumberOfRates.setText(systemdatabase.doctors.get(index).getNumberOfRates());
 
         btnRate.setEnabled(true);
         }

@@ -9,7 +9,7 @@ package guis;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -99,10 +99,10 @@ public class alert extends javax.swing.JFrame {
     // so that it is not repeated.
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
-        data.notifications.remove(notification);
+        systemdatabase.notifications.remove(notification);
         
         try {
-            data.saveNotifications();
+            systemdatabase.saveNotifications();
         } catch (Exception ex) {
             Logger.getLogger(alert.class.getName()).log(Level.SEVERE, null, ex);
         }

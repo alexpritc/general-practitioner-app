@@ -10,7 +10,7 @@ package guis.doctorsystem;
 import accounts.*;
 import guis.alert;
 import guis.login;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -34,7 +34,7 @@ public class doctorhome extends javax.swing.JFrame {
         txtName.setText(dr.getName() + " " + dr.getSurname());
         txtAddress.setText(dr.getAddress());
         
-        for (other.notification n : data.notifications){
+        for (other.notification n : systemdatabase.notifications){
             if (n.getUser() == dr){
                 alert.notification = n;
                 new alert().setVisible(true);

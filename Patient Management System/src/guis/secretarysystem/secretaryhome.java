@@ -10,7 +10,7 @@ package guis.secretarysystem;
 import accounts.*;
 import guis.alert;
 import guis.login;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -33,7 +33,7 @@ public class secretaryhome extends javax.swing.JFrame {
         txtName.setText(sec.getName() + " " + sec.getSurname());
         txtAddress.setText(sec.getAddress());
         
-        for (other.notification n : data.notifications){
+        for (other.notification n : systemdatabase.notifications){
             if (n.getUser() == sec || n.getAllOneType() == 3){
                 
                 alert.notification = n;

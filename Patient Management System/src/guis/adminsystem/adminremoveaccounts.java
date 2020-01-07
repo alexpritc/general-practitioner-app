@@ -10,7 +10,7 @@ package guis.adminsystem;
 import accounts.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -26,14 +26,14 @@ public class adminremoveaccounts extends javax.swing.JFrame {
     public adminremoveaccounts() {
         initComponents();
         
-        String[] accountData = new String[data.doctors.size() + data.secretaries.size()];
+        String[] accountData = new String[systemdatabase.doctors.size() + systemdatabase.secretaries.size()];
         int i = 0;
         
-        for (doctor d : data.doctors){
+        for (doctor d : systemdatabase.doctors){
             accountData[i] = d.getId() + ", " + d.getSurname();
             i++;
         }
-        for (secretary s : data.secretaries){
+        for (secretary s : systemdatabase.secretaries){
             accountData[i] = s.getId() + ", " + s.getSurname();
             i++;
         }
@@ -250,39 +250,39 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
-    // Deletes the account from the data and writes the new data to the file.
+    // Deletes the account from the systemdatabase and writes the new systemdatabase to the file.
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here
         if (!lstAccounts.isSelectionEmpty()){
             
             if (lstAccounts.getSelectedValue().startsWith("D")){
-            doctor tempDr = data.doctors.get(lstAccounts.getSelectedIndex());
+            doctor tempDr = systemdatabase.doctors.get(lstAccounts.getSelectedIndex());
             
-            for (doctor d : data.doctors){
+            for (doctor d : systemdatabase.doctors){
             if (tempDr.getId().equals(d.getId())){
-                data.doctors.remove(d);
+                systemdatabase.doctors.remove(d);
                 return;
             }
         }
            
         try {
-            data.saveDoctors();
+            systemdatabase.saveDoctors();
         } catch (Exception ex) {
             Logger.getLogger(adminremoveaccounts.class.getName()).log(Level.SEVERE, null, ex);
         }
             }
             else if (lstAccounts.getSelectedValue().startsWith("S")){
-            secretary tempSec = data.secretaries.get(lstAccounts.getSelectedIndex());
+            secretary tempSec = systemdatabase.secretaries.get(lstAccounts.getSelectedIndex());
             
-            for (secretary s : data.secretaries){
+            for (secretary s : systemdatabase.secretaries){
             if (tempSec.getId().equals(s.getId())){
-                data.secretaries.remove(s);
+                systemdatabase.secretaries.remove(s);
                 return;
             }
         }
            
         try {
-            data.saveSecretaries();
+            systemdatabase.saveSecretaries();
         } catch (Exception ex) {
             Logger.getLogger(adminremoveaccounts.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -300,40 +300,40 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         
         if (cmboxAccounts.getSelectedIndex() == 0){
    
-        if (data.doctors.isEmpty() && data.secretaries.isEmpty()){
+        if (systemdatabase.doctors.isEmpty() && systemdatabase.secretaries.isEmpty()){
         String[] accountData = new String[1];
         accountData[0] = "No entries.";
         lstAccounts.setListData(accountData);
         }
         else{
-            if (data.doctors.isEmpty()){
-            String[] accountData = new String[data.secretaries.size()];
+            if (systemdatabase.doctors.isEmpty()){
+            String[] accountData = new String[systemdatabase.secretaries.size()];
         int i = 0;
-        for (secretary s : data.secretaries){
+        for (secretary s : systemdatabase.secretaries){
             accountData[i] = s.getId() + ", " + s.getSurname();
             i++;
         }
         lstAccounts.setListData(accountData);
             }
-            else if (data.secretaries.isEmpty()){
-            String[] accountData = new String[data.doctors.size()];
+            else if (systemdatabase.secretaries.isEmpty()){
+            String[] accountData = new String[systemdatabase.doctors.size()];
         int i = 0;
         
-        for (doctor d : data.doctors){
+        for (doctor d : systemdatabase.doctors){
             accountData[i] = d.getId() + ", " + d.getSurname();
             i++;
         }
         lstAccounts.setListData(accountData);
             }
             else{
-             String[] accountData = new String[data.doctors.size() + data.secretaries.size()];
+             String[] accountData = new String[systemdatabase.doctors.size() + systemdatabase.secretaries.size()];
         int i = 0;
         
-        for (doctor d : data.doctors){
+        for (doctor d : systemdatabase.doctors){
             accountData[i] = d.getId() + ", " + d.getSurname();
             i++;
         }
-        for (secretary s : data.secretaries){
+        for (secretary s : systemdatabase.secretaries){
             accountData[i] = s.getId() + ", " + s.getSurname();
             i++;
         }
@@ -344,11 +344,11 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         }
         else if (cmboxAccounts.getSelectedIndex() == 1){
             
-            if (!data.doctors.isEmpty()){
-            String[] accountData = new String[data.doctors.size()];
+            if (!systemdatabase.doctors.isEmpty()){
+            String[] accountData = new String[systemdatabase.doctors.size()];
             int i = 0;
         
-            for (doctor d : data.doctors){
+            for (doctor d : systemdatabase.doctors){
             accountData[i] = d.getId() + ", " + d.getSurname();
             i++;
             }
@@ -362,11 +362,11 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         }
         else if (cmboxAccounts.getSelectedIndex() == 2){
             
-            if (!data.secretaries.isEmpty()){
-            String[] accountData = new String[data.secretaries.size()];
+            if (!systemdatabase.secretaries.isEmpty()){
+            String[] accountData = new String[systemdatabase.secretaries.size()];
             int i = 0;
         
-            for (secretary s : data.secretaries){
+            for (secretary s : systemdatabase.secretaries){
             accountData[i] = s.getId() + ", " + s.getSurname();
             i++;
         }
@@ -398,34 +398,34 @@ public class adminremoveaccounts extends javax.swing.JFrame {
         btnRemove.setEnabled(true);
         
         if (lstAccounts.getSelectedValue().startsWith("D")){
-        txtID.setText(data.doctors.get(index).getId());
-        txtName.setText(data.doctors.get(index).getName() 
-                        + " " + data.doctors.get(index).getSurname());
-        txtAddress.setText(data.doctors.get(index).getAddress());
+        txtID.setText(systemdatabase.doctors.get(index).getId());
+        txtName.setText(systemdatabase.doctors.get(index).getName() 
+                        + " " + systemdatabase.doctors.get(index).getSurname());
+        txtAddress.setText(systemdatabase.doctors.get(index).getAddress());
         }
         else{
-        txtID.setText(data.secretaries.get(index-data.doctors.size()).getId());
-        txtName.setText(data.secretaries.get(index-data.doctors.size()).getName() 
-                        + " " + data.secretaries.get(index-data.doctors.size()).getSurname());
-        txtAddress.setText(data.secretaries.get(index-data.doctors.size()).getAddress());
+        txtID.setText(systemdatabase.secretaries.get(index-systemdatabase.doctors.size()).getId());
+        txtName.setText(systemdatabase.secretaries.get(index-systemdatabase.doctors.size()).getName() 
+                        + " " + systemdatabase.secretaries.get(index-systemdatabase.doctors.size()).getSurname());
+        txtAddress.setText(systemdatabase.secretaries.get(index-systemdatabase.doctors.size()).getAddress());
         }
         
         }
         else if (cmboxAccounts.getSelectedIndex() == 1){
         btnRemove.setEnabled(true);
         
-        txtID.setText(data.doctors.get(index).getId());
-        txtName.setText(data.doctors.get(index).getName() 
-                        + " " + data.doctors.get(index).getSurname());
-        txtAddress.setText(data.doctors.get(index).getAddress());
+        txtID.setText(systemdatabase.doctors.get(index).getId());
+        txtName.setText(systemdatabase.doctors.get(index).getName() 
+                        + " " + systemdatabase.doctors.get(index).getSurname());
+        txtAddress.setText(systemdatabase.doctors.get(index).getAddress());
         }
         else if (cmboxAccounts.getSelectedIndex() == 2){
         btnRemove.setEnabled(true);
         
-        txtID.setText(data.secretaries.get(index).getId());
-        txtName.setText(data.secretaries.get(index).getName() 
-                        + " " + data.secretaries.get(index).getSurname());
-        txtAddress.setText(data.secretaries.get(index).getAddress());
+        txtID.setText(systemdatabase.secretaries.get(index).getId());
+        txtName.setText(systemdatabase.secretaries.get(index).getName() 
+                        + " " + systemdatabase.secretaries.get(index).getSurname());
+        txtAddress.setText(systemdatabase.secretaries.get(index).getAddress());
         }
         }
     }//GEN-LAST:event_lstAccountsValueChanged

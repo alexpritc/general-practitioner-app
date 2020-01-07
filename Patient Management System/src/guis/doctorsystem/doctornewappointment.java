@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.appointment;
 
 /**
@@ -27,10 +27,10 @@ public class doctornewappointment extends javax.swing.JFrame {
     public doctornewappointment() {
         initComponents();
 
-        String[] patientData = new String[data.patients.size()];
+        String[] patientData = new String[systemdatabase.patients.size()];
         int i = 0;
         
-        for (patient p : data.patients){
+        for (patient p : systemdatabase.patients){
             
             patientData[i] = p.getName() + " " + p.getSurname();
             i++;
@@ -260,7 +260,7 @@ public class doctornewappointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    // Adds an appointment to the appointment-requests data file. This can be
+    // Adds an appointment to the appointment-requests systemdatabase file. This can be
     // approved by secretaries.
     private void btnRequestAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestAppointmentActionPerformed
         // TODO add your handling code here
@@ -287,14 +287,14 @@ public class doctornewappointment extends javax.swing.JFrame {
                 }
                 else{
                     // Make appointment request.
-                    appointment tempAppointment = new appointment(data.patients.get(lstPatients.getSelectedIndex()).getId(), 
+                    appointment tempAppointment = new appointment(systemdatabase.patients.get(lstPatients.getSelectedIndex()).getId(), 
                             doctorhome.dr.getId(), 
                             "", datepickerDate.getDate().toString(), txtTime.getText());
                     
-                    data.appointmentRequests.add(tempAppointment);
+                    systemdatabase.appointmentRequests.add(tempAppointment);
                     
                     try {
-                        data.saveAppointmentRequests();
+                        systemdatabase.saveAppointmentRequests();
                     } catch (Exception ex) {
                         Logger.getLogger(doctornewappointment.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -335,7 +335,7 @@ public class doctornewappointment extends javax.swing.JFrame {
             lstTimes.setEnabled(false);
         }
         else{
-            txtName.setText(data.patients.get(index).getName() + " " + data.patients.get(index).getSurname());
+            txtName.setText(systemdatabase.patients.get(index).getName() + " " + systemdatabase.patients.get(index).getSurname());
             datepickerDate.setEnabled(true);
         }     
     }//GEN-LAST:event_lstPatientsValueChanged
@@ -374,7 +374,7 @@ public class doctornewappointment extends javax.swing.JFrame {
                 timeData[i] = time(i) + " - AVAILABLE";
             }
             
-            for (appointment a : data.appointments){
+            for (appointment a : systemdatabase.appointments){
                 
                 if (a.getDoctor().equals(doctorhome.dr.getId())){
                     if (a.getDate().equals(datepickerDate.getDate().toString())){

@@ -9,7 +9,7 @@ package guis.doctorsystem;
 
 import accounts.patient;
 import other.appointment;
-import other.data;
+import other.systemdatabase;
 import other.prescription;
 
 /**
@@ -22,15 +22,15 @@ public class doctorpatientmedicalhistory extends javax.swing.JFrame {
      * Creates new form doctorpatientmedicalhistory
      */
     
-    // Initates the form with the relevent data on the patients.
+    // Initates the form with the relevent systemdatabase on the patients.
     public doctorpatientmedicalhistory() {
         initComponents();
         
-        String[] patientData = new String[data.patients.size()];
+        String[] patientData = new String[systemdatabase.patients.size()];
         
         int j = 0;
         
-        for (patient p : data.patients){
+        for (patient p : systemdatabase.patients){
             patientData[j] = p.getId() + ", " + p.getName() + " " + p.getSurname();
             j++;
         }
@@ -173,21 +173,21 @@ public class doctorpatientmedicalhistory extends javax.swing.JFrame {
         // TODO add your handling code here:
         int index = lstAllPatients.getSelectedIndex();
         
-        int size = data.appointments.size() + data.prescriptions.size();
+        int size = systemdatabase.appointments.size() + systemdatabase.prescriptions.size();
         String[] medicalHistory = new String[size];
                 
         int i = 0;
         
-        for (appointment a : data.appointments){
-            if (a.getPatient().equals(data.patients.get(index).getId())){
+        for (appointment a : systemdatabase.appointments){
+            if (a.getPatient().equals(systemdatabase.patients.get(index).getId())){
                 medicalHistory[i] = "Appointment: " + a.getDate().substring(0,10) + " at "
                         + a.getTime() + ". Notes: " + a.getNotes() + ". Doctor ID: " + a.getDoctor();
             }
             i++;
         }
         
-        for (prescription p : data.prescriptions){
-            if (p.getPatientId().equals(data.patients.get(index).getId())){
+        for (prescription p : systemdatabase.prescriptions){
+            if (p.getPatientId().equals(systemdatabase.patients.get(index).getId())){
                 medicalHistory[i] = "Prescription: " + p.getMedicine() + " x" +
                         p.getQuantity() + ". Notes: " + p.getAppointmentNotes() + 
                         ". Doctor ID: " + p.getDoctorId();

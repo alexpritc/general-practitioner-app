@@ -10,7 +10,7 @@ package guis.doctorsystem;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import other.appointment;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -21,16 +21,16 @@ public class doctorappointments extends javax.swing.JFrame {
     /**
      * Creates new form doctorappointments
      */
-    // Fills the form with approprate data.
+    // Fills the form with approprate systemdatabase.
     public doctorappointments() {
         initComponents();
 
-        String[] appointmentData = new String[data.appointments.size()];
+        String[] appointmentData = new String[systemdatabase.appointments.size()];
         int i = 0;
         
         Date today = new Date();
         
-        for (appointment a : data.appointments){
+        for (appointment a : systemdatabase.appointments){
             
             if (a.getDoctor().equals(doctorhome.dr.getId())){
                 String appointment = a.getPatient() + " - " + a.getDate() + " at " + a.getTime();
@@ -171,7 +171,7 @@ public class doctorappointments extends javax.swing.JFrame {
                     return;
         }
         else{
-            for (appointment a : data.appointments){
+            for (appointment a : systemdatabase.appointments){
                 if (lstAppointments.getSelectedValue().contains(a.getPatient())){
                     doctorpatientappointment.appointment = a;
                 }

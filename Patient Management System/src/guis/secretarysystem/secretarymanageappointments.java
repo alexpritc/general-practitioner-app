@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import other.appointment;
-import other.data;
+import other.systemdatabase;
 
 /**
  *
@@ -26,11 +26,11 @@ public class secretarymanageappointments extends javax.swing.JFrame {
     public secretarymanageappointments() {
         initComponents();
         
-        if (!data.appointmentRequests.isEmpty()){
-            String[] appointmentData = new String[data.appointmentRequests.size()];
+        if (!systemdatabase.appointmentRequests.isEmpty()){
+            String[] appointmentData = new String[systemdatabase.appointmentRequests.size()];
             int i = 0;
         
-            for (appointment a : data.appointmentRequests){
+            for (appointment a : systemdatabase.appointmentRequests){
                 appointmentData[i] = a.getPatient() + ", " + a.getDoctor();
                 i++;
             }
@@ -279,29 +279,29 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
 
-    // Removes an appointment request from that data and adds it to the actual
-    // appointments data.
+    // Removes an appointment request from that systemdatabase and adds it to the actual
+    // appointments systemdatabase.
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here
         if (!lstAppointments.isSelectionEmpty()){
             
-            data.appointments.add(data.appointmentRequests.get(lstAppointments.getSelectedIndex()));
+            systemdatabase.appointments.add(systemdatabase.appointmentRequests.get(lstAppointments.getSelectedIndex()));
             
             try {
-                data.saveAppointments();
+                systemdatabase.saveAppointments();
             } catch (Exception ex) {
                 Logger.getLogger(secretarymanageappointments.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-//            for (doctor d : data.doctors){
-//                if (d.getId().equals(data.appointmentRequests.get(lstAppointments.getSelectedIndex()).getDoctor())){
+//            for (doctor d : systemdatabase.doctors){
+//                if (d.getId().equals(systemdatabase.appointmentRequests.get(lstAppointments.getSelectedIndex()).getDoctor())){
 //                    notification tempNotif = new notification(d, 
 //                        "You have a new appointment scheduled.");
 //                    
-//                    data.notifications.add(tempNotif);
+//                    systemdatabase.notifications.add(tempNotif);
 //                
 //                    try {
-//                        data.saveNotifications();
+//                        systemdatabase.saveNotifications();
 //                    } catch (Exception ex) {
 //                        Logger.getLogger(secretarymanageappointments.class.getName()).log(Level.SEVERE, null, ex);
 //                    }
@@ -310,15 +310,15 @@ public class secretarymanageappointments extends javax.swing.JFrame {
 //                return;
 //            }
 //            
-//            for (patient p : data.patients){
-//                if (p.getId().equals(data.appointmentRequests.get(lstAppointments.getSelectedIndex()).getPatient())){
+//            for (patient p : systemdatabase.patients){
+//                if (p.getId().equals(systemdatabase.appointmentRequests.get(lstAppointments.getSelectedIndex()).getPatient())){
 //                    notification tempNotif = new notification(p, 
 //                        "You have a new appointment scheduled.");
 //                    
-//                    data.notifications.add(tempNotif);
+//                    systemdatabase.notifications.add(tempNotif);
 //                
 //                    try {
-//                        data.saveNotifications();
+//                        systemdatabase.saveNotifications();
 //                    } catch (Exception ex) {
 //                        Logger.getLogger(secretarymanageappointments.class.getName()).log(Level.SEVERE, null, ex);
 //                    }
@@ -327,10 +327,10 @@ public class secretarymanageappointments extends javax.swing.JFrame {
 //                return;
 //            }
             
-            data.appointmentRequests.remove(data.appointmentRequests.get(lstAppointments.getSelectedIndex()));
+            systemdatabase.appointmentRequests.remove(systemdatabase.appointmentRequests.get(lstAppointments.getSelectedIndex()));
             
             try {
-                data.saveAppointmentRequests();
+                systemdatabase.saveAppointmentRequests();
             } catch (Exception ex) {
                 Logger.getLogger(secretarymanageappointments.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -360,10 +360,10 @@ public class secretarymanageappointments extends javax.swing.JFrame {
         btnApprove.setEnabled(false);
         }
         else{
-            txtPatient.setText(data.appointmentRequests.get(index).getPatient());
-            txtDoctor.setText(data.appointmentRequests.get(index).getDoctor());
-            txtDate.setText(data.appointmentRequests.get(index).getDate().substring(0, 10));
-            txtTime.setText(data.appointmentRequests.get(index).getTime());
+            txtPatient.setText(systemdatabase.appointmentRequests.get(index).getPatient());
+            txtDoctor.setText(systemdatabase.appointmentRequests.get(index).getDoctor());
+            txtDate.setText(systemdatabase.appointmentRequests.get(index).getDate().substring(0, 10));
+            txtTime.setText(systemdatabase.appointmentRequests.get(index).getTime());
         
             btnApprove.setEnabled(true);
         }

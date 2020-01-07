@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import other.data;
+import other.systemdatabase;
 import other.appointment;
 
 /**
@@ -29,10 +29,10 @@ public class secretarynewappointment extends javax.swing.JFrame {
         initComponents();
         
         // Displays all of the doctors.
-        String[] doctorData = new String[data.doctors.size()];
+        String[] doctorData = new String[systemdatabase.doctors.size()];
         int i = 0;
         
-        for (doctor d : data.doctors){
+        for (doctor d : systemdatabase.doctors){
             
             doctorData[i] = "Dr. " + d.getName().charAt(0) + " " + d.getSurname();
             i++;
@@ -40,11 +40,11 @@ public class secretarynewappointment extends javax.swing.JFrame {
         lstDoctors.setListData(doctorData);
         
         // Displays all of the patients.
-        String[] patientData = new String[data.patients.size()];
+        String[] patientData = new String[systemdatabase.patients.size()];
         
         int j = 0;
         
-        for (patient p : data.patients){
+        for (patient p : systemdatabase.patients){
             
             patientData[j] = p.getName() + " " + p.getSurname();
             j++;
@@ -311,7 +311,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDoctorsNameActionPerformed
 
     // Creates an appointment between a patient and a doctor using the selected
-    // date and time, and adds it to the data.
+    // date and time, and adds it to the systemdatabase.
     private void btnCreateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointmentActionPerformed
         // TODO add your handling code here
         
@@ -337,14 +337,14 @@ public class secretarynewappointment extends javax.swing.JFrame {
                 }
                 else{
                     // Make appointment.
-                    appointment tempAppointment = new appointment(data.patients.get(lstPatients.getSelectedIndex()).getId(), 
-                            data.doctors.get(lstDoctors.getSelectedIndex()).getId(), 
+                    appointment tempAppointment = new appointment(systemdatabase.patients.get(lstPatients.getSelectedIndex()).getId(), 
+                            systemdatabase.doctors.get(lstDoctors.getSelectedIndex()).getId(), 
                             "", datepickerDate.getDate().toString(), txtTime.getText());
                     
-                    data.appointments.add(tempAppointment);
+                    systemdatabase.appointments.add(tempAppointment);
                     
                     try {
-                        data.saveAppointments();
+                        systemdatabase.saveAppointments();
                     } catch (Exception ex) {
                         Logger.getLogger(secretarynewappointment.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -385,7 +385,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
             lstTimes.setEnabled(false);
         }
         else{
-            txtDoctorsName.setText(data.doctors.get(index).getName() + " " + data.doctors.get(index).getSurname());
+            txtDoctorsName.setText(systemdatabase.doctors.get(index).getName() + " " + systemdatabase.doctors.get(index).getSurname());
             datepickerDate.setEnabled(true);
         }     
     }//GEN-LAST:event_lstDoctorsValueChanged
@@ -424,9 +424,9 @@ public class secretarynewappointment extends javax.swing.JFrame {
                 timeData[i] = time(i) + " - AVAILABLE";
             }
             
-            for (appointment a : data.appointments){
+            for (appointment a : systemdatabase.appointments){
                 
-                if (a.getDoctor().equals(data.doctors.get(lstDoctors.getSelectedIndex()).getId())){
+                if (a.getDoctor().equals(systemdatabase.doctors.get(lstDoctors.getSelectedIndex()).getId())){
                     if (a.getDate().equals(datepickerDate.getDate().toString())){
                         
                         for (int i = 0; i < timeData.length; i++){
@@ -471,7 +471,7 @@ public class secretarynewappointment extends javax.swing.JFrame {
             txtPatientName.setText("");   
         }
         else{
-            txtPatientName.setText(data.patients.get(index).getName() + " " + data.patients.get(index).getSurname());
+            txtPatientName.setText(systemdatabase.patients.get(index).getName() + " " + systemdatabase.patients.get(index).getSurname());
         }
     }//GEN-LAST:event_lstPatientsValueChanged
 

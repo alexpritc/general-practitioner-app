@@ -11,7 +11,7 @@ import guis.doctorsystem.doctorhome;
 import guis.adminsystem.adminhome;
 import guis.secretarysystem.secretaryhome;
 import guis.patientsystem.patienthome;
-import other.data;
+import other.systemdatabase;
 import accounts.*;
 import javax.swing.JOptionPane;
 
@@ -166,7 +166,7 @@ public class login extends javax.swing.JFrame {
         
         // Patients log in.
         if (id.startsWith("P")){
-        for (patient i : data.patients){
+        for (patient i : systemdatabase.patients){
 
             if (id.equals(i.getId())){
                 if (password.equals(i.getPassword())){
@@ -190,7 +190,7 @@ public class login extends javax.swing.JFrame {
         }
         // Administrators log in.
         else if (id.startsWith("A")){
-        for (administrator i : data.administrators){
+        for (administrator i : systemdatabase.administrators){
             if (id.equals(i.getId())){
                 if (password.equals(i.getPassword())){
                     
@@ -213,7 +213,7 @@ public class login extends javax.swing.JFrame {
         }
         // Doctors log in.
          else if (id.startsWith("D")){
-        for (doctor i : data.doctors){
+        for (doctor i : systemdatabase.doctors){
             if (id.equals(i.getId())){
                 if (password.equals(i.getPassword())){
                     doctorhome.dr = i;
@@ -235,7 +235,7 @@ public class login extends javax.swing.JFrame {
         }
          // Secretaries log in.
          else if (id.startsWith("S")){
-        for (secretary i : data.secretaries){
+        for (secretary i : systemdatabase.secretaries){
             if (id.equals(i.getId())){
                 if (password.equals(i.getPassword())){
                     secretaryhome.sec = i;
@@ -262,7 +262,7 @@ public class login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    // Reads in data from all of the relevent .txt files 
+    // Reads in systemdatabase from all of the relevent .txt files 
     // and stores it.
     public static void main(String args[])throws Exception {
         /* Set the Nimbus look and feel */
@@ -288,24 +288,24 @@ public class login extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        data.readPatients();
-        data.readAdministrators();
-        data.readDoctors();
-        data.readSecretaries();
+        systemdatabase.readPatients();
+        systemdatabase.readAdministrators();
+        systemdatabase.readDoctors();
+        systemdatabase.readSecretaries();
         
-        data.readPatientRequests();
-        data.readPatientRemovals();
+        systemdatabase.readPatientRequests();
+        systemdatabase.readPatientRemovals();
         
-        data.readFeedback();
-        data.readMessages();
+        systemdatabase.readFeedback();
+        systemdatabase.readMessages();
         
-        data.readNotifications();
+        systemdatabase.readNotifications();
         
-        data.readMedicines();
-        data.readAppointments();
-        data.readPrescriptions();
+        systemdatabase.readMedicines();
+        systemdatabase.readAppointments();
+        systemdatabase.readPrescriptions();
         
-        data.readAppointmentRequests();
+        systemdatabase.readAppointmentRequests();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

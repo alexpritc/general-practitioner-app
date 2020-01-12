@@ -198,9 +198,10 @@
           <Font name="Lucida Sans Unicode" size="21" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="3">
             <StringItem index="0" value="Doctor"/>
             <StringItem index="1" value="Secretary"/>
+            <StringItem index="2" value="Administrator"/>
           </StringArray>
         </Property>
         <Property name="selectedIndex" type="int" value="-1"/>

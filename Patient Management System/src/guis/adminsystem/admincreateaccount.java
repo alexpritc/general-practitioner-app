@@ -89,7 +89,7 @@ public class admincreateaccount extends javax.swing.JFrame {
         lblName.setText("Name");
 
         cmboxAccountType.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Secretary" }));
+        cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Secretary", "Administrator" }));
         cmboxAccountType.setSelectedIndex(-1);
 
         lblAddress.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 24)); // NOI18N
@@ -261,6 +261,47 @@ public class admincreateaccount extends javax.swing.JFrame {
             
             try {
                 systemdatabase.saveSecretaries();
+            } catch (Exception ex) {
+                Logger.getLogger(admincreateaccount.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            this.setVisible(false);
+            new adminhome().setVisible(true);
+        }
+        else if (cmboxAccountType.getSelectedItem() == "Administrator"){
+            // Create a new admin.
+            
+            String setId;
+            
+            int length = systemdatabase.administrators.size();
+            String id = systemdatabase.administrators.get(length-1).getId();
+            
+            String[] newID = new String [2];
+            newID = id.split("A", 2);
+
+            int value = Integer.parseInt(newID[1]);
+            value++;
+            
+            if (value < 10){
+                setId = ("A000" + value);
+            }
+            else if (value < 100){
+                setId = ("A00" + value);
+            }
+            else if (value < 1000){
+                setId = ("A0" + value);
+            }
+            else{
+                setId = ("A" + value);
+            }
+            
+            administrator tempAdmin = new administrator(txtName.getText(), 
+                    txtSurname.getText(), txtAddress.getText(), setId, 
+                    txtPassword.getText());
+            systemdatabase.administrators.add(tempAdmin);
+            
+            try {
+                systemdatabase.saveAdministrators();
             } catch (Exception ex) {
                 Logger.getLogger(admincreateaccount.class.getName()).log(Level.SEVERE, null, ex);
             }

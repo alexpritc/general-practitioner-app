@@ -100,8 +100,7 @@ public class createaccount extends javax.swing.JFrame {
         lblName.setText("Name");
 
         cmboxAccountType.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Administrator" }));
-        cmboxAccountType.setSelectedIndex(-1);
+        cmboxAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient" }));
         cmboxAccountType.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmboxAccountTypeItemStateChanged(evt);
@@ -120,10 +119,8 @@ public class createaccount extends javax.swing.JFrame {
         cmboxGender.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
         cmboxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male", "Other", "Prefer not to say" }));
         cmboxGender.setSelectedIndex(-1);
-        cmboxGender.setEnabled(false);
 
         txtAge.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
-        txtAge.setEnabled(false);
 
         txtPassword.setFont(new java.awt.Font("Lucida Sans Unicode", 0, 21)); // NOI18N
 
@@ -244,25 +241,6 @@ public class createaccount extends javax.swing.JFrame {
     // manner.
     private void cmboxAccountTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmboxAccountTypeItemStateChanged
         // TODO add your handling code here:
-          
-        if (cmboxAccountType.getSelectedItem() == "Patient"){
-            // Enables age and gender inputs.
-            txtAge.setBackground(Color.white);
-            txtAge.enable();
-            
-            cmboxGender.setBackground(Color.white);
-            cmboxGender.enable();
-        }
-        else{
-            // Disables age and gender inputs.
-            txtAge.setBackground(Color.gray);
-            txtAge.setText("");
-            txtAge.enable(false);
-            
-            cmboxGender.setBackground(Color.gray);
-            cmboxGender.setSelectedIndex(-1);
-            cmboxGender.enable(false);
-        }
     }//GEN-LAST:event_cmboxAccountTypeItemStateChanged
 
     // Creates an administrator acocunt or sends a patient account request
@@ -297,48 +275,6 @@ public class createaccount extends javax.swing.JFrame {
             
             this.setVisible(false);
             new login().setVisible(true);
-        }
-        else if (cmboxAccountType.getSelectedItem() == "Administrator"){
-            // Create a new admin.
-           
-           String setId;
-           
-           int length = systemdatabase.administrators.size();
-           String id = systemdatabase.administrators.get(length-1).getId();
-            
-           String[] newID = new String [2];
-           newID = id.split("A", 2);
-
-           int value = Integer.parseInt(newID[1]);
-           value++;
-            
-           if (value < 10){
-           setId = "A000" + value;
-           }
-           else if (value < 100){
-           setId = "A00" + value;
-           }
-           else if (value < 1000){
-           setId = "A0" + value;
-           }
-           else{
-           setId = "A" + value;
-           }
-            
-            administrator tempAdmin = new administrator(txtName.getText(), 
-                    txtSurname.getText(), txtAddress.getText(), setId, 
-                    txtPassword.getText());
-            systemdatabase.administrators.add(tempAdmin);
-            
-            try {
-                systemdatabase.saveAdministrators();
-            } catch (Exception ex) {
-                Logger.getLogger(createaccount.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            adminhome.admin = tempAdmin;
-            this.setVisible(false);
-            new adminhome().setVisible(true);
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 

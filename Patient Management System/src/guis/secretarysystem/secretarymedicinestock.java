@@ -311,7 +311,7 @@ public class secretarymedicinestock extends javax.swing.JFrame {
         
         txtDosage.setText(systemdatabase.medicines.get(index).getDosage());
         txtMedicine.setText(systemdatabase.medicines.get(index).getName());
-        txtStock.setText("0");
+        txtStock.setText(Integer.toString(systemdatabase.medicines.get(index).getStock()));
         }
     }//GEN-LAST:event_lstMedicineValueChanged
 

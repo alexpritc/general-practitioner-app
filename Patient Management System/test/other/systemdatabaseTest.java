@@ -45,7 +45,7 @@ public class systemdatabaseTest {
         System.out.println("readPatients");
         systemdatabase.readPatients();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("patients.txt doesn't exist.");
     }
 
     /**
@@ -56,7 +56,7 @@ public class systemdatabaseTest {
         System.out.println("readAdministrators");
         systemdatabase.readAdministrators();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("administrators.txt doesn't exist.");
     }
 
     /**
@@ -67,7 +67,7 @@ public class systemdatabaseTest {
         System.out.println("readDoctors");
         systemdatabase.readDoctors();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("doctors.txt doesn't exist.");
     }
 
     /**
@@ -78,7 +78,7 @@ public class systemdatabaseTest {
         System.out.println("readSecretaries");
         systemdatabase.readSecretaries();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("secretaries.txt doesn't exist.");
     }
 
     /**
@@ -89,7 +89,7 @@ public class systemdatabaseTest {
         System.out.println("readPatientRequests");
         systemdatabase.readPatientRequests();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("patient-requests.txt doesn't exist.");
     }
 
     /**
@@ -100,7 +100,7 @@ public class systemdatabaseTest {
         System.out.println("readPatientRemovals");
         systemdatabase.readPatientRemovals();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("patient-removals.txt doesn't exist.");
     }
 
     /**
@@ -111,7 +111,7 @@ public class systemdatabaseTest {
         System.out.println("readFeedback");
         systemdatabase.readFeedback();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("feedback.txt doesn't exist.");
     }
 
     /**
@@ -122,7 +122,7 @@ public class systemdatabaseTest {
         System.out.println("readMessages");
         systemdatabase.readMessages();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("messages.txt doesn't exist.");
     }
 
     /**
@@ -133,7 +133,7 @@ public class systemdatabaseTest {
         System.out.println("readNotifications");
         systemdatabase.readNotifications();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("notifications.txt doesn't exist.");
     }
 
     /**
@@ -144,7 +144,7 @@ public class systemdatabaseTest {
         System.out.println("readMedicines");
         systemdatabase.readMedicines();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("medicines.txt doesn't exist.");
     }
 
     /**
@@ -155,7 +155,7 @@ public class systemdatabaseTest {
         System.out.println("readAppointments");
         systemdatabase.readAppointments();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("appointments.txt doesn't exist.");
     }
 
     /**
@@ -166,7 +166,7 @@ public class systemdatabaseTest {
         System.out.println("readPrescriptions");
         systemdatabase.readPrescriptions();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("prescriptions.txt doesn't exist.");
     }
 
     /**
@@ -177,7 +177,7 @@ public class systemdatabaseTest {
         System.out.println("readAppointmentRequests");
         systemdatabase.readAppointmentRequests();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("appointment-requests.txt doesn't exist.");
     }
 
     /**
@@ -188,7 +188,7 @@ public class systemdatabaseTest {
         System.out.println("savePatients");
         systemdatabase.savePatients();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to file patients.txt.");
     }
 
     /**
@@ -199,7 +199,7 @@ public class systemdatabaseTest {
         System.out.println("saveAdministrators");
         systemdatabase.saveAdministrators();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to file administrators.txt.");
     }
 
     /**
@@ -210,7 +210,7 @@ public class systemdatabaseTest {
         System.out.println("saveDoctors");
         systemdatabase.saveDoctors();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to file doctors.txt.");
     }
 
     /**
@@ -221,7 +221,7 @@ public class systemdatabaseTest {
         System.out.println("saveSecretaries");
         systemdatabase.saveSecretaries();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to secretaries.txt.");
     }
 
     /**
@@ -232,7 +232,7 @@ public class systemdatabaseTest {
         System.out.println("savePatientRequests");
         systemdatabase.savePatientRequests();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to patient-requests.txt.");
     }
 
     /**
@@ -243,7 +243,7 @@ public class systemdatabaseTest {
         System.out.println("savePatientRemovals");
         systemdatabase.savePatientRemovals();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to patient-removals.txt.");
     }
 
     /**
@@ -255,7 +255,7 @@ public class systemdatabaseTest {
         String comment = "";
         systemdatabase.saveFeedback(comment);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to feedback.txt.");
     }
 
     /**
@@ -267,7 +267,7 @@ public class systemdatabaseTest {
         String message = "";
         systemdatabase.saveMessage(message);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to messages.txt.");
     }
 
     /**
@@ -278,7 +278,7 @@ public class systemdatabaseTest {
         System.out.println("saveNotifications");
         systemdatabase.saveNotifications();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to notifications.txt.");
     }
 
     /**
@@ -289,7 +289,7 @@ public class systemdatabaseTest {
         System.out.println("saveMedicines");
         systemdatabase.saveMedicines();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to medicines.txt");
     }
 
     /**
@@ -300,7 +300,7 @@ public class systemdatabaseTest {
         System.out.println("saveAppointments");
         systemdatabase.saveAppointments();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to appointments.txt");
     }
 
     /**
@@ -311,7 +311,7 @@ public class systemdatabaseTest {
         System.out.println("savePrescriptions");
         systemdatabase.savePrescriptions();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to prescriptions.txt.");
     }
 
     /**
@@ -322,7 +322,7 @@ public class systemdatabaseTest {
         System.out.println("saveAppointmentRequests");
         systemdatabase.saveAppointmentRequests();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Failed save to appointment-requests.txt.");
     }
     
 }

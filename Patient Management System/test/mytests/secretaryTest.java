@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package accounts;
+package mytests;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Alex Pritchard
  */
-public class administratorTest {
+public class secretaryTest {
     
-    public administratorTest() {
+    public secretaryTest() {
     }
     
     @BeforeClass

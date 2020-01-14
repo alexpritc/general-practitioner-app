@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package other;
+package mytests;
 
+import accounts.user;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Alex Pritchard
  */
-public class appointmentTest {
+public class userTest {
     
-    public appointmentTest() {
+    public userTest() {
     }
     
     @BeforeClass
@@ -38,138 +39,145 @@ public class appointmentTest {
     }
 
     /**
-     * Test of getPatient method, of class appointment.
+     * Test of getName method, of class user.
      */
     @Test
-    public void testGetPatient() {
-        System.out.println("getPatient");
-        appointment instance = null;
+    public void testGetName() {
+        System.out.println("getName");
+        user instance = null;
         String expResult = "";
-        String result = instance.getPatient();
+        String result = instance.getName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setPatient method, of class appointment.
+     * Test of setName method, of class user.
      */
     @Test
-    public void testSetPatient() {
-        System.out.println("setPatient");
-        String patient = "";
-        appointment instance = null;
-        instance.setPatient(patient);
+    public void testSetName() {
+        System.out.println("setName");
+        String name = "";
+        user instance = null;
+        instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getDoctor method, of class appointment.
+     * Test of getSurname method, of class user.
      */
     @Test
-    public void testGetDoctor() {
-        System.out.println("getDoctor");
-        appointment instance = null;
+    public void testGetSurname() {
+        System.out.println("getSurname");
+        user instance = null;
         String expResult = "";
-        String result = instance.getDoctor();
+        String result = instance.getSurname();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setDoctor method, of class appointment.
+     * Test of setSurname method, of class user.
      */
     @Test
-    public void testSetDoctor() {
-        System.out.println("setDoctor");
-        String doctor = "";
-        appointment instance = null;
-        instance.setDoctor(doctor);
+    public void testSetSurname() {
+        System.out.println("setSurname");
+        String surname = "";
+        user instance = null;
+        instance.setSurname(surname);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getDate method, of class appointment.
+     * Test of getAddress method, of class user.
      */
     @Test
-    public void testGetDate() {
-        System.out.println("getDate");
-        appointment instance = null;
+    public void testGetAddress() {
+        System.out.println("getAddress");
+        user instance = null;
         String expResult = "";
-        String result = instance.getDate();
+        String result = instance.getAddress();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setDate method, of class appointment.
+     * Test of setAddress method, of class user.
      */
     @Test
-    public void testSetDate() {
-        System.out.println("setDate");
-        String date = "";
-        appointment instance = null;
-        instance.setDate(date);
+    public void testSetAddress() {
+        System.out.println("setAddress");
+        String address = "";
+        user instance = null;
+        instance.setAddress(address);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getTime method, of class appointment.
+     * Test of getId method, of class user.
      */
     @Test
-    public void testGetTime() {
-        System.out.println("getTime");
-        appointment instance = null;
+    public void testGetId() {
+        System.out.println("getId");
+        user instance = null;
         String expResult = "";
-        String result = instance.getTime();
+        String result = instance.getId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setTime method, of class appointment.
+     * Test of setId method, of class user.
      */
     @Test
-    public void testSetTime() {
-        System.out.println("setTime");
-        String time = "";
-        appointment instance = null;
-        instance.setTime(time);
+    public void testSetId() {
+        System.out.println("setId");
+        String id = "";
+        user instance = null;
+        instance.setId(id);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getNotes method, of class appointment.
+     * Test of getPassword method, of class user.
      */
     @Test
-    public void testGetNotes() {
-        System.out.println("getNotes");
-        appointment instance = null;
+    public void testGetPassword() {
+        System.out.println("getPassword");
+        user instance = null;
         String expResult = "";
-        String result = instance.getNotes();
+        String result = instance.getPassword();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setNotes method, of class appointment.
+     * Test of setPassword method, of class user.
      */
     @Test
-    public void testSetNotes() {
-        System.out.println("setNotes");
-        String notes = "";
-        appointment instance = null;
-        instance.setNotes(notes);
+    public void testSetPassword() {
+        System.out.println("setPassword");
+        String password = "";
+        user instance = null;
+        instance.setPassword(password);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
+    }
+
+    public class userImpl extends user {
+
+        public userImpl() {
+            super("", "", "", "", "");
+        }
     }
     
 }

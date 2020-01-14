@@ -3,22 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package accounts;
+package mytests;
 
+import accounts.user;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import other.notification;
 import static org.junit.Assert.*;
 
 /**
  *
  * @author Alex Pritchard
  */
-public class patientTest {
+public class notificationTest {
     
-    public patientTest() {
+    public notificationTest() {
     }
     
     @BeforeClass
@@ -38,55 +40,56 @@ public class patientTest {
     }
 
     /**
-     * Test of getAge method, of class patient.
+     * Test of getUser method, of class notification.
      */
     @Test
-    public void testGetAge() {
-        System.out.println("getAge");
-        patient instance = null;
-        String expResult = "";
-        String result = instance.getAge();
+    public void testGetUser() {
+        System.out.println("getUser");
+        notification instance = null;
+        user expResult = null;
+        user result = instance.getUser();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setAge method, of class patient.
+     * Test of getAllOneType method, of class notification.
      */
     @Test
-    public void testSetAge() {
-        System.out.println("setAge");
-        String age = "";
-        patient instance = null;
-        instance.setAge(age);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getGender method, of class patient.
-     */
-    @Test
-    public void testGetGender() {
-        System.out.println("getGender");
-        patient instance = null;
-        String expResult = "";
-        String result = instance.getGender();
+    public void testGetAllOneType() {
+        System.out.println("getAllOneType");
+        notification instance = null;
+        int expResult = 0;
+        int result = instance.getAllOneType();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setGender method, of class patient.
+     * Test of setAllOneType method, of class notification.
      */
     @Test
-    public void testSetGender() {
-        System.out.println("setGender");
-        String gender = "";
-        patient instance = null;
-        instance.setGender(gender);
+    public void testSetAllOneType() {
+        System.out.println("setAllOneType");
+        int type = 0;
+        notification instance = null;
+        instance.setAllOneType(type);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getNotification method, of class notification.
+     */
+    @Test
+    public void testGetNotification() {
+        System.out.println("getNotification");
+        notification instance = null;
+        String expResult = "";
+        String result = instance.getNotification();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

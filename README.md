@@ -14,10 +14,9 @@ SOFT252: Objectoriented Software Engineering with Design Patterns
 ## Assignment title
 Patient Management System
 
-## Instructions for usage
-
 ## References
 All code was produced by Alex Pritchard.
 
-## UML Diagram
+## UML Diagrams
 ![UML Diagram](https://github.com/alexpritc/general-practitioner-app/blob/master/UML%20diagram.png)
+![UML Diagram](https://github.com/alexpritc/general-practitioner-app/blob/master/UML%20Diagram%20(all%20classes).png)
